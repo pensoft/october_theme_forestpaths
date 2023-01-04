@@ -1,0 +1,124 @@
+url = "/about"
+layout = "default"
+title = "About"
+is_hidden = 0
+meta_description = "about page"
+seo_keywords = "keywords"
+robot_index = "index"
+robot_follow = "follow"
+header_image = "partners.jpg"
+
+[siteSearchInclude]
+
+[jumbotron background]
+jumbotron = "background-1"
+title = 0
+background = "#ffffff"
+templates = "template1"
+description_limit = 0
+
+[jumbotron objectives]
+jumbotron = "objectives"
+title = 1
+background = "unset"
+templates = "template1"
+description_limit = 0
+
+[accordion]
+maxItems = 10
+accordion = 1
+elementId = "id"
+active = 0
+collapsible = "false"
+heightStyle = "content"
+iconsHeader = "ui-icon-plus"
+iconsHeaderActive = "ui-icon-minus"
+templates = "template4"
+
+[jumbotron background1]
+jumbotron = "background-1"
+background = "transperant"
+templates = "template1"
+description_limit = 0
+
+[jumbotron backgroundImage1]
+jumbotron = "background-1-image"
+background = "transperant"
+templates = "template1"
+description_limit = 0
+
+[jumbotron background2]
+jumbotron = "background-2"
+background = "transperant"
+templates = "template1"
+description_limit = 0
+
+[jumbotron backgroundImage2]
+jumbotron = "background-image-2"
+background = "transperant"
+templates = "template1"
+description_limit = 0
+
+[jumbotron aims]
+jumbotron = "about-aims"
+background = "transperant"
+templates = "template1"
+description_limit = 0
+==
+{% component 'siteSearchInclude' %}
+
+<div class="container-fluid bg-secondary">
+    <div class="container aims">
+        <div class="row middle-xs">
+            <div class="col-xs-12">
+                    {% component 'aims' %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row center-xs">
+        <h2>Background</h2>
+    </div>
+    <div class="row middle-xs between-xs">
+        <div class="col-lg-6 col-xs-12">
+            {% component 'background1' %}
+        </div>
+        <div class="col-lg-6 col-xs-12">
+            {% component 'backgroundImage1' %}
+        </div>
+    </div>
+    <div class="row middle-xs between-xs background_paragraph2">
+        <div class="col-lg-6 col-xs-12">
+           {% component 'backgroundImage2' %}
+        </div>
+        <div class="col-lg-6 col-xs-12">
+         {% component 'background2' %}
+            
+        </div>
+    </div>
+
+</div>
+<div class="container-fluid bg-secondary">
+    <div class="container">
+        <div class="row middle-xs">
+            <div class="col-xs-12">
+                 <div class="objectives">
+                    {% component 'objectives' %}
+                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row top-xs">
+        <div class="col-xs-12">
+            <div class="container-fluid work_packages" style="background-color:unset;">
+    	        <div class="container">
+                    {% component 'accordion' %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

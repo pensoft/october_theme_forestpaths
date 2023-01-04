@@ -1,0 +1,80 @@
+url = "/"
+layout = "default"
+title = "TIER2"
+is_hidden = 0
+meta_description = "homepage desc"
+seo_keywords = "keywords"
+robot_index = "index"
+robot_follow = "follow"
+
+[article_highlights]
+maxItems = 3
+title = "Latest news"
+baseUrl = "/news"
+templates = "template4"
+thumb_width = 440
+thumb_height = 235
+
+[jumbotron intro]
+jumbotron = "intro"
+title = 0
+background = "transperant"
+templates = "template1"
+description_limit = 0
+
+[jumbotron background]
+jumbotron = "home-page-image"
+title = 0
+background = "transperant"
+templates = "template1"
+description_limit = 0
+
+[Timeline]
+limit = 3
+upcoming = 0
+marked_for_display = 0
+templates = "template3"
+==
+<div class="container">
+    <div class="row middle-xs">
+        <div class="col-lg-6 col-xs-12">
+            <div class="intro">
+                {% component 'intro' %}
+            </div>
+        </div>
+        <div class="col-lg-6 col-xs-12">
+            <div class="background">
+                {% component 'background' %}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- latest from news -->
+<div class="container">
+    {% component 'article_highlights' %}
+</div>
+
+
+    <div class="container">
+        <h1 class="base_heading">Events</h1>
+        {% component 'Timeline' %}
+
+    </div>
+
+<div class="container-fluid background-dots">
+	<div class="container">
+	<!-- subscribes -->
+        <div class="row center-xs">
+
+            <div class="col-xs-12"><h1 class="display-1">Follow {{this.theme.site_name}}</h1></div>
+            <div class="col-sm-6 col-xs-12">
+                <div class="twitter-widget">
+                    <a class="twitter-timeline" href="https://twitter.com/Know_Center?ref_src=twsrc%5Etfw">Tweets by Know_Center</a>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

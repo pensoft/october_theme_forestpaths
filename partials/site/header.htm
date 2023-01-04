@@ -1,0 +1,93 @@
+[menu]
+start = "id-1"
+activeNode = 0
+listItemClasses = "nav-item"
+primaryClasses = "navbar-nav"
+secondaryClasses = "dropdown-menu"
+numberOfLevels = 2
+
+==
+
+<nav class="navbar fixed pr-1 pl-1" id="headernavbar">
+    <div id="menuToggle">
+        <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
+        {% component 'menu' %}
+    </div>
+
+
+    <a href="{{'home'|page}}" class="navbar-brand" id="navbar-brand" style="background-image: url('{{ this.theme.site_logo.getPath() }}'); background-position: center; background-size: contain;"></a>
+
+
+    <div class="navbar-collapse collapse end-xs" id="headerNavbarNav" style="display: none;">
+        {% component 'menu' %}
+        <div id="headerNavbarLogin">
+            <ul class="navbar-nav" style="padding: 0; margin: 0;">
+
+            </ul>
+        </div>
+    </div>
+
+    <a class="pr p-search middle search-btn" onclick="showSearchForm();"></a>
+
+    {% if this.theme.twitter_url %}
+    <a href="{{this.theme.twitter_url}}" target="_blank" class="pr p-twitter big"></a>
+    {% endif %}
+    {% if this.theme.facebook_url %}
+    <a href="{{this.theme.facebook_url}}" target="_blank" class="pr p-facebook big"></a>
+    {% endif %}
+    {% if this.theme.linkedin_url %}
+    <a href="{{this.theme.linkedin_url}}" target="_blank" class="pr p-linkedin big"></a>
+    {% endif %}
+    {% if this.theme.youtube_url %}
+    <a href="{{this.theme.youtube_url}}" target="_blank" class="pr p-youtube big"></a>
+    {% endif %}
+    {% if this.theme.instagram_url %}
+    <a href="{{this.theme.instagram_url}}" target="_blank" class="pr p-instagram big"></a>
+    {% endif %}
+    {% if this.theme.researchgate_url %}
+    <a href="{{this.theme.researchgate_url}}" target="_blank" class="pr p-researchgate big" style="width: 64px;"></a>
+    {% endif %}
+
+
+    <div id="search" class="search" style="display: none;">
+        <div class="close-search" onclick="hideSearchForm();"></div>
+        <form class="input-group align-items-start" action="{{ url('search')}}" method="get">
+            <input class="form-control search_input" style="color: #000;" name="q" type="text" autocomplete="on" placeholder="Search">
+            <button class="btn btn-link pr p-search big text-grey-search-btn" type="submit"></button>
+        </form>
+    </div>
+
+</nav>
+
+
+
+
+{% if this.theme.header_image and page_id != 'search' %}
+<div class="header-image {{page_id}}">
+    {% if page_id != 'search' %}
+        {%if this.page.header_image %}
+        <div class="header-image-bar" style="background-image: url('{{this.page.header_image|media}}'); background-position: left center;"></div>
+        {%else%}
+        <div class="header-image-bar" style="background-image: url('{{this.theme.header_image.getPath()}}'); background-position: left center;"></div>
+        {%endif%}
+    {%endif%}
+    <div class="jumbotron" data-aos="fade-right">
+        {% if page_id != 'home' and page_id != 'search' %}
+            <h1 class="underline white">
+            {%if page_title%} {{page_title}} {%else%} {{site_name}} {%endif%}</h1>
+        {%endif%}
+        {% if page_id == 'home' and tag_line%}
+        <div class="container">
+            <div class="intro">
+            <div class="logo_main"></div>
+            <p>{{tag_line}}</p>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endif %}
+

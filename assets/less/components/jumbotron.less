@@ -1,0 +1,108 @@
+.jumbotron {
+    position: absolute;
+    z-index: 100;
+
+    .breakpoint-large-down({
+        padding-top: 95px;
+    });
+}
+
+.jumbotron p{
+  color: #ffffff!important;
+}
+
+.background .container{
+  padding: 0 5px;
+}
+
+
+.home .background{
+    img{
+        max-height: 362px;
+    }
+}
+
+.about{
+  .container img{
+    width: 80%;
+    float: right;
+    .breakpoint-small-down({
+      width: 100%;
+      float: none;
+    });
+  }
+}
+
+.objectives{
+    .objectives_list{
+        div{
+            padding-top: 170px;
+            padding-left: 20px;
+            padding-right: 20px;
+            text-align: center;
+            margin-bottom: 100px;
+            font-size: 22px;
+            h3{
+                font-size: 30px;
+                font-family: Nunito;
+            }
+            &:nth-of-type(1){
+                background: url("../../assets/images/objectives1.svg") top center no-repeat;
+                background-size: 100px 126px;
+            }
+            &:nth-of-type(2){
+                background: url("../../assets/images/objectives2.svg") top center no-repeat;
+                background-size: 100px 126px;
+            }
+            &:nth-of-type(3){
+                background: url("../../assets/images/objectives3.svg") top center no-repeat;
+                background-size: 100px 126px;
+            }
+            &:nth-of-type(4){
+                background: url("../../assets/images/objectives4.svg") top center no-repeat;
+                background-size: 100px 126px;
+            }
+            &:nth-of-type(5){
+                background: url("../../assets/images/objectives5.svg") top center no-repeat;
+                background-size: 100px 126px;
+            }
+            &:nth-of-type(6){
+                background: url("../../assets/images/objectives6.svg") top center no-repeat;
+                background-size: 100px 126px;
+            }
+        }
+    }
+}
+
+.home .background-dots{
+    background: url("../../assets/images/TIER2-dots.svg") center no-repeat;
+    background-size: 100%;
+    background-position: center -106px;
+    .breakpoint-small-down({
+        background: url("../../assets/images/TIER2-dots.svg") center no-repeat;
+        background-size: cover;
+        background-position: center 7px;
+    });
+}
+
+.background_paragraph2{
+    ul{
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        li{
+            background: url("../../assets/images/about-bullet-point.svg") left no-repeat;
+            background-size: 64px 46px;
+            padding-left: 75px;
+            margin: 17px 0;
+        }
+    }
+}
+
+.aims{
+    font-size: 36px;
+    line-height: 56px;
+    font-family: Gilroy;
+    font-weight: bold;
+    text-align: center;
+}
