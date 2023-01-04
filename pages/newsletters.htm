@@ -4,7 +4,7 @@ title = "Newsletters"
 is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
-header_image = "about.jpg"
+header_image = "media.jpg"
 
 [builderList mediaNewsletterList]
 modelClass = "pensoft\Media\Models\Newsletters"
@@ -25,7 +25,7 @@ function onStart(){
 	if(get('download')){
 		$file = File::find((int)get('download'));
 		$file_name = $file->getLocalPath();
-$recordName = get('file_name') ? get('file_name') : 'TIER2_newsletter';
+$recordName = get('file_name') ? get('file_name') : 'ForestPaths_newsletter';
 $ext= $file->getExtension();
 
 if (file_exists($file_name)) {

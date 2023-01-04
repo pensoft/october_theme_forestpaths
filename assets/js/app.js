@@ -18,17 +18,6 @@ window.addEventListener('scroll', function (e) {
     }
 });
 
-function defer(method) {
-    if (window.jQuery) {
-        method();
-    } else {
-        setTimeout(function () { defer(method) }, 50);
-    }
-}
-defer(function(){
-
-})
-
 
 $(document).ready(function() {
 	/* MENU */
@@ -46,23 +35,11 @@ $(document).ready(function() {
 	headerNavbar.width(innerWidth);
 	width100.width(innerWidth);
 
-    $('body').on('click', '.work_packages .accordion-toggle, .pilots .accordion-toggle, .messages .accordion-toggle', function () {
-        if ($(this).next(".accordion-content").is(':visible')) {
-            $(this).next(".accordion-content").slideUp(300);
-            $(this).children().find(".plusminus").text('+');
-            $(this).children(".plusminus").html('<span class="plus"></span>');
-        } else {
-            $(this).next(".accordion-content").slideDown(300);
-            $(this).children().find(".plusminus").text('-');
-            $(this).children(".plusminus").html('<span class="minus"></span>');
+    $('.nav-item').children("a").each(function(){
+        if($(this).attr('data-toggle') == 'dropdown'){
+            $(this).removeAttr('data-toggle')
         }
     });
-
-    $('.work_packages .accordion-content, .pilots .accordion-content, .messages .accordion-toggle').each(function( index, value ) {
-        $(value).find('a').attr( "onclick", "window.open(this.href, '_blank');" )
-    });
-
-    $("p").removeAttr("style");
 
     if (window.location.hash) {
         var link = window.location.hash;
@@ -223,18 +200,6 @@ $(document).ready(function() {
 			$content.slideDown({
 				scrollTop: $content.offset().top - $('header').height()
 			}, speed);
-			// var screenSize = getScreenSize();
-			// if (screenSize.width < 800) {
-			// 	// scroll to element
-			// 	$('html, body').animate({
-			// 		scrollTop: $content.offset().top - $('header').height() + 300 // mobile
-			// 	}, speed);
-			// }else{
-			// 	//scroll to element icons top
-			// 	$('html, body').animate({
-			// 		scrollTop:  $content.offset().top - $('header').height() + 300
-			// 	}, speed);
-			// }
 
 			// Prevent the anchor\'s default click action
 			e.preventDefault();
@@ -253,6 +218,7 @@ $(document).ready(function() {
 	$('.about h1.display-1').attr('data-aos', 'fade-up');
 	$('h2.underline').attr('data-aos', 'fade-up');
 	$('.news_column').attr('data-aos', 'fade-up');
+	$('.objectives_list .col-md-4').attr('data-aos', 'fade-up');
 	// $('.timeline-item').attr('data-aos', 'fade-up');
 
 	// about page
@@ -297,6 +263,17 @@ $(document).ready(function() {
 	});
 
 	$('.see_all_partners_link').hide();
+
+    var width = $(window).width();
+
+    if (width >= 1024){
+        $('.pilots .key_0, .pilots .key_1, .pilots .key_2, .pilots .key_3, .pilots .key_4, .pilots .key_5, .pilots .key_6, .pilots .key_7, .pilots .key_8, .pilots .key_9, .pilots .key_10').wrapAll('<div class="col-md-12 col-xs-12" />');
+    }
+    if (width < 1024) {
+        $('.key_1, .key_3, .key_5, .key_7, .key_9, .key_11, .key_13').wrapAll('<div class="col-md-6 col-xs-12" />');
+        $('.key_0, .key_2, .key_4, .key_6, .key_8, .key_10, .key_12').wrapAll('<div class="col-md-6 col-xs-12" />');
+        $('.pilots .key_0, .pilots .key_1, .pilots .key_2, .pilots .key_3, .pilots .key_4, .pilots .key_5, .pilots .key_6, .pilots .key_7, .pilots .key_8, .pilots .key_9, .pilots .key_10').wrapAll('<div class="col-md-12 col-xs-12" />');
+    }
 
 
 });
@@ -370,11 +347,10 @@ function appendSignOut() {
 
 function appendSearchAndSocialMedia(){
 	var liSearch = '<li class="nav-item search_field"><a href=\"javascript: void(0);\" onclick=\"showSearchForm();\"></a></li>';
-	var liSocial = '<li class="nav-item social">' +
-        '<a href=\"https://twitter.com/Know_Center\" target=\"_blank\" class=\"pr p-twitter medium\" target=\"_blank\"></a>' +
-        '<a href=\"https://www.linkedin.com/company/know-center/\" target=\"_blank\" class=\"pr p-linkedin medium\" target=\"_blank\"></a></li>';
+	// var liSocial = '<li class="nav-item social"><a href=\"https://www.facebook.com/BiCIKLProjectH2020\" target=\"_blank\" class=\"pr p-facebook big\" target=\"_blank\"></a><a href=\"https://twitter.com/BiCIKL_H2020\" target=\"_blank\" class=\"pr p-twitter big\" target=\"_blank\"></a></li>';
 	var menu = $('#menuToggle');
-	menu.find('>ul').append(liSearch).append(liSocial);
+	// menu.find('>ul').append(liSearch).append(liSocial);
+	menu.find('>ul').append(liSearch);
 }
 
 function redirectAndRefresh(url){

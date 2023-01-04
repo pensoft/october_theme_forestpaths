@@ -4,7 +4,7 @@ title = "Partners"
 is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
-header_image = "about.jpg"
+header_image = "partners.jpg"
 
 ==
 <?php
@@ -49,22 +49,19 @@ return Profiles::where('partner_id', $id)->where('category_id',  1)->get();
     <div class="container">
         <span class="tooltiptext" id="tooltip">Bulgaria</span>
         <div class="row">
-            <div class="col-md-7 col-xs-12 partners_list">
-                <div class="row">
-                    <div class="col-xs-12">
-                        {% for partner in partners %}
-                        <a class="parener_logo" onclick="onCustomSinglePartner({{partner.id}});" title="{{partner.instituion}}"><img class="partner_cover" src="{{partner.cover.thumb(116, auto, {'mode':'crop'})}}"></a>
-                        {% endfor %}
-                    </div>
-                </div>
-                <div class="row container partners-map-container">
-                    <div id="mycomponentpartners" class="row">
-                    </div>
-                </div>
+            <div class="col-md-6 col-xs-12 partners_list">
+                {% for partner in partners %}
+                <a class="parener_logo" onclick="onCustomSinglePartner({{partner.id}});" title="{{partner.instituion}}"><img class="partner_cover" src="{{partner.cover.thumb(150, auto, {'mode':'crop'})}}"></a>
+                {% endfor %}
             </div>
-            <div class="col-md-5 col-xs-12"></div>
+            <div class="col-md-6 col-xs-12"></div>
         </div>
 
     </div>
+    <div class="container partners-map-container">
+        <div id="mycomponentpartners" class="row">
 
+
+        </div>
+    </div>
 </div>

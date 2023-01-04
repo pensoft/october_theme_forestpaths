@@ -20,7 +20,7 @@ function onStart()
 			$file->output('attachment');
 			exit();
 		}else{ // download zip
-			$zip_file = tempnam(sys_get_temp_dir(), "TIER2-documents");
+			$zip_file = tempnam(sys_get_temp_dir(), "ForestPaths-documents");
 			$zip = new \ZipArchive();
 			$zip->open($zip_file, \ZipArchive::CREATE | \ZipArchive::OVERWRITE);
 
@@ -47,7 +47,7 @@ function onStart()
 			}
 			$zip->close();
 			header("Content-type: application/zip");
-			header("Content-Disposition: attachment; filename=MAMBO-documents.zip");
+			header("Content-Disposition: attachment; filename=ForestPaths-documents.zip");
 			header("Pragma: no-cache");
 			header("Expires: 0");
 			readfile($zip_file);

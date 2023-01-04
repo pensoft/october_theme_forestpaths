@@ -15,11 +15,134 @@
   padding: 0 5px;
 }
 
-
-.home .background{
-    img{
-        max-height: 362px;
+.vision {
+    text-align: center;
+    color: #35393E;
+    .row.between-md.around-xs{
+        .breakpoint-small-down({
+            display: flex;
+            flex-direction: column-reverse;
+        });
     }
+    .vision_bg{
+        background: url("../../assets/images/vision.jpg") center no-repeat;
+        background-size: cover;
+        .breakpoint-small-down({
+            order: 1!important;
+            min-height: 300px;
+        });
+    }
+    .container{
+        padding: 5% 10%;
+        min-height: 300px;
+        max-width: 530px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+    }
+    p:has(a.edit-link){
+        display: none;
+    }
+  h1{
+    text-align: center;
+      font-size: 50px;
+      color: @default-color;
+  }
+}
+.mission{
+  text-align: center;
+    color: #35393E;
+    .mission_bg{
+        background: url("../../assets/images/mission.jpg") center no-repeat;
+        background-size: cover;
+        .breakpoint-small-down({
+            min-height: 300px;
+        });
+    }
+    .container{
+        padding: 5% 10%;
+        min-height: 300px;
+        max-width: 530px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    p:has(a.edit-link){
+        display: none;
+    }
+  h1{
+    text-align: center;
+      font-size: 50px;
+      color: @default-color;
+  }
+}
+
+.numbers_container{
+  margin-bottom: 50px;
+}
+
+.numbers {
+    width: 171px;
+    height: 200px;
+    background: url('../../assets/images/leaf1.svg') top no-repeat;
+    background-size: contain;
+    padding-top: 66px;
+    color: #ffffff;
+    font-size: 60px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .breakpoint-small-down({
+    text-align: center;
+    margin: 30px auto;
+  })
+}
+
+.num_container{
+    margin-top: 50px;
+}
+
+.num_container:nth-of-type(2n) .numbers{
+    background: url('../../assets/images/leaf2.svg') top no-repeat;
+}
+
+.numbers p{
+  color: @default-color;
+  font-weight: bold!important;
+  white-space: nowrap!important;
+  text-align: center;
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+.num_container{
+  flex-grow: unset!important;
+  .breakpoint-large-down({
+    margin: 20px 0;
+  });
+}
+
+//.num_container:nth-of-type(2) .numbers,
+//.num_container:nth-of-type(3) .numbers{
+//  margin: 0 auto!important;
+//}
+//.num_container:nth-of-type(4) .numbers{
+//  float: right;
+//
+//  .breakpoint-small-down({
+//    float: none;
+//  })
+//}
+
+.count {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
 }
 
 .about{
@@ -36,73 +159,167 @@
 .objectives{
     .objectives_list{
         div{
-            padding-top: 170px;
+            padding-top: 70px;
             padding-left: 20px;
             padding-right: 20px;
             text-align: center;
             margin-bottom: 100px;
-            font-size: 22px;
-            h3{
-                font-size: 30px;
-                font-family: Nunito;
-            }
             &:nth-of-type(1){
-                background: url("../../assets/images/objectives1.svg") top center no-repeat;
-                background-size: 100px 126px;
+                background: url("../../assets/images/objectives-01.svg") top center no-repeat;
+                background-size: 50px;
             }
             &:nth-of-type(2){
-                background: url("../../assets/images/objectives2.svg") top center no-repeat;
-                background-size: 100px 126px;
+                background: url("../../assets/images/objectives-02.svg") top center no-repeat;
+                background-size: 50px;
             }
             &:nth-of-type(3){
-                background: url("../../assets/images/objectives3.svg") top center no-repeat;
-                background-size: 100px 126px;
+                background: url("../../assets/images/objectives-03.svg") top center no-repeat;
+                background-size: 50px;
             }
             &:nth-of-type(4){
-                background: url("../../assets/images/objectives4.svg") top center no-repeat;
-                background-size: 100px 126px;
+                background: url("../../assets/images/objectives-04.svg") top center no-repeat;
+                background-size: 50px;
             }
             &:nth-of-type(5){
-                background: url("../../assets/images/objectives5.svg") top center no-repeat;
-                background-size: 100px 126px;
+                background: url("../../assets/images/objectives-05.svg") top center no-repeat;
+                background-size: 50px;
             }
             &:nth-of-type(6){
-                background: url("../../assets/images/objectives6.svg") top center no-repeat;
-                background-size: 100px 126px;
+                background: url("../../assets/images/objectives-06.svg") top center no-repeat;
+                background-size: 50px;
             }
         }
     }
 }
 
-.home .background-dots{
-    background: url("../../assets/images/TIER2-dots.svg") center no-repeat;
-    background-size: 100%;
-    background-position: center -106px;
-    .breakpoint-small-down({
-        background: url("../../assets/images/TIER2-dots.svg") center no-repeat;
-        background-size: cover;
-        background-position: center 7px;
-    });
-}
+.flip_cards_container{
+    .col-md.col-xs-12{
+        float: left;
+    }
+    /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+    .flip-card {
+        background-color: transparent;
+        width: 272px;
+        height: 502px;
+        margin-bottom: 100px;
+        perspective: 1000px; /* Remove this if you don't want the 3D effect */
+    }
 
-.background_paragraph2{
-    ul{
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        li{
-            background: url("../../assets/images/about-bullet-point.svg") left no-repeat;
-            background-size: 64px 46px;
-            padding-left: 75px;
-            margin: 17px 0;
+    /* This container is needed to position the front and back side */
+    .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+    }
+
+    /* Do an horizontal flip when you move the mouse over the flip box container */
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+
+    /* Position the front and back side */
+    .flip-card-front, .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden; /* Safari */
+        backface-visibility: hidden;
+    }
+
+    /* Style the front side (fallback if image is missing) */
+    .flip-card-front {
+        background-color: #EFF5F5;
+        p{
+            padding: 30px;
+            height: 160px;
+            font-size: 30px;
+            line-height: 38px;
         }
     }
-}
 
-.aims{
-    font-size: 36px;
-    line-height: 56px;
-    font-family: Gilroy;
-    font-weight: bold;
-    text-align: center;
+    /* Style the back side */
+    .flip-card-back {
+        background-color: #EFF5F5;
+        transform: rotateY(180deg);
+        p{
+            padding: 30px;
+            text-align: left!important;
+        }
+    }
+
+    .col-md.col-xs-12:nth-child(odd) .flip-card-front span{
+        background: url("../../assets/images/leaf2.svg") center no-repeat;
+        background-size: 113px;
+        width: 113px;
+        height: 113px;
+        margin: 30px auto;
+        color: white;
+        font-size: 31px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .col-md.col-xs-12:nth-child(even) .flip-card-front span{
+        background: url("../../assets/images/leaf1.svg") center no-repeat;
+        background-size: 113px;
+        width: 113px;
+        height: 113px;
+        margin: 30px auto;
+        color: white;
+        font-size: 31px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .col-md.col-xs-12:nth-child(1) .flip-card-front .some_image{
+        background: url("../../assets/images/WP1.png") top center no-repeat;
+        width: 100%;
+        height: 50px;
+        background-size: contain;
+    }
+    .col-md.col-xs-12:nth-child(2) .flip-card-front .some_image,
+    .col-md.col-xs-12:nth-child(3) .flip-card-front .some_image{
+        background: url("../../assets/images/WP2-3logo.png") top center no-repeat;
+        width: 100%;
+        height: 50px;
+        background-size: contain;
+    }
+
+
+    .col-md.col-xs-12:nth-child(4) .flip-card-front .some_image{
+        background: url("../../assets/images/WP4.png") top center no-repeat;
+        width: 100%;
+        height: 50px;
+        background-size: contain;
+    }
+    .col-md.col-xs-12:nth-child(5) .flip-card-front .some_image {
+        background: url("../../assets/images/WP5logo.png") top center no-repeat;
+        width: 100%;
+        height: 50px;
+        background-size: contain;
+    }
+
+    .col-md.col-xs-12:nth-child(6) .flip-card-front .some_image,
+    .col-md.col-xs-12:nth-child(7) .flip-card-front .some_image{
+        background: url("../../assets/images/WP6-7.png") top center no-repeat;
+        width: 100%;
+        height: 50px;
+        background-size: contain;
+    }
+
+    .col-md.col-xs-12:nth-child(8) .flip-card-front .some_image,
+    .col-md.col-xs-12:nth-child(9) .flip-card-front .some_image{
+        background: url("../../assets/images/WP8-9logo.png") top center no-repeat;
+        width: 100%;
+        height: 50px;
+        background-size: 55px;
+    }
+
 }

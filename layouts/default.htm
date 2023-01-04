@@ -14,6 +14,15 @@ escape = 1
 [cookieBanner]
 include_css = 1
 update_selector = "#gdpr-reload"
+
+[carousel]
+id = 1
+
+[jumbotron]
+jumbotron = "intro"
+background = "transperant"
+templates = "template1"
+description_limit = 0
 ==
 <!DOCTYPE html>
 <html>
@@ -29,7 +38,14 @@ update_selector = "#gdpr-reload"
     <link href="{{ ['assets/less/theme.less']|theme }}" rel="stylesheet">
     <link href="{{ ['assets/css/scale.css']|theme }}" rel="stylesheet">
     <link href="{{ ['assets/css/light.css']|theme }}" rel="stylesheet">
+    {% if this.page.id == 'home' %}
+    <link href="{{ 'assets/css/bootstrap.min.css'|theme }}" rel="stylesheet">
+    {% endif %}
     <script src="{{ 'assets/js/jquery.js'|theme }}"></script>
+    {% if this.page.id == 'home' %}
+    <script src="{{ 'assets/js/bootstrap.min.js'|theme }}"></script>
+    <script src="{{ 'assets/js/anime.js'|theme }}"></script>
+    {% endif %}
     <script src="{{ 'assets/js/popper.min.js'|theme }}"></script>
     <script src="{{ 'assets/js/tippy-bundle.umd.min.js'|theme}}"></script>
     <script src="{{ 'assets/js/app.js'|theme }}"></script>
@@ -39,27 +55,15 @@ update_selector = "#gdpr-reload"
     <link rel="stylesheet" href="{{ 'assets/css/aos.css'|theme }}">
     <script src="{{ 'assets/js/aos.js'|theme }}"></script>
     <script src="{{ 'assets/js/ckeditor/ckeditor.js'|theme}}"></script>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-M2QSR6D');</script>
-    <!-- End Google Tag Manager -->
+
 
     {% component 'metaList' %}
     {% framework extras %}
     {% styles %}
     {% scripts %}
-    
-
 </head>
 
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M2QSR6D"
-                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 <div class="content-wrapper {{this.page.id}}">
     <div id="fb-root"></div>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v8.0" nonce="X0nPVr3s"></script>
@@ -71,10 +75,24 @@ update_selector = "#gdpr-reload"
         page_title=this.page.title
         page_id=this.page.id
         %}
+        {% if this.page.id == 'home' %}
+        {% component 'carousel' %}
+        {% endif %}
     </header>
+    {% if this.page.id == 'home' %}
+    <div class="container homepage">
+        <div class="intro" data-aos="fade-right">
+            <div class="logo_main"></div>
+            <h1>MODERN APPROACHES TO THE MONITORING OF BIODIVERSITY</h1>
+            <div class="tagline">{% component 'jumbotron' %}</div>
+            <div class="intro_btn"><a href="{{about|page}}">More about the project</a> </div>
+        </div>
+    </div>
+    {% endif %}
+
 
     <!-- Content -->
-    <section id="layout-content" class="{{this.page.id}}">
+    <section id="layout-content" class="{{this.page.id}}" >
         {% page %}
         {% component 'googleTracker' %}
     </section>

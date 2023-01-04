@@ -14,32 +14,58 @@
 
 .card-container {
   min-width: fit-content;
-  display: block;
+  display: flex;
   justify-content: center;
-  //height: 212px;
-  //width: 150px;
+  height: 212px;
+  width: 150px;
   margin: 25px auto 100px auto;
   text-align: center;
-    a{
-        display: block;
-    }
 
-  //&:hover{
-  //    //opacity: 0.7;
-  //    opacity: 1;
-  //    background: #EFF5F5;
-  //}
+  &:hover{
+      //opacity: 0.7;
+      opacity: 1!important;
+      -moz-box-shadow:  0px 0px 26px rgba(68, 208, 189, 0.3);
+      -webkit-box-shadow:  0px 0px 26px rgba(68, 208, 189, 0.3);
+      box-shadow: 0px 0px 26px rgba(68, 208, 189, 0.3);
+  }
   .breakpoint-laptop-down({
     padding: 0px;
   });
 }
 
+.media-center{
+    .col-md-4.col-sm-6.col-xs-12:nth-of-type(odd){
+        .card-container{
+            background: url("../../assets/images/dark-leaf.svg") top center no-repeat;
+            background-size: 150px 212px;
+            &:hover{
+                opacity: 1!important;
+                -moz-box-shadow:  none;
+                -webkit-box-shadow:  none;
+                box-shadow: none;
+            }
+        }
+    }
+    .col-md-4.col-sm-6.col-xs-12:nth-of-type(even){
+        .card-container{
+            background: url("../../assets/images/dark-leaf2.svg") top center no-repeat;
+            background-size: 150px 212px;
+            &:hover{
+                opacity: 1!important;
+                -moz-box-shadow:  none;
+                -webkit-box-shadow:  none;
+                box-shadow: none;
+            }
+        }
+    }
+}
+
 .card_image_container{
   display: flex;
   background-size: contain!important;
-  height: 183px;
-  width: 144px;
-  margin: 0px auto;
+  height: 85px;
+  width: 85px;
+  margin: 63px auto;
 
   //.breakpoint-small-down({
   //  width: 150px!important;

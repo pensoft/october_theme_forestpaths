@@ -1,7 +1,7 @@
 title = "Policy briefs"
 layout = "default"
 url = "/media-center/policy-briefs"
-header_image = "about.jpg"
+header_image = "media.jpg"
 
 ==
 <?php
@@ -13,7 +13,7 @@ function onStart(){
 	if(post('download')){
 		$file = File::find((int)post('download'));
 		$file_name = $file->getLocalPath();
-$recordName = post('file_name') ? post('file_name') : 'TIER2_policy_brief';
+$recordName = post('file_name') ? post('file_name') : 'ForestPaths_policy_brief';
 $ext= $file->getExtension();
 
 if (file_exists($file_name)) {

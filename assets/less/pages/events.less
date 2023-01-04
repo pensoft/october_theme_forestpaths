@@ -18,11 +18,11 @@
     background: @link-color!important;
     color: @white-color!important;
     border: 1px solid @link-color;
-    border-radius: 20px;
+    border-radius: 0;
 }
 
 .fc-button-group > .fc-today-button, .fc-button-group > fc-prev-button{
-    //border-radius: 0;
+    border-radius: 0;
 }
 
 .fc-button-group > .fc-button:hover, .fc-button-group > .fc-button:not(:first-child):hover, .fc-button-primary:not(:disabled).fc-button-active{
@@ -91,10 +91,6 @@
     padding: 10px!important;
 }
 
-.fc-view-container{
-    background: @white-color;
-    padding: 20px;
-}
 
 .fc-day-grid-event .fc-time{
     display: none;
@@ -114,7 +110,6 @@
     align-items: center;
     justify-content: center;
 }
-
 .event-place{
     color: @dark-color;
     font-weight: 500;
@@ -131,7 +126,6 @@
         width: fit-content;
         font-weight: bold;
         cursor: pointer;
-        color: @link-color;
         padding-left: 40px;
         .breakpoint-small-down({
             margin-left: 0px;
@@ -203,16 +197,17 @@
     }
 }
 
+
 .events_list_container{
     width: 100%;
     background: @white-color;
-    border-radius: 4px;
 
     .event_list_item{
-        padding: 27px 35px;
-        border-bottom: 1px solid @border-color;
+        padding: 27px 30px;
+        background: @secondary-color;
+        margin-bottom: 10px;
         a {
-            color: @default-color;
+            color: @dark-color;
             font-weight: bold;
             font-size: 24px;
             &:hover{
@@ -226,10 +221,6 @@
             }
         }
         .time{
-        }
-
-        &:last-of-type{
-            border-bottom: none;
         }
     }
 }

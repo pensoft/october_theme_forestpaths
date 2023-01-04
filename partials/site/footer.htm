@@ -1,5 +1,5 @@
 [menu about_menu]
-start = "id-5"
+start = "id-2"
 activeNode = 0
 listItemClasses = "footer-menu-item"
 primaryClasses = "footer-menu"
@@ -29,6 +29,7 @@ learnMore = "More info"
 link = "/privacy-policy"
 theme = "dark-bottom"
 ==
+
 <div class="container-fluid border-box subscribe-newsletter-background">
     <div class="row container middle-xs between-xs">
         <div class="col-md-2 col-xs-12 start-md center-xs">NEWSLETTER</div>
@@ -40,6 +41,11 @@ theme = "dark-bottom"
 	<div class="container">
 		<div class="row top-xs between-xs footer-menu-container">
             <div class="col-md-6 col-xs-12 footer-right-border">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <img class="project_footer_logo" src="{{ 'assets/images/ForestPaths_white.svg'|theme }}" />
+                    </div>
+                </div>
                 <div class="row between-xs">
                     <div class="col-xs-12 col-md-3 start-md center-xs col-sm-6 start-sm">
                         <div class="head">GET IN TOUCH
@@ -78,15 +84,6 @@ theme = "dark-bottom"
                         {% component 'resources_menu' %}
                     </div>
                 </div>
-                <div class="row between-xs middle-xs">
-                    <div class="col-md-8 col-xs-12">
-                        <div class="powered-by my-1 my-lg-0 px-1 start-sm center-xs">
-                        <span>Designed and powered by <a href="https://pensoft.net/" target="_blank">
-                            <img class="pensoft_logo" src="{{ 'assets/images/pensoft-logo.svg'|theme }}" /></a>
-                        </span></div>
-                    </div>
-                    <div class="col-sm-4 col-xs-12 center-xs"><a style="flex:0 0 auto; font-size: 18px;" href="/privacy-policy">Privacy Policy</a></div>
-                </div>
             </div>
             <div class="col-md-6 col-xs-12">
                 {% if (footer_funds_flag != null or footer_funds_text != '') %}
@@ -99,11 +96,19 @@ theme = "dark-bottom"
                     {%endif %}
                 </div>
                 <div class="funding-text">
-                    <p>TIER2 receives funding from the European Union's Horizon Europe research and innovation programme under grant agreement No 101094817</p>
+                    <p>ForestPaths receives funding from the European Union's Horizon Europe research and innovation programme under grant agreement No.101060639</p>
                     <p>Views and opinions expressed are those of the author(s) only and do not necessarily reflect those of the European Union or the European Commission. Neither the EU nor the EC can be held responsible for them.</p>
                 </div>
                 {% endif %}
-
+                <div class="row between-xs middle-xs">
+                    <div class="col-md-8 col-xs-12">
+                        <div class="powered-by my-1 my-lg-0 px-1 start-sm center-xs">
+                        <span>Designed and powered by <a href="https://pensoft.net/" target="_blank">
+                            <img class="pensoft_logo" src="{{ 'assets/images/pensoft-logo.svg'|theme }}" /></a>
+                        </span></div>
+                    </div>
+                    <div class="col-sm-4 col-xs-12 center-xs"><a style="flex:0 0 auto; font-size: 18px;" href="/privacy-policy">Privacy Policy</a></div>
+                </div>
             </div>
 		</div>
 	</div>

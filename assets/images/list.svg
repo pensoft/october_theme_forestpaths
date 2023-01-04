@@ -1,3 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="21.93" height="17.818" viewBox="0 0 21.93 17.818">
-  <path id="Icon_awesome-list-ul" data-name="Icon awesome-list-ul" d="M2.056,3.375A2.056,2.056,0,1,0,4.112,5.431,2.056,2.056,0,0,0,2.056,3.375Zm0,6.853a2.056,2.056,0,1,0,2.056,2.056A2.056,2.056,0,0,0,2.056,10.228Zm0,6.853a2.056,2.056,0,1,0,2.056,2.056,2.056,2.056,0,0,0-2.056-2.056Zm19.188.685H7.538a.685.685,0,0,0-.685.685v1.371a.685.685,0,0,0,.685.685H21.244a.685.685,0,0,0,.685-.685V18.452A.685.685,0,0,0,21.244,17.766Zm0-13.706H7.538a.685.685,0,0,0-.685.685V6.116a.685.685,0,0,0,.685.685H21.244a.685.685,0,0,0,.685-.685V4.746A.685.685,0,0,0,21.244,4.06Zm0,6.853H7.538a.685.685,0,0,0-.685.685v1.371a.685.685,0,0,0,.685.685H21.244a.685.685,0,0,0,.685-.685V11.6A.685.685,0,0,0,21.244,10.913Z" transform="translate(0 -3.375)" fill="#33dbce"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="27" height="23" viewBox="0 0 27 23">
+  <g id="Group_14496" data-name="Group 14496" transform="translate(-139 -308)">
+    <rect id="Rectangle_3336" data-name="Rectangle 3336" width="5" height="5" transform="translate(139 308)" fill="#33dbce"/>
+    <rect id="Rectangle_3338" data-name="Rectangle 3338" width="5" height="5" transform="translate(139 317)" fill="#33dbce"/>
+    <rect id="Rectangle_3340" data-name="Rectangle 3340" width="5" height="5" transform="translate(139 326)" fill="#33dbce"/>
+    <rect id="Rectangle_3337" data-name="Rectangle 3337" width="19" height="5" transform="translate(147 308)" fill="#33dbce"/>
+    <rect id="Rectangle_3339" data-name="Rectangle 3339" width="19" height="5" transform="translate(147 317)" fill="#33dbce"/>
+    <rect id="Rectangle_3341" data-name="Rectangle 3341" width="19" height="5" transform="translate(147 326)" fill="#33dbce"/>
+  </g>
 </svg>

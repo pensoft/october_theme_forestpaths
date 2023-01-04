@@ -4,7 +4,7 @@ title = "Contact"
 is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
-header_image = "about.jpg"
+header_image = "contact.jpg"
 
 [siteSearchInclude]
 ==
@@ -12,7 +12,7 @@ header_image = "about.jpg"
 use Pensoft\Cardprofiles\Models\Profiles;
 
 function onStart(){
-	$this['profiles'] =  Profiles::where('category_id', 1)->get();
+	$this['profiles'] =  Profiles::where('category_id', 2)->get();
 }
 ?>
 ==
@@ -21,11 +21,11 @@ function onStart(){
 <div class="container">
 	<div class="row profile-item-container">
 		{% for profile in profiles %}
-			<div class="col-xs-12 col-lg-6 profile-item">
+			<div class="col-xs-12 col-md-6 profile-item">
 				<div class="contact_info row">
 					<div class="col-md-5 col-xs-12 coordinator_image aos-init aos-animate" data-aos="fade-up">
                         {% if profile.avatar %}
-                        <img src="{{profile.avatar.thumb(197, 197, {'mode':'crop'})}}" class="fr-fic fr-dii">
+                        <img src="{{profile.avatar.thumb(307, 307, {'mode':'crop'})}}" class="fr-fic fr-dii">
                         {% else %}
                         <img alt="{{ profile.names }}" src="{{ 'avatar.svg'|media }}" class="no-image">
                         {% endif %}

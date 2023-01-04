@@ -4,7 +4,7 @@ title = "Events"
 is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
-header_image = "partners.jpg"
+header_image = "events.jpg"
 
 [calendar]
 default = "true"
@@ -72,7 +72,6 @@ $this['slug'] = $this->param('slug');
     </div>
 </div>
 <!--tabs content	-->
-<div class="container-fluid bg-secondary">
     <div class="container">
         <div class="row" id="calendarView">
             {% component 'calendar' %}
@@ -88,7 +87,8 @@ $this['slug'] = $this->param('slug');
                         <div class="col-md-1 start-md col-xs-12 center-xs">{{entry.start|date('l')}}</div>
                         <div class="col-md start-md col-xs-12 center-xs">{{entry.event_time}}</div>
                     </div>
-                    <div class="row mt-1">
+                    <div class="row">
+                        <!--<div class="col-xs-1">{{entry.start|date('g:i')}}</div> <div class="col-xs-11">{{entry.title}}</div>-->
                         <div class="col-xs-12"><a class="button" href="{{ url }}" target="_blank">{{entry.title}}</a></div>
                     </div>
                 </div>
@@ -101,8 +101,6 @@ $this['slug'] = $this->param('slug');
 
         </div>
     </div>
-
-</div>
 
 
 {% else %}
