@@ -209,8 +209,6 @@ $(document).ready(function() {
 
 
 	$('.numbers').attr('data-aos', 'fade-up');
-	$('.mission .container').attr('data-aos', 'fade-right');
-	$('.vision .container').attr('data-aos', 'fade-right');
 	$('.card-img-top').attr('data-aos', 'fade-up');
 	$('.logo-container').attr('data-aos', 'fade-up');
 	$('.subscribe-items a').attr('data-aos', 'fade-up');

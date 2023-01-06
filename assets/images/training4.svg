@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="137" height="137" viewBox="0 0 137 137">
+  <g id="Group_14814" data-name="Group 14814" transform="translate(-1001 -1266)">
+    <circle id="Ellipse_2962" data-name="Ellipse 2962" cx="68.5" cy="68.5" r="68.5" transform="translate(1001 1266)" fill="#009a49"/>
+    <g id="Group_14794" data-name="Group 14794" transform="translate(-626 -7)">
+      <g id="Group_14766" data-name="Group 14766" transform="translate(5.25 -5.75)">
+        <path id="Icon_metro-lab" data-name="Icon metro-lab" d="M26.748,22.115,18.811,8.89V3.534h.8a.8.8,0,0,0,0-1.606h-8.03a.8.8,0,0,0,0,1.606h.8V8.89L4.451,22.115c-1.818,3.03-.414,5.508,3.119,5.508H23.629C27.162,27.623,28.566,25.144,26.748,22.115ZM8.8,17.987l5.193-8.655v-5.8h3.212v5.8L22.4,17.987Z" transform="translate(1699.742 1340.376)" fill="#fff"/>
+        <path id="Icon_material-person" data-name="Icon material-person" d="M27.125,27.125A10.563,10.563,0,1,0,16.563,16.563,10.56,10.56,0,0,0,27.125,27.125Zm0,5.281C20.075,32.406,6,35.945,6,42.969V48.25H48.25V42.969C48.25,35.945,34.175,32.406,27.125,32.406Z" transform="translate(1647.75 1319.75)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

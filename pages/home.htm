@@ -15,62 +15,29 @@ templates = "template4"
 thumb_width = 440
 thumb_height = 235
 
-[jumbotron vision]
-jumbotron = "vision"
-title = 1
-background = "transperant"
-templates = "template1"
-description_limit = 0
-
-[jumbotron mission]
-jumbotron = "mission"
-title = 1
-background = "transperant"
-templates = "template1"
-description_limit = 0
-
-[jumbotron numbers]
-jumbotron = "numbers"
-title = 1
+[jumbotron homeIntro]
+jumbotron = "homepage-subpages-list"
+title = 0
 background = "transperant"
 templates = "template1"
 description_limit = 0
 ==
-<!-- vision -->
-<div class="container-fluid bg-secondary vision">
-		<div class="row between-md around-xs">
-			<div class="col-sm-6 col-xs-12">
-				{% component 'vision' %}
-			</div>
-			<div class="col-sm-6 col-xs-12 vision_bg">
-                &nbsp;
-			</div>
-		</div>
-</div>
-<!-- mission -->
-<div class="container-fluid bg-secondary mission">
+
+<div class="container homepage_subpages">
         <div class="row between-md around-xs">
-            <div class="col-sm-6 col-xs-12 mission_bg">
-                &nbsp;
-            </div>
-            <div class="col-sm-6 col-xs-12 ">
-                {% component 'mission' %}
+            <div class="col-xs-12 ">
+                {% component 'homeIntro' %}
             </div>
         </div>
 </div>
 
 <!-- latest from news -->
-<div class="container">
-    {% component 'article_highlights' %}
-    <div class="row">
-        <div class="col-xs-12 center-xs"><a href="{{'news'|page}}" class="btn btn-primary" style="width: 250px;">All news</a> </div>
-    </div>
-</div>
-
-<!-- numbers -->
 <div class="container-fluid bg-secondary">
-    <div class="numbers_container">
-        {% component 'numbers' %}
+    <div class="container">
+        {% component 'article_highlights' %}
+        <div class="row">
+            <div class="col-xs-12 center-xs"><a href="{{'news'|page}}" class="btn btn-primary" style="width: 250px;">All news</a> </div>
+        </div>
     </div>
 </div>
 

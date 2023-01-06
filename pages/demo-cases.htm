@@ -1,0 +1,26 @@
+title = "Demo cases"
+layout = "default"
+url = "/demo-cases"
+
+[siteSearchInclude]
+
+[jumbotron]
+jumbotron = "demo-cases-intro"
+background = "transperant"
+templates = "template1"
+description_limit = 0
+
+[jumbotron demoCases]
+jumbotron = "these-demo-cases-contribute"
+title = 1
+background = "transperant"
+templates = "template1"
+description_limit = 0
+==
+{% component 'siteSearchInclude' %}
+<div class="container">
+    {% component 'jumbotron' %}
+</div>
+<div class="container">
+    {% component 'demoCases' %}
+</div>

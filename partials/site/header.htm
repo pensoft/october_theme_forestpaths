@@ -47,24 +47,39 @@ numberOfLevels = 2
 {% if this.theme.header_image and page_id != 'search' %}
 <div class="header-image {{page_id}}">
     {% if page_id != 'search' %}
-        {%if page_id != 'home' and page_id != 'search' %}
-        {%if this.page.header_image %}
-        <div class="header-image-bar" style="background-image: url('{{this.page.header_image|media}}'); background-position: left center;"></div>
-        {%else%}
-        <div class="header-image-bar" style="background-image: url('{{this.theme.header_image.getPath()}}'); background-position: left center;"></div>
+    {%if this.page.header_image %}
+    <div class="header-image-bar" style="background-image: url('{{this.page.header_image|media}}'); background-position: left center;"></div>
+    {%else%}
+    <div class="header-image-bar" style="background-image: url('{{this.theme.header_image.getPath()}}'); background-position: center;"></div>
+    {%endif%}
+    {%endif%}
+    <div class="jumbotron" >
+        {% if page_id != 'home' and page_id != 'search' %}
+        <h1 class="underline white">
+            {%if page_title%} {{page_title}} {%else%} {{site_name}} {%endif%}</h1>
         {%endif%}
-        <div class="jumbotron" data-aos="fade-up">
-            <h1 class="underline white  {% if page_id == 'home'%}home-page-header{% endif %}">{%if page_title%} {{page_title}} {%else%} {{site_name}} {%endif%}</h1>
-            {% if page_id == 'home' and tag_line %}
-            <p>{{tag_line}}</p>
-            {% endif %}
+        {% if page_id == 'home' and tag_line%}
+        <div class="container homepage">
+            <div class="row intro">
+                <div class="col-xs-12">
+                    <div class="logo_main"></div>
+                </div>
+                <div class="col-md-6 col-xs-12" data-aos="zoom-in">
+                    <h1>{{tag_line}}</h1>
+                </div>
+                <div class="col-md-6 col-xs-12" data-aos="zoom-in">
+                    <div class="tagline">{% component 'jumbotron' %}</div>
+                </div>
+                <div class="col-md-12 col-xs-12 center-xs">
+                    <div class="intro_btn"><a href="{{about|page}}">More about the project</a> </div>
+                </div>
+
+
+
+            </div>
         </div>
         {% endif %}
-    {% endif %}
+    </div>
 </div>
-{% endif %}
-
-{% if page_id == 'home' and tag_line %}
-<p>{{tag_line}}</p>
 {% endif %}
 
