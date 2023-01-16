@@ -1,5 +1,5 @@
-title = "Logo"
-url = "/media-center/logo"
+title = "Logos"
+url = "/logos"
 layout = "default"
 is_hidden = 0
 robot_index = "index"
@@ -64,30 +64,27 @@ return Redirect::to('/media-center/logo');
 	{# Use spaceless tag to remove spaces inside the A tag. #}
 	{% spaceless %}
 	{% if record.logo_image %}
-		<div class="col-md-3 col-xs-12">
-			<p><img src="{{record.logo_image.path}}" title="{{record.name}}" style="max-width: 250px;"></p>
+		<div class="col-md-3 col-xs-12 center-xs">
+			<p class="logo_container"><img src="{{record.logo_image.path}}" title="{{record.name}}" style="max-width: 250px;"></p>
 
 		{% if record.file_jpg %}
-		<div class="col-xs-12">
-			<div class="text-center">
-				<span class="card_title">JPG, {{record.file_jpg.size}}</span><br>
-				<br><a href="{{ ''| page }}?{{queries}}&download={{record.file_jpg.id}}&file_name={{record.file_jpg.file_name|replace({' ': '_'})}}" title="Logo pack" class="btn btn-primary">Download</a>
-			</div>
-		</div>
+            <div class="col-xs-12">
+                <div class="text-center">
+                    <a href="{{ ''| page }}?{{queries}}&download={{record.file_jpg.id}}&file_name={{record.file_jpg.file_name|replace({' ': '_'})}}" title="Logo pack" class="btn btn-primary">Download {{record.name}}, JPG</a>
+                </div>
+            </div>
 		{% endif %}
 		{% if record.file_png %}
-		<div class="col-xs-12">
-			<div class="text-center">
-				<span class="card_title">PNG, {{record.file_png.size}}</span><br>
-				<br><a href="{{ ''| page }}?{{queries}}&download={{record.file_png.id}}&file_name={{record.file_png.file_name|replace({' ': '_'})}}" title="Logo pack" class="btn btn-primary">Download</a>
-			</div>
-		</div>
+            <div class="col-xs-12">
+                <div class="text-center">
+                    <a href="{{ ''| page }}?{{queries}}&download={{record.file_png.id}}&file_name={{record.file_png.file_name|replace({' ': '_'})}}" title="Logo pack" class="btn btn-primary">Download {{record.name}}, PNG</a>
+                </div>
+            </div>
 		{% endif %}
 		{% if record.file_eps %}
 		<div class="col-xs-12">
 			<div class="text-center">
-				<span class="card_title">SVG, {{record.file_eps.size}}</span><br>
-				<br><a href="{{ ''| page }}?{{queries}}&download={{record.file_eps.id}}&file_name={{record.file_eps.file_name|replace({' ': '_'})}}" title="Logo pack" class="btn btn-primary">Download</a>
+				<a href="{{ ''| page }}?{{queries}}&download={{record.file_eps.id}}&file_name={{record.file_eps.file_name|replace({' ': '_'})}}" title="Logo pack" class="btn btn-primary">Download {{record.name}}, SVG</a>
 			</div>
 		</div>
 		{% endif %}

@@ -1,6 +1,6 @@
-url = "/media-center/press-releases"
+url = "/press-releases"
 layout = "default"
-title = "Media center"
+title = "Press releases"
 is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
@@ -15,32 +15,38 @@ noRecordsMessage = "No records found"
 detailsPage = "-"
 detailsUrlParameter = "id"
 pageNumber = "{{ :page }}"
+
+[jumbotron]
+jumbotron = "under-construction"
+title = 1
+background = "transperant"
+templates = "template1"
+description_limit = 0
 ==
 <?php
 use Pensoft\Media\Models\Pressreleases;
 
 function onStart(){
-	$this['mediaPressreleasesList'] =  Pressreleases::get();
+	$this['mediaPressreleasesList'] =  Pressreleases::orderBy('date', 'desc')->get();
 }
 ?>
 ==
+{% set records = mediaPressreleasesList %}
+
+{% if records.count %}
 <div class="container">
 
 	<div class="row press-relieses-container">
-		{% set records = mediaPressreleasesList %}
-		{% set displayColumn = mediaPressreleasesList.displayColumn %}
-		{% set noRecordsMessage = mediaPressreleasesList.noRecordsMessage %}
-		{% set detailsPage = mediaPressreleasesList.detailsPage %}
-		{% set detailsKeyColumn = mediaPressreleasesList.detailsKeyColumn %}
-		{% set detailsUrlParameter = mediaPressreleasesList.detailsUrlParameter %}
+
 
 		{% for record in records %}
 		{# Use spaceless tag to remove spaces inside the A tag. #}
 		{% spaceless %}
-		<div class="col-xs">
+		<div class="col-xs-12">
 			<div class="press-relies-item">
+                <span class="date"> {{record.date |date('d F Y')}}</span> <br><br>
 				<span class="card_title">{{record.name}}</span><br><br>
-				<span class="date"> {{record.date |date('F Y')}}</span> <br><br>
+
 				<div class="body">{{record.description | raw}}</div>
 				<div class="row link mt-2">
 					{% for link in record.link %}
@@ -52,8 +58,11 @@ function onStart(){
 
 
 		{% endspaceless %}
-		{% else %}
-		{{ noRecordsMessage }}
 		{% endfor %}
 	</div>
 </div>
+{% else %}
+<div class="container-fluid bg-secondary coming_soon">
+    {% component 'jumbotron' %}
+</div>
+{% endif %}

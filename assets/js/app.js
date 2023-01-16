@@ -93,26 +93,23 @@ $(document).ready(function() {
     });
 
 
-	$('body').on('click', '.pilots .accordion-toggle', function () {
-		if ($(this).next(".accordion-content").is(':visible')) {
-			$(this).next(".accordion-content").slideUp(300);
-			$(this).children(".plusminus").html('<span class="plus"></span>');
-		} else {
-			$(this).next(".accordion-content").slideDown(300);
-			$(this).children(".plusminus").html('<span class="minus"></span>');
-		}
-	});
-
-
-    $('.pilots .accordion-border').click(function(){
-        var title = $(this).find(".accordion-toggle .col-xs.start-xs").text();
-        var toggler = $(this).find(".accordion-toggle");
-        var string = title.split(',')[0];
-        if (toggler.next(".accordion-content").is(':visible')) {
-            $("path[title='"+title+"']").removeClass('active_path');
+    $('body').on('click', '.work_packages .accordion-toggle', function () {
+        $('.ui-accordion-header').show();
+        if ($(this).next(".accordion-content").is(':visible')) {
+            $(this).next(".accordion-content").slideUp(300);
+            $(this).children().find(".plusminus").text('+');
+            $(this).children(".plusminus").html('<span class="plus"></span>');
         } else {
-            $("path[title='"+title+"']").addClass('active_path');
+            $(this).next(".accordion-content").slideDown(300);
+            $(this).children().find(".plusminus").text('-');
+            $(this).children(".plusminus").html('<span class="minus"></span>');
         }
+    });
+
+
+
+    $('.work_packages .accordion-content, .partners_list_container .accordion-toggle, .messages .accordion-toggle').each(function( index, value ) {
+        $(value).find('a').attr( "onclick", "window.open(this.href, '_blank');" )
     });
 
     $('body').on('click', '#mycomponentpartners .accordion-toggle', function () {
@@ -208,7 +205,7 @@ $(document).ready(function() {
 
 
 
-	$('.numbers').attr('data-aos', 'fade-up');
+	// $('.numbers').attr('data-aos', 'fade-up');
 	$('.card-img-top').attr('data-aos', 'fade-up');
 	$('.logo-container').attr('data-aos', 'fade-up');
 	$('.subscribe-items a').attr('data-aos', 'fade-up');
@@ -217,6 +214,8 @@ $(document).ready(function() {
 	$('h2.underline').attr('data-aos', 'fade-up');
 	$('.news_column').attr('data-aos', 'fade-up');
 	$('.objectives_list .col-md-4').attr('data-aos', 'fade-up');
+	$('.homepage_subpages li').attr('data-aos', 'fade-up');
+	$('.twitter_image, .linkedin_image').attr('data-aos', 'fade-up');
 	// $('.timeline-item').attr('data-aos', 'fade-up');
 
 	// about page
@@ -225,6 +224,9 @@ $(document).ready(function() {
 
 	$('.country_map').attr('data-aos', 'fade-up');
 	$('.partner-item').attr('data-aos', 'fade-up');
+	$('.parener_logo').attr('data-aos', 'fade-up');
+	$('.coordinator_image').attr('data-aos', 'fade-up');
+	$('.flip-card').attr('data-aos', 'fade-up');
 
 	// media
 	$('.flyer_image_container img').attr('data-aos', 'fade-up');
@@ -262,19 +264,83 @@ $(document).ready(function() {
 
 	$('.see_all_partners_link').hide();
 
-    var width = $(window).width();
-
-    if (width >= 1024){
-        $('.pilots .key_0, .pilots .key_1, .pilots .key_2, .pilots .key_3, .pilots .key_4, .pilots .key_5, .pilots .key_6, .pilots .key_7, .pilots .key_8, .pilots .key_9, .pilots .key_10').wrapAll('<div class="col-md-12 col-xs-12" />');
-    }
-    if (width < 1024) {
-        $('.key_1, .key_3, .key_5, .key_7, .key_9, .key_11, .key_13').wrapAll('<div class="col-md-6 col-xs-12" />');
-        $('.key_0, .key_2, .key_4, .key_6, .key_8, .key_10, .key_12').wrapAll('<div class="col-md-6 col-xs-12" />');
-        $('.pilots .key_0, .pilots .key_1, .pilots .key_2, .pilots .key_3, .pilots .key_4, .pilots .key_5, .pilots .key_6, .pilots .key_7, .pilots .key_8, .pilots .key_9, .pilots .key_10').wrapAll('<div class="col-md-12 col-xs-12" />');
-    }
-
 
 });
+
+function expandReadMore(el){
+    var $el, $ps, $up, totalHeight;
+
+    totalHeight = 115;
+
+    $el = $(el) // read-more link
+
+    $up  = $el.parent(); // coordinator_info
+
+    if ($el.text() == "Read more") {
+
+        $ps = $up.find("p:not('.read-more')");
+
+        // measure how tall inside should be by adding together heights of all inside paragraphs (except read-more paragraph)
+        $ps.each(function() {
+            totalHeight += $(this).outerHeight();
+        });
+
+        $up.addClass('changed');
+
+        $el.css({
+            top: totalHeight - 120
+        });
+        // $el.html('<a class="revert" href="" onclick="revertChanges(this);">Read less</a>');
+
+        $up.css({
+            // Set height to prevent instant jumpdown when max height is removed
+            "height": $up.height(),
+            "max-height": 9999,
+        })
+            .animate({
+                "height": totalHeight
+            });
+
+        //Stuff to do when btn is in the read more state
+        $el.html("Read less");
+        // $up.slideDown();
+    } else {
+
+        $up.removeClass('changed');
+
+        $el.css({
+            top: 53
+        });
+        // $el.html('<a class="revert" href="" onclick="revertChanges(this);">Read less</a>');
+
+        $up.css({
+            // Set height to prevent instant jumpdown when max height is removed
+            "height": $up.height(),
+            "max-height": 460,
+        })
+            .animate({
+                "height": totalHeight
+            });
+        //Stuff to do when btn is in the read less state
+        $el.html("Read more");
+
+        $('html, body').animate({
+            scrollTop:  $up.offset().top - $('header').height() - 300
+        });
+
+        // $up.slideUp();
+    }
+
+
+
+
+
+    // fade out read-more
+    // $up.fadeOut();
+
+    // prevent jump-down
+    return false;
+}
 
 function onHashChange(){
 	$("path").removeClass('active_path');
@@ -437,19 +503,26 @@ function scrollDown(){
 	$("html, body").animate({ scrollTop: element.offset().top - 190 }, 500);
 }
 
+function scrollToItem(item){
+	var element = $(item);
+    var tooltip = document.getElementById("tooltip");
+	$("html, body").animate({ scrollTop: element.offset().top - 150 }, 500);
+    tooltip.classList.remove("active");
+}
+
 
 function handleCustomSVGMapMouseMove(event) {
-    var countryCode = $(event.target).parent().parent().attr('country_code');
-    var title = $(event.target).parent().parent().attr('title');
+    var countryCode = $(event.target).parent().attr('country_code');
+    var title = $(event.target).parent().attr('title');
     var tooltip = document.getElementById("tooltip");
     if (!countryCode) {
-        countryCode = $(event.target).parent().parent().parent().attr('country_code');
-        title = $(event.target).parent().parent().parent().attr('title');
+        countryCode = $(event.target).attr('country_code');
+        title = $(event.target).attr('title');
     }
 
     if (!countryCode) {
-        countryCode = $(event.target).parent().parent().parent().parent().attr('country_code');
-        title = $(event.target).parent().parent().parent().parent().attr('title');
+        countryCode = $(event.target).parent().parent().attr('country_code');
+        title = $(event.target).parent().parent().attr('title');
     }
 
     switch (countryCode) {
@@ -753,6 +826,14 @@ function onCustomSinglePartner(pId) {
     });
 }
 
+
+function cardCarousel(object){
+    return new Promise(resolve => {
+        $('#card-carousel').slick(object);
+        resolve()
+    });
+}
+
 function init() {
     window.addEventListener('resize', function () {
         if (isBreakpointLarge()) {
@@ -800,18 +881,12 @@ function init() {
 function handlePilotsSVGMapMouseMove(event) {
 	var title = $(event.target).attr('title');
 	var tooltip = document.getElementById("tooltip");
-	if (!title) {
-		title = $(event.target).parent().attr('title');
-	}
 
 	switch (title) {
-		case 'Salisbury Plain':
-		case 'French Mediterranean natural reserves':
-		case 'Friedeburg':
-		case 'LTER Petrohan':
-		case 'Mols Bjerge National Park':
-		case 'Oostvaardersplassen Nature Reserve':
-		case 'Island of Comino and surrounding islets':
+		case 'Boreal climate':
+		case 'Atlantic climate':
+		case 'Mediterranean and continental climate':
+		case 'Continental and Alpine climate':
 			break;
 		default:
 			return tooltip.classList.remove("active");
@@ -828,34 +903,5 @@ function handlePilotsSVGMapMouseMove(event) {
 
 }
 
-function onPilots(pTitle) {
-	// $("path").removeClass('active_path');
-	var tooltip = document.getElementById("tooltip");
-	tooltip.classList.remove("active");
-	if(!$("path[title='"+pTitle+"']").hasClass('active_path')){
-        $("path[title='"+pTitle+"']").addClass('active_path');
-
-        $('.accordion-border').each(function(){
-            var title = $(this).find(".accordion-toggle .col-xs.start-xs").text();
-            var toggler = $(this).find(".accordion-toggle");
-            if ( title.indexOf(pTitle) >= 0 && !toggler.next(".accordion-content").is(':visible') ){
-                toggler.trigger( "click" );
-                $('html, body').animate({
-                    scrollTop: toggler.parent().offset().top - 150
-                }, 500);
-            }
-        });
-    }else{
-        $("path[title='"+pTitle+"']").removeClass('active_path');
-        $('.accordion-border').each(function(){
-            var title = $(this).find(".accordion-toggle .col-xs.start-xs").text();
-            var toggler = $(this).find(".accordion-toggle");
-            if ( title.indexOf(pTitle) >= 0 && toggler.next(".accordion-content").is(':visible') ){
-                toggler.trigger( "click" );
-            }
-        });
-    }
-
-}
 
 init()

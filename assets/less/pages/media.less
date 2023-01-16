@@ -1,51 +1,27 @@
-.media-btn_broshure_and_poster{
-  .breakpoint-small-down({
-    margin: 10px 0!important;
-  });
-}
-
-.newsletter_title{
-  position: absolute;
-  color: @white-color;
-  display: block;
-  width: 302px;
-  text-align: center;
-  margin-top: 85px;
-  .breakpoint-small-down({
-    width: 100%;
-  });
-}
-
-.newsletter_item{
-  text-align: center;
-  .breakpoint-small-down({
-    margin-top: 50px;
-  });
-}
-
-.broshure_and_poster img, .newsletter_item img{
-  border-radius: 50%;
-}
-
-.media_label{
-  color: white;
-    background: @link-color;
-    border-radius: 30px;
-    width: 300px;
-    max-width: 100vw;
-    display: block;
-    margin-top: 80px;
-    padding: 7px 0!important;
-    &:hover{
-        opacity: 1!important;
-        background: @dark-color!important;
+.newsletter_container{
+    .newsletter_item{
+        text-align: center;
+        background: @secondary-color;
+        padding: 30px;
+        max-width: 371px;
+        margin-top: 30px;
     }
 }
 
 
-
-.back-to{
-  color: @link-color;
+.newsletters{
+    .card_image_container{
+        display: flex;
+        background-size: unset!important;
+        width: 312px;
+        height: 220px;
+        border-radius: 5px;
+        margin: 30px 0;
+    }
+    .date{
+        color: @yellow-color;
+        font-weight: bold;
+    }
 }
 
 .press-releases .link a{
@@ -54,36 +30,84 @@
 
 .press-relieses-container{
     .date{
-        color: @link-color;
+        color: @yellow-color;
+        font-weight: bold;
     }
     .press-relies-item{
-        background: #EFF5F5;
+        background: @secondary-color;
         padding: 30px!important;
         margin: 30px 0!important;
-        color: @dark-color!important;
+        color: @default-color!important;
         font-size: 16px;
         .rounded(5px);
         position: relative;
     }
 }
 
-.media_center_container{
-  .card_image_container{
-    background-color: transparent;
-    //height: 100px;
-    //width: 150px;
-  }
-  .card-container{
-    flex-direction: column!important;
-    display: block;
-    height: unset;
-    width: unset;
-    text-align: left;
+.logo{
+    .logo_container{
+        border-radius: 50%;
+        width: 290px;
+        height: 290px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: @secondary-color;
+        margin: 50px auto;
 
+        img{
+            width: 199px;
+            height: 199px;
+        }
 
-  }
-  .card_title{
-    font-family: Muli;
-    font-weight: 500;
-  }
+    }
+
+    a.btn-primary{
+        width: 325px;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .col-md-3.col-xs-12.center-xs{
+        &:nth-of-type(3){
+            .logo_container{
+                background: @default-color;
+            }
+
+        }
+    }
+}
+.flyer{
+    .logo_container{
+        border-radius: 50%;
+        width: 192px;
+        height: 192px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: @dark-color;
+        margin: 50px auto;
+
+        img{
+            width: 111px;
+            height: 111px;
+            object-fit: contain;
+        }
+
+    }
+
+    a.btn-primary{
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+.coming_soon{
+    img{
+        max-width: 616px;
+        width: 60%;
+        object-fit: contain;
+        margin: 50px auto;
+        display: block;
+    }
 }

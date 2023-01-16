@@ -1,6 +1,6 @@
-title = "Videos"
-url = "/media-center/videos"
+url = "/videos"
 layout = "default"
+title = "Videos"
 is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
@@ -15,6 +15,13 @@ noRecordsMessage = "No records found"
 detailsPage = "-"
 detailsUrlParameter = "id"
 pageNumber = "{{ :page }}"
+
+[jumbotron]
+jumbotron = "under-construction"
+title = 1
+background = "transperant"
+templates = "template1"
+description_limit = 0
 ==
 <?php
 use Pensoft\Media\Models\Videos;
@@ -48,15 +55,12 @@ return Redirect::to('/media-center/videos');
 }
 ?>
 ==
+
+{% set records = mediaVideosList %}
+
+{% if records.count %}
 <div class="container">
 	<div class="row">
-		{% set records = mediaVideosList %}
-		{% set displayColumn = mediaVideosList.displayColumn %}
-		{% set noRecordsMessage = mediaVideosList.noRecordsMessage %}
-		{% set detailsPage = mediaVideosList.detailsPage %}
-		{% set detailsKeyColumn = mediaVideosList.detailsKeyColumn %}
-		{% set detailsUrlParameter = mediaVideosList.detailsUrlParameter %}
-
 		{% for record in records %}
 		{# Use spaceless tag to remove spaces inside the A tag. #}
 		{% spaceless %}
@@ -91,11 +95,12 @@ return Redirect::to('/media-center/videos');
 
 
 		{% endspaceless %}
-		{% else %}
-		{{ noRecordsMessage }}
+
 		{% endfor %}
-		<script>
-			initAccordeon('accordion-documents');
-		</script>
 	</div>
 </div>
+{% else %}
+<div class="container-fluid bg-secondary coming_soon">
+    {% component 'jumbotron' %}
+</div>
+{% endif %}

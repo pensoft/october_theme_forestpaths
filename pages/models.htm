@@ -1,6 +1,7 @@
-title = "Models"
-layout = "default"
 url = "/models"
+layout = "default"
+title = "Models"
+header_image = "models.jpg"
 
 [siteSearchInclude]
 
@@ -9,8 +10,17 @@ jumbotron = "models"
 background = "transperant"
 templates = "template1"
 description_limit = 0
+
+[jumbotron image]
+jumbotron = "models-image"
+background = "transperant"
+templates = "template1"
+description_limit = 0
 ==
 {% component 'siteSearchInclude' %}
 <div class="container">
 {% component 'jumbotron' %}
+</div>
+<div class="container">
+{% component 'image' %}
 </div>

@@ -8,10 +8,10 @@ robot_index = "index"
 robot_follow = "follow"
 
 [article_highlights]
-maxItems = 3
+maxItems = 10
 title = "Latest news"
 baseUrl = "/news"
-templates = "template4"
+templates = "template5"
 thumb_width = 440
 thumb_height = 235
 
@@ -21,8 +21,13 @@ title = 0
 background = "transperant"
 templates = "template1"
 description_limit = 0
-==
 
+[jumbotron linkedin]
+jumbotron = "linkedin"
+background = "transperant"
+templates = "template1"
+description_limit = 0
+==
 <div class="container homepage_subpages">
         <div class="row between-md around-xs">
             <div class="col-xs-12 ">
@@ -36,7 +41,7 @@ description_limit = 0
     <div class="container">
         {% component 'article_highlights' %}
         <div class="row">
-            <div class="col-xs-12 center-xs"><a href="{{'news'|page}}" class="btn btn-primary" style="width: 250px;">All news</a> </div>
+            <div class="col-xs-12 center-xs"><a href="{{'news'|page}}" class="read_more">All news</a> </div>
         </div>
     </div>
 </div>
@@ -48,33 +53,30 @@ description_limit = 0
 
         <div class="col-xs-12"><h1 class="display-1">Follow ForestPaths</h1></div>
         <div class="col-lg-6 col-sm-5 col-xs-12">
+            {% if this.theme.twitter and this.theme.twitter_url %}
+            <p align="center" class="twitter_image"><a href="{{this.theme.twitter_url}}" class="social_circle" target="_blank"><i class="pr p-twitter large"></i> </a></p>
+            {% endif %}
+
 			<div class="twitter-widget">
-			    <a class="twitter-timeline" href="https://twitter.com/mambo_eu?ref_src=twsrc%5Etfw">Tweets by ForestPaths_eu</a>
+			    <a class="twitter-timeline" href="https://twitter.com/ForestPaths_eu?ref_src=twsrc%5Etfw">Tweets by ForestPaths_eu</a>
                 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 			</div>
 		</div>
-		<div class="col-sm-6 col-xs-12 social-media-container">
-            <div class="subscribe-items">
-                {% if this.theme.twitter_url %}
-                <a href="{{this.theme.twitter_url}}" target="_blank" class="btn p-primary pr p-twitter medium"></a>
-                {% endif %}
-                {% if this.theme.facebook_url %}
-                <a href="{{this.theme.facebook_url}}" target="_blank" class="btn pr p-primary p-facebook medium"></a>
-                {% endif %}
-                {% if this.theme.linkedin_url %}
-                <a href="{{this.theme.linkedin_url}}" target="_blank" class="btn pr p-primary p-linkedin medium"></a>
-                {% endif %}
-                {% if this.theme.youtube_url %}
-                <a href="{{this.theme.youtube_url}}" target="_blank" class="btn pr p-primary p-youtube medium"></a>
-                {% endif %}
-                {% if this.theme.instagram_url %}
-                <a href="{{this.theme.instagram_url}}" target="_blank" class="btn pr p-primary p-instagram medium"></a>
-                {% endif %}
-                {% if this.theme.researchgate_url %}
-                <a href="{{this.theme.researchgate_url}}" target="_blank" class="btn pr p-primary p-researchgate medium" style="width: 64px;"></a>
-                {% endif %}
+        <div class="col-lg-6 col-sm-5 col-xs-12">
+            {% if this.theme.linkedin and this.theme.linkedin_url %}
+            <p align="center" class="linkedin_image"><a href="{{this.theme.linkedin_url}}" class="social_circle" target="_blank"><i class="pr p-linkedin large"></i> </a></p>
+            {% endif %}
+            <div class="linkedin-widget">
+                {% component 'linkedin' %}
             </div>
-		</div>
+        </div>
 	</div>
 
+</div>
+
+<div class="container-fluid border-box subscribe-newsletter-background">
+    <div class="row container middle-xs between-xs">
+        <div class="col-xs-12 center-xs mb-1">Join our community by subscribing to our bi-annual newsletter.</div>
+        <div class="col-xs-12 center-xs"><a href="{{this.theme.subscribe}}" class="btn btn-primary" target="_blank">Subscribe</a> </div>
+    </div>
 </div>

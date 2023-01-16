@@ -1,6 +1,7 @@
-title = "Demo cases"
-layout = "default"
 url = "/demo-cases"
+layout = "default"
+title = "Demo cases"
+header_image = "demo-cases.jpg"
 
 [siteSearchInclude]
 
@@ -16,11 +17,43 @@ title = 1
 background = "transperant"
 templates = "template1"
 description_limit = 0
+
+[jumbotron climate]
+jumbotron = "demo-climate"
+background = "transperant"
+templates = "template1"
+description_limit = 0
 ==
 {% component 'siteSearchInclude' %}
-<div class="container">
+<div class="container demoCasesIntro">
     {% component 'jumbotron' %}
 </div>
-<div class="container">
+<div class="container demoCasesIntro">
     {% component 'demoCases' %}
+</div>
+
+<div class="container">
+    <span class="tooltiptext" id="tooltip">Bulgaria</span>
+    <div class="row between-md around-xs demoCasesMap middle-xs">
+        <div class="col-md-7 col-xs-12">
+        <ul>
+            <li onclick="scrollToItem('#boreal-climate');">
+                Boreal climate
+            </li>
+            <li onclick="scrollToItem('#atlantic-climate');">
+                Atlantic climate
+            </li>
+            <li onclick="scrollToItem('#mediterranean-climate');">
+                Mediterranean and continental climate
+            </li>
+            <li onclick="scrollToItem('#continental-climate');">
+                Continental and Alpine climate
+            </li>
+        </ul>
+        </div>
+        <div class="col-md-4 col-xs-12 center-xs">
+            {% partial 'components/pilots_map' %}
+        </div>
+    </div>
+{% component 'climate' %}
 </div>

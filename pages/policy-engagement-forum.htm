@@ -1,15 +1,35 @@
-title = "Policy engagement forum"
-layout = "default"
 url = "/policy-engagement-forum"
+layout = "default"
+title = "Policy engagement forum"
+header_image = "policy-engagement-forum-header.jpg"
 
 [siteSearchInclude]
 
 [jumbotron]
-jumbotron = "intro"
+jumbotron = "policy-engagement-forum-intro"
+background = "transperant"
+templates = "template1"
+description_limit = 0
+
+[jumbotron jumbotron2]
+jumbotron = "forum-includes"
+title = 1
+background = "transperant"
 templates = "template1"
 description_limit = 0
 ==
 {% component 'siteSearchInclude' %}
-<div class="container">
-{% component 'jumbotron' %}
+<!-- forum -->
+<div class="container-fluid bg-secondary forum mt-2">
+    <div class="row between-md around-xs">
+        <div class="col-sm-6 col-xs-12">
+            {% component 'jumbotron' %}
+        </div>
+        <div class="col-sm-6 col-xs-12 forum_bg">
+            &nbsp;
+        </div>
+    </div>
+</div>
+<div class="container forum_subpages">
+    {% component 'jumbotron2' %}
 </div>

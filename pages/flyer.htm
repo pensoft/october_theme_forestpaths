@@ -1,4 +1,4 @@
-url = "/media-center/flyer"
+url = "/promotional-materials"
 layout = "default"
 title = "Promotional materials"
 is_hidden = 0
@@ -62,12 +62,17 @@ return Redirect::to('/media-center/flyer');
 		{# Use spaceless tag to remove spaces inside the A tag. #}
 		{% spaceless %}
 		{% if record.flyer_image %}
-		<div class="col-md-4 col-sm-6 col-xs-12">
-			<div class="text-center">
-				<span class="card_image_container" style="background: url({{record.flyer_image.thumb(220,220,{'mode':'crop'})}}) center center no-repeat;" title="{{record.name}}"></span>
-				<span class="card_title">{{record.name}}, {{record.file.size}}</span><br>
-				<br><a href="{{ record.file.path }}#{{record.file.file_name}}" target="_blank" title="{{record.name}}" class="btn btn-primary">Download</a>
-			</div>
+        <div class="col-md-3 col-xs-12 center-xs">
+            <p class="logo_container"><img src="{{record.flyer_image.path}}" title="{{record.name}}"></p>
+
+            {% if record.file %}
+            <div class="col-xs-12">
+                <div class="text-center">
+                    <a href="{{ ''| page }}?{{queries}}&download={{record.file.id}}&file_name={{record.file.file_name|replace({' ': '_'})}}" title="{{record.name}}" class="btn btn-primary">Download  {{record.name}}</a>
+                </div>
+            </div>
+            {% endif %}
+
 		</div>
 
 

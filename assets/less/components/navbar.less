@@ -55,14 +55,22 @@
         flex-direction: column-reverse;
         align-items: center;
 
+        .pr{
+            margin-right: 8px;
+            &:hover{
+                color: @white-color!important;
+                opacity: 0.7!important;
+            }
+        }
+
         .navbar-nav {
             display: flex;
             flex-basis: 100%;
             width: 100%;
             max-width: fit-content;
             flex-grow: 1;
-            padding-left: 0.5rem;
-            padding-right: 0.5rem;
+            padding-left: 0;
+            padding-right: 0;
             padding-top: 1rem;
             padding-bottom: 1rem;
             justify-content: space-around;
@@ -94,6 +102,7 @@
                     white-space: nowrap;
                     text-overflow: ellipsis;
                     max-width: 100%;
+                    font-family: Kohinoor;
 
                     &:hover {
                         border-bottom: 1px solid white;
@@ -101,6 +110,9 @@
                 }
                 &.active a{
                     border-bottom: 1px solid white;
+                }
+                &.active .dropdown-menu a{
+                    border-bottom: none;
                 }
             }
         }
@@ -137,8 +149,11 @@
 
                 .nav-item {
                     text-align: left;
-
+                    margin: 0 10px;
                     &.dropdown {
+                        background: url("../../assets/images/menu-arrow.svg") right no-repeat;
+                        background-size: 12px;
+                        padding-right: 5px;
                         &:hover > .dropdown-menu {
                             display: block;
                         }
@@ -200,24 +215,26 @@
 
 .full-width .search {
     position: absolute;
-    top: 0px;
-    width: 40%;
-    height: 76px;
-    /* max-width: 1600px; */
-    /* left: 0; */
-    right: 110px;
+    top: 0;
+    width: 100vw;
+    height: 310px;
+    //max-width: 1600px;
+    left: 0;
+    right: 0;
+    background: @dark-color;
+    /* right: 110px; */
     z-index: 9999;
 
     form{
         max-width: 70%;
-        float: right;
-        margin: 29px 0px 0 0;
-        .breakpoint-laptop-down({
-            max-width: 70%;
-            float: right;
-            //margin: 30% auto;
-            margin: 30px 0px 0 0;
-        });
+        //float: right;
+        margin: 160px auto 0 auto;
+        //.breakpoint-small-down({
+        //    max-width: 70%;
+        //    //float: right;
+        //    //margin: 30% auto;
+        //    margin: 30px 0px 0 0;
+        //});
     }
 
     .text-grey-search-btn{
@@ -265,26 +282,26 @@
 
 
 .full-width .close-search{
-    background: url("../../assets/images/close.svg") center no-repeat;
-    background-size: 23px;
-    width: 40px;
-    height: 50px;
+    width: 29px;
+    height: 29px;
     position: fixed;
     top: 26px;
     right: 18px;
     cursor: pointer;
-    .breakpoint-laptop-down({
-        right: 60px;
-    });
+    color: @dark-color;
+    background: @white-color;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 29px;
+    ////.breakpoint-laptop-down({
+    ////    right: 60px;
+    ////});
     .breakpoint-huge-down({
-        background: url("../../assets/images/close_white.svg") center no-repeat;
-        background-size: 22px;
-        width: 22px;
-        height: 22px;
-        padding: 0 0px 10px 10px;
-        position: absolute;
-        top: -31px;
-        right: 19px;
+        width: 39px;
+        height: 39px;
+        line-height: 39px;
     });
 }
 
@@ -412,7 +429,7 @@ nav .pr.p-search.middle.search-btn{
     #menu li a{
         color: @white-color;
         font-size: 22px;
-        padding: 24px 0 0 0;
+        padding: 0;
         float: left;
         width: 100%;
     }
@@ -429,7 +446,7 @@ nav .pr.p-search.middle.search-btn{
     }
 
     #menu .dropdown-menu li a{
-        padding: 5px 0 0 0;
+        padding: 0;
         font-size: 16px;
     }
 
@@ -467,7 +484,7 @@ nav .pr.p-search.middle.search-btn{
 
 @media (max-width:800px) {
     #menu {
-        margin: -40px 0 0 -86vw;
+        margin: -86px 0 0 -86vw;
 
     }
 }

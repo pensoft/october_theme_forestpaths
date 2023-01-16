@@ -1,15 +1,36 @@
-title = "CANOPY platform"
-layout = "default"
 url = "/canopy-platform"
+layout = "default"
+title = "CANOPY platform"
+header_image = "canopy-platform.jpg"
 
 [siteSearchInclude]
 
 [jumbotron]
-jumbotron = "privacy-policy"
+jumbotron = "canopy-platform"
+background = "transperant"
+templates = "template1"
+description_limit = 0
+
+[jumbotron jumbotron2]
+jumbotron = "cabopy-bottom"
+background = "transperant"
 templates = "template1"
 description_limit = 0
 ==
 {% component 'siteSearchInclude' %}
-<div class="container">
-{% component 'jumbotron' %}
+<!-- canopy -->
+<div class="container-fluid bg-secondary canopy mt-2">
+    <div class="row between-md around-xs">
+        <div class="col-sm-6 col-xs-12">
+            {% component 'jumbotron' %}
+        </div>
+        <div class="col-sm-6 col-xs-12 canopy_bg">
+            &nbsp;
+        </div>
+    </div>
+</div>
+<div class="container row center-xs">
+    <div class="col-md-6 col-xs-12">
+    {% component 'jumbotron2' %}
+    </div>
 </div>

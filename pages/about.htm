@@ -6,40 +6,67 @@ meta_description = "about page"
 seo_keywords = "keywords"
 robot_index = "index"
 robot_follow = "follow"
-header_image = "about.jpg"
+header_image = "about-header.jpg"
 
 [siteSearchInclude]
 
 [jumbotron background]
 jumbotron = "background"
 title = 1
-background = "#ffffff"
+background = "transperant"
+templates = "template1"
+description_limit = 0
+
+[jumbotron ambition]
+jumbotron = "ambition"
+title = 1
+background = "unset"
 templates = "template1"
 description_limit = 0
 
 [jumbotron objectives]
 jumbotron = "objectives"
 title = 1
-background = "unset"
-templates = "template1"
-description_limit = 0
-
-[jumbotron wp]
-jumbotron = "work-packages"
-title = 1
 background = "transperant"
 templates = "template1"
 description_limit = 0
+
+[accordion activities]
+maxItems = 20
+accordion = 1
+elementId = "id"
+active = 0
+collapsible = "false"
+heightStyle = "content"
+iconsHeader = "ui-icon-plus"
+iconsHeaderActive = "ui-icon-minus"
+templates = "template4"
 ==
 {% component 'siteSearchInclude' %}
-<div class="container">
-    <div class="row middle-xs">
-        <div class="col-xs-12">
-             <div class="background">
-                {% component 'background' %}
-             </div>
+<!-- background -->
+<div class="container-fluid bg-secondary background mt-2">
+    <div class="row between-md around-xs">
+        <div class="col-sm-6 col-xs-12">
+            {% component 'background' %}
+        </div>
+        <div class="col-sm-6 col-xs-12 background_bg">
+            &nbsp;
         </div>
     </div>
+</div>
+<!-- ambition -->
+<div class="container-fluid bg-secondary ambition mt-2">
+    <div class="row between-md around-xs">
+        <div class="col-sm-6 col-xs-12 ambition_bg">
+            &nbsp;
+        </div>
+        <div class="col-sm-6 col-xs-12 ">
+            {% component 'ambition' %}
+        </div>
+    </div>
+</div>
+
+<div class="container" id="objectives">
     <div class="row middle-xs">
         <div class="col-xs-12">
              <div class="objectives">
@@ -47,11 +74,11 @@ description_limit = 0
              </div>
         </div>
     </div>
-    <div class="row top-xs">
+    <div class="row top-xs" id="activities">
         <div class="col-xs-12">
             <div class="container-fluid work_packages " style="background-color:unset;">
     	        <div class="container">
-                    {% component 'wp' %}
+                {% component 'activities' %}
                 </div>
             </div>
         </div>

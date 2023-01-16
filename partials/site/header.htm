@@ -21,7 +21,30 @@ numberOfLevels = 2
     <a href="{{'home'|page}}" class="navbar-brand" id="navbar-brand" style="background-image: url('{{ this.theme.site_logo.getPath() }}'); background-position: center; background-size: contain;"></a>
 
 
+
+
     <div class="navbar-collapse collapse end-xs" id="headerNavbarNav" style="display: none;">
+
+
+        {% if this.theme.facebook and this.theme.facebook_url %}
+        <a href="{{this.theme.facebook_url}}" target="_blank" class="pr p-secondary p-facebook big" target="_blank"></a>
+        {% endif %}
+        {% if this.theme.twitter and this.theme.twitter_url %}
+        <a href="{{this.theme.twitter_url}}" target="_blank" class="pr p-secondary p-twitter big" target="_blank"></a>
+        {% endif %}
+        {% if this.theme.linkedin and this.theme.linkedin_url %}
+        <a  href="{{this.theme.linkedin_url}}" target="_blank" class="pr p-secondary p-linkedin big" target="_blank"></a>
+        {% endif %}
+        {% if this.theme.youtube and this.theme.youtube_url %}
+        <a  href="{{this.theme.youtube_url}}" target="_blank" class="pr p-secondary p-youtube big" target="_blank"></a>
+        {% endif %}
+        {% if this.theme.instagram and this.theme.instagram_url %}
+        <a  href="{{this.theme.instagram_url}}" target="_blank" class="pr p-secondary p-instagram big" target="_blank"></a>
+        {% endif %}
+        {% if this.theme.researchgate and this.theme.researchgate_url %}
+        <a  href="{{this.theme.researchgate_url}}" target="_blank" class="pr p-secondary p-researchgate big" target="_blank"></a>
+        {% endif %}
+
         {% component 'menu' %}
         <div id="headerNavbarLogin">
             <ul class="navbar-nav" style="padding: 0; margin: 0;">
@@ -32,7 +55,7 @@ numberOfLevels = 2
     <a class="pr p-search middle search-btn" onclick="showSearchForm();"></a>
 
     <div id="search" class="search" style="display: none;">
-        <div class="close-search" onclick="hideSearchForm();"></div>
+        <div class="close-search" onclick="hideSearchForm();">&#x2715;</div>
         <form class="input-group align-items-start" action="{{ url('search')}}" method="get">
             <input class="form-control search_input" style="color: #000;" name="q" type="text" autocomplete="on" placeholder="Search">
             <button class="btn btn-link pr p-search big text-grey-search-btn" type="submit"></button>
@@ -48,7 +71,7 @@ numberOfLevels = 2
 <div class="header-image {{page_id}}">
     {% if page_id != 'search' %}
     {%if this.page.header_image %}
-    <div class="header-image-bar" style="background-image: url('{{this.page.header_image|media}}'); background-position: left center;"></div>
+    <div class="header-image-bar" style="background-image: url('{{this.page.header_image|media}}'); background-position: top center;"></div>
     {%else%}
     <div class="header-image-bar" style="background-image: url('{{this.theme.header_image.getPath()}}'); background-position: center;"></div>
     {%endif%}
