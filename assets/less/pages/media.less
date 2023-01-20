@@ -48,22 +48,26 @@
     .logo_container{
         border-radius: 50%;
         width: 290px;
-        height: 290px;
+        max-width: 100%;
+        aspect-ratio : 1 / 1;
+        //height: 290px;
         display: flex;
         align-items: center;
         justify-content: center;
         background: @secondary-color;
-        margin: 50px auto;
+        margin: 35px auto;
 
         img{
             width: 199px;
-            height: 199px;
+            //height: 199px;
+            max-width: 70%!important;
+            aspect-ratio : 1 / 1;
         }
 
     }
 
     a.btn-primary{
-        width: 325px;
+        //width: 325px;
         max-width: 100%;
         margin-bottom: 20px;
     }
@@ -86,7 +90,7 @@
         align-items: center;
         justify-content: center;
         background: @dark-color;
-        margin: 50px auto;
+        margin: 40px auto;
 
         img{
             width: 111px;

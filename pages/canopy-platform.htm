@@ -10,16 +10,10 @@ jumbotron = "canopy-platform"
 background = "transperant"
 templates = "template1"
 description_limit = 0
-
-[jumbotron jumbotron2]
-jumbotron = "cabopy-bottom"
-background = "transperant"
-templates = "template1"
-description_limit = 0
 ==
 {% component 'siteSearchInclude' %}
 <!-- canopy -->
-<div class="container-fluid bg-secondary canopy mt-2">
+<div class="container-fluid bg-secondary canopy mt-2 mb-2">
     <div class="row between-md around-xs">
         <div class="col-sm-6 col-xs-12">
             {% component 'jumbotron' %}
@@ -27,10 +21,5 @@ description_limit = 0
         <div class="col-sm-6 col-xs-12 canopy_bg">
             &nbsp;
         </div>
-    </div>
-</div>
-<div class="container row center-xs">
-    <div class="col-md-6 col-xs-12">
-    {% component 'jumbotron2' %}
     </div>
 </div>

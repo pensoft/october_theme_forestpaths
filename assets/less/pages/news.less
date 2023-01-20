@@ -78,7 +78,7 @@ nav:not(.navbar){
       .news-img-top{
           width: 410px;
           height: 235px;
-          object-fit: cover;
+          object-fit: contain;
           max-width: 95%;
       }
   }
@@ -93,9 +93,10 @@ margin-bottom: 50px;
       width: 453px;
       max-width: 100%;
       background: @white-color;
-      display: block;
+      display: flex;
+      align-items: start;
     img{
-        margin: 0px auto;
+        margin: 15px auto;
     }
   }
 }
@@ -239,8 +240,8 @@ nav:not(.navbar){
 
     img{
         max-width: 100% !important;
-        object-fit: none;
-        margin-bottom: 20px;
+        object-fit: contain;
+        margin-bottom: 5px;
     }
 
     h1{

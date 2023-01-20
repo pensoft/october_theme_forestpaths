@@ -5,8 +5,8 @@
         'type' => 'october-theme',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '08bfa11bb731f4095983d4f717e6d5122238affc',
-        'name' => 'october/pensoft-tier2-theme',
+        'reference' => 'ea41c8589fc6fe5f49c144a0a6f63dccfa59a82e',
+        'name' => 'october/pensoft-forestpaths-theme',
         'dev' => true,
     ),
     'versions' => array(
@@ -19,13 +19,13 @@
             'reference' => 'd20a64ed3c94748397ff5973488761b22f6d3f19',
             'dev_requirement' => false,
         ),
-        'october/pensoft-tier2-theme' => array(
+        'october/pensoft-forestpaths-theme' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
             'type' => 'october-theme',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '08bfa11bb731f4095983d4f717e6d5122238affc',
+            'reference' => 'ea41c8589fc6fe5f49c144a0a6f63dccfa59a82e',
             'dev_requirement' => false,
         ),
         'roundcube/plugin-installer' => array(

@@ -115,10 +115,11 @@ $(document).ready(function() {
     $('body').on('click', '#mycomponentpartners .accordion-toggle', function () {
         if ($(this).next(".accordion-content").is(':visible')) {
             $(this).next(".accordion-content").slideUp(300);
-            $(this).children(".plusminus").html('<span>Members</span><span class="plus"></span>');
+            // $(this).children(".plusminus").html('<span>Members</span><span class="plus"></span>');
+            $(this).children().find(".showmembers.read_more").removeClass('expanded');
         } else {
             $(this).next(".accordion-content").slideDown(300);
-            $(this).children(".plusminus").html('<span>Members</span><span class="minus"></span>');
+            $(this).children().find(".showmembers.read_more").addClass('expanded');
         }
     });
 
@@ -194,9 +195,12 @@ $(document).ready(function() {
 
 			// Make the tab active.
 			$active.addClass('active');
-			$content.slideDown({
-				scrollTop: $content.offset().top - $('header').height()
-			}, speed);
+			if($content.offset()){
+                $content.slideDown({
+                    scrollTop: $content.offset().top - $('header').height()
+                }, speed);
+            }
+
 
 			// Prevent the anchor\'s default click action
 			e.preventDefault();
@@ -223,7 +227,7 @@ $(document).ready(function() {
 	$('.about img').attr('data-aos', 'fade-up');
 
 	$('.country_map').attr('data-aos', 'fade-up');
-	$('.partner-item').attr('data-aos', 'fade-up');
+	// $('.partner-item').attr('data-aos', 'fade-up');
 	$('.parener_logo').attr('data-aos', 'fade-up');
 	$('.coordinator_image').attr('data-aos', 'fade-up');
 	$('.flip-card').attr('data-aos', 'fade-up');
@@ -234,11 +238,6 @@ $(document).ready(function() {
 	$('.card-container').attr('data-aos', 'fade-up');
 	$('.coordinator_image').attr('data-aos', 'fade-up');
 
-
-	// $('.news_column, .single-news-item').each(function(){
-	$('.news_column').each(function(){
-		$(this).find('img').wrapAll("<div class='shadow'></div>")
-	});
 
 	$('.news .news-container, .news .news-image').removeClass('col-xs-12').removeClass('center-xs');
 

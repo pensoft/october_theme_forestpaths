@@ -65,29 +65,21 @@ return Redirect::to('/media-center/logo');
 	{% spaceless %}
 	{% if record.logo_image %}
 		<div class="col-md-3 col-xs-12 center-xs">
-			<p class="logo_container"><img src="{{record.logo_image.path}}" title="{{record.name}}" style="max-width: 250px;"></p>
-
-		{% if record.file_jpg %}
+			<p class="logo_container"><img src="{{record.logo_image.path}}" title="{{record.name}}"></p>
             <div class="col-xs-12">
                 <div class="text-center">
-                    <a href="{{ ''| page }}?{{queries}}&download={{record.file_jpg.id}}&file_name={{record.file_jpg.file_name|replace({' ': '_'})}}" title="Logo pack" class="btn btn-primary">Download {{record.name}}, JPG</a>
+                    <b>Download {{record.name}}</b> <br><br>
+                    {% if record.file_jpg %}
+                        <a href="{{ ''| page }}?{{queries}}&download={{record.file_jpg.id}}&file_name={{record.file_jpg.file_name|replace({' ': '_'})}}" title="Logo pack" class="btn btn-primary"><i class="pr p-download"></i>  JPG</a> &nbsp;
+                    {% endif %}
+                    {% if record.file_png %}
+                        <a href="{{ ''| page }}?{{queries}}&download={{record.file_png.id}}&file_name={{record.file_png.file_name|replace({' ': '_'})}}" title="Logo pack" class="btn btn-primary"><i class="pr p-download"></i>  PNG</a> &nbsp;
+                    {% endif %}
+                    {% if record.file_eps %}
+                        <a href="{{ ''| page }}?{{queries}}&download={{record.file_eps.id}}&file_name={{record.file_eps.file_name|replace({' ': '_'})}}" title="Logo pack" class="btn btn-primary"><i class="pr p-download"></i>  SVG</a>
+                    {% endif %}
                 </div>
             </div>
-		{% endif %}
-		{% if record.file_png %}
-            <div class="col-xs-12">
-                <div class="text-center">
-                    <a href="{{ ''| page }}?{{queries}}&download={{record.file_png.id}}&file_name={{record.file_png.file_name|replace({' ': '_'})}}" title="Logo pack" class="btn btn-primary">Download {{record.name}}, PNG</a>
-                </div>
-            </div>
-		{% endif %}
-		{% if record.file_eps %}
-		<div class="col-xs-12">
-			<div class="text-center">
-				<a href="{{ ''| page }}?{{queries}}&download={{record.file_eps.id}}&file_name={{record.file_eps.file_name|replace({' ': '_'})}}" title="Logo pack" class="btn btn-primary">Download {{record.name}}, SVG</a>
-			</div>
-		</div>
-		{% endif %}
         </div>
 	{% endif %}
 

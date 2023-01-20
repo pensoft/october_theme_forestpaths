@@ -87,6 +87,18 @@ $this['related'] = $related;
             <div class="content">
                 {{article.content|raw}}
             </div>
+
+        </div>
+        <div class="col-xs-12 col-md-5">
+            {% if article.cover %}
+            <div class="row center-xs">
+                <img class="content left" src="{{ article.cover|crop_image|resize(673, auto, { mode: 'crop' }) }}" />
+                {% if article.caption %}
+                {{article.caption|raw}}
+                {% endif %}
+            </div>
+            {% endif %}
+
             <div class="row share_container middle-xs">
                 <div class="col-cx-2 start-xs">Share</div>
                 <div class="col-cx-10 end-xs">
@@ -101,13 +113,6 @@ $this['related'] = $related;
                     {% endif %}
                 </div>
             </div>
-        </div>
-        <div class="col-xs-12 col-md-5">
-            {% if article.cover %}
-            <div class="row">
-                <img class="content left" src="{{ article.cover|crop_image|resize(673, 411, { mode: 'crop' }) }}" />
-            </div>
-            {% endif %}
 
 
         </div>
