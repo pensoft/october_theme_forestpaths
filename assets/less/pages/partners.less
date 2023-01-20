@@ -68,7 +68,9 @@ ul.partners_logos_list li{
     flex-wrap: wrap;
     //min-height: 800px;
     .breakpoint-small-down({
-        margin-top: 350px;
+        margin-top: 250px;
+        align-items: center;
+        justify-content: space-around;
     });
 }
 
@@ -84,8 +86,16 @@ ul.partners_logos_list li{
         line-height: 38px;
     }
     .partner_logo{
+        .breakpoint-small-down({
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        });
         img{
-            //width: auto!important;
+            .breakpoint-small-down({
+                width: auto;
+                margin-bottom: 20px;
+            });
         }
 
     }
@@ -108,6 +118,10 @@ ul.partners_logos_list li{
                 opacity: 0.7;
             }
         }
+        .breakpoint-small-down({
+            font-size: 40px;
+            margin-left: 0;
+        });
 
     }
     .row:has(.partner_title ){

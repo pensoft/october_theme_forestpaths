@@ -189,6 +189,9 @@ h1.display-1{
         flex-direction: column;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+        .breakpoint-small-down({
+            display: flex;
+        });
 
         li{
             width: 80%;
@@ -595,6 +598,21 @@ h1.display-1{
                     }
                 }
             }
+
+            .footer-menu-item{
+                .breakpoint-small-down({
+                    display: flex;
+                    justify-content: center;
+                });
+            }
+            .head, .contact_info{
+                .breakpoint-small-down({
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                });
+            }
         }
         &.dark-background {
             background: @dark-color;
@@ -618,8 +636,20 @@ h1.display-1{
                     margin-bottom: 0;
                 }
             }
-        }
 
+            .powered-by-container{
+                .breakpoint-small-down({
+                    margin-top: 20px;
+                });
+                .col-xs-12{
+                    .breakpoint-small-down({
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    });
+                }
+            }
+        }
     }
 
     .footer-menu-container{
