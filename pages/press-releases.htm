@@ -48,7 +48,7 @@ function onStart(){
 				<span class="card_title">{{record.name}}</span><br><br>
 
 				<div class="body">{{record.description | raw}}</div>
-				<div class="row link mt-2">
+				<div class="row link">
 					{% for link in record.link %}
 					<a href="{{link.url}}" target="_blank" class="btn btn-primary">{{link.text}}</a>
 					{% endfor %}

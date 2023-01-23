@@ -62,39 +62,39 @@ return Profiles::where('partner_id', $id)->where('category_id',  1)->get();
 
     </div>
     <div class="container partners-map-container">
-        <div id="mycomponentpartners" class="row">
 
-            {% if members.count > 0 %}
-                <div id="accordion-insider-members" class="partner-item">
-                    <div class="accordion-border">
-                        <div class="row middle-xs accordion-toggle">
-                            <div class="col-xs start-xs"><span class="showmembers read_more">Show all members <span></span></span></div>
-                        </div>
-                        <div class="accordion-content" id="insider-members" style="display: none;">
-                            <div class="row top-xs">
-                                {% for profile in members %}
-                                <div class="col-md-3 col-xs-12">
-                                    <div class="contact_info row">
-                                        <div class="col-xs-12 coordinator_image">
-                                            {% if profile.avatar %}
-                                            <img alt="{{ profile.names }}" src="{{profile.avatar.thumb(236,236,{'mode':'crop'})}}">
-                                            {% else %}
-                                            <img alt="{{ profile.names }}" src="{{ 'person.svg'|media }}" width="236" height="236" class="no-image">
-                                            {% endif %}
-                                        </div>
-                                        <div class="col-xs-12 coordinator_info">
-                                            <h3>{{ profile.names }}</h3>
-                                            <div class="body"><p class="read-more" onclick="expandReadMore(this);">Read more</p>{{ profile.content|raw }}</div>
-                                        </div>
-                                    </div>
+        {% if members.count > 0 %}
+        <div id="accordion-insider-members" class="partner-item">
+            <div class="accordion-border">
+                <div class="row middle-xs accordion-toggle">
+                    <div class="col-xs start-xs"><span class="showmembers read_more">Show all members <span></span></span></div>
+                </div>
+                <div class="accordion-content" id="insider-members" style="display: none;">
+                    <div class="row top-xs">
+                        {% for profile in members %}
+                        <div class="col-md-3 col-xs-12">
+                            <div class="contact_info row">
+                                <div class="col-xs-12 coordinator_image">
+                                    {% if profile.avatar %}
+                                    <img alt="{{ profile.names }}" src="{{profile.avatar.thumb(236,236,{'mode':'crop'})}}">
+                                    {% else %}
+                                    <img alt="{{ profile.names }}" src="{{ 'person.svg'|media }}" width="236" height="236" class="no-image">
+                                    {% endif %}
                                 </div>
-                                {% endfor %}
+                                <div class="col-xs-12 coordinator_info">
+                                    <h3>{{ profile.names }}</h3>
+                                    <div class="body"><p class="read-more" onclick="expandReadMore(this);">Read more</p>{{ profile.content|raw }}</div>
+                                </div>
                             </div>
                         </div>
+                        {% endfor %}
                     </div>
                 </div>
-            {% endif %}
+            </div>
+        </div>
+        {% endif %}
 
+        <div id="mycomponentpartners" class="row">
         </div>
     </div>
 </div>

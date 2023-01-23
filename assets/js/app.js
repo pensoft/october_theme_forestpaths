@@ -112,7 +112,7 @@ $(document).ready(function() {
         $(value).find('a').attr( "onclick", "window.open(this.href, '_blank');" )
     });
 
-    $('body').on('click', '#mycomponentpartners .accordion-toggle', function () {
+    $('body').on('click', '.partner-item .accordion-toggle', function () {
         if ($(this).next(".accordion-content").is(':visible')) {
             $(this).next(".accordion-content").slideUp(300);
             // $(this).children(".plusminus").html('<span>Members</span><span class="plus"></span>');

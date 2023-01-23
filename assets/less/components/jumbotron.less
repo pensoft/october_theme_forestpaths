@@ -369,7 +369,7 @@
             max-width: 50%;
             flex-basis: 50%;
         });
-        .breakpoint-small-down({
+        .breakpoint-large-down({
             max-width: 100%;
             flex-basis: 100%;
         });
@@ -573,10 +573,14 @@
 
 .models{
     .flip-card{
-        height: 770px;
+        height: 800px;
         h3{
             min-height: 105px;
         }
+
+        .breakpoint-large-down({
+            height: 920px!important;
+        });
     }
     .container{
         padding-bottom: 0;
@@ -590,8 +594,19 @@
         h3{
             min-height: 157px;
         }
-        .breakpoint-small-down({
-            height: 920px!important;
+        .breakpoint-large-down({
+            height: 850px!important;
+        });
+    }
+
+    .col-lg-3:has(.flip-card){
+        .breakpoint-screen-down({
+            max-width: 50%;
+            flex-basis: 50%;
+        });
+        .breakpoint-large-down({
+            max-width: 100%;
+            flex-basis: 100%;
         });
     }
 }
@@ -602,13 +617,11 @@
         h3{
             min-height: 157px;
         }
-        .breakpoint-small-down({
-            height: 920px!important;
-        });
+
     }
 }
 .flip-card{
-    .breakpoint-small-down({
+    .breakpoint-large-down({
         height: 800px!important;
     });
 }
@@ -642,10 +655,14 @@
     text-align: center;
     font-size: 22px;
     margin-bottom: 75px;
+
     .breakpoint-laptop-down({
         max-width: 24%!important;
     });
-    .breakpoint-small-down({
+    .breakpoint-huge-down({
+        max-width: 48%!important;
+    });
+    .breakpoint-large-down({
         max-width: 100%!important;
     });
 
@@ -695,12 +712,17 @@
         border-radius: 5px;
         max-width: 24%;
         margin-bottom: 50px;
-        .breakpoint-huge-down({
-            max-width: 48%;
+
+        .breakpoint-laptop-down({
+            max-width: 48% !important;
+            flex-basis: 48%;
         });
-        .breakpoint-small-down({
-            max-width: 100%;
+
+        .breakpoint-large-down({
+            max-width: 100% !important;
+            flex-basis: 100%;
         });
+
         h2{
             //font-size: 26px;
             font-size:calc(24px + 1.5vw);
@@ -711,14 +733,22 @@
             align-items: center;
             padding-left: 120px;
             font-weight: 600;
-            .breakpoint-huge-down({
-                padding-left: 0px;
-                padding-top: 160px;
+
+            .breakpoint-laptop-down({
+                padding-left: 94px;
+                font-size:calc(22px + 0.5vw);
+                line-height: calc(26px + 0.5vw);
+            });
+            .breakpoint-large-down({
+                padding-left: 0px!important;
+                padding-top: 108px;
                 background-position: top center!important;
                 height: unset;
                 display: flex;
                 text-align: center!important;
                 justify-content: center;
+                font-size:calc(24px + 1.5vw);
+                line-height: calc(28px + 1.5vw);
             });
         }
 
@@ -726,6 +756,9 @@
             h2{
                 background: url("../../assets/images/policymakers.svg") left center no-repeat;
                 background-size: 102px;
+                .breakpoint-laptop-down({
+                    background-size: 82px;
+                });
 
             }
         }
@@ -733,18 +766,27 @@
             h2{
                 background: url("../../assets/images/training2.svg") left center no-repeat;
                 background-size: 102px;
+                .breakpoint-laptop-down({
+                    background-size: 82px;
+                });
             }
         }
         &:nth-of-type(3){
             h2{
                 background: url("../../assets/images/training3.svg") left center no-repeat;
                 background-size: 102px;
+                .breakpoint-laptop-down({
+                    background-size: 82px;
+                });
             }
         }
         &:nth-of-type(4){
             h2{
                 background: url("../../assets/images/training4.svg") left center no-repeat;
                 background-size: 102px;
+                .breakpoint-laptop-down({
+                    background-size: 82px;
+                });
             }
         }
 
@@ -769,11 +811,14 @@
             padding-left: 102px;
             position: relative;
             margin-left: 20px;
-            .breakpoint-huge-down({
+            .breakpoint-laptop-down({
                 height: auto;
-                min-height: 56px;
-                background-size: 56px 56px;
+                min-height: 55px;
+                background-size: 55px 55px;
                 padding-left: 76px;
+                margin-left: 13px;
+                font-size:calc(16px + 1.5vw);
+                line-height: calc(22px + 1.5vw);
             });
         }
         li:before {
@@ -792,7 +837,7 @@
             font-family: Raleway;
             line-height: 72px;
             margin-left: -81px;
-            .breakpoint-huge-down({
+            .breakpoint-laptop-down({
                 margin-left: -60px;
                 font-size: 30px;
             });
