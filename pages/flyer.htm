@@ -68,7 +68,8 @@ return Redirect::to('/media-center/flyer');
             {% if record.file %}
             <div class="col-xs-12">
                 <div class="text-center">
-                    <a href="{{ ''| page }}?{{queries}}&download={{record.file.id}}&file_name={{record.file.file_name|replace({' ': '_'})}}" title="{{record.name}}" class="btn btn-primary">Download  {{record.name}}</a>
+                    <h3><b>{{record.name}}</b></h3>
+                    <a href="{{ ''| page }}?{{queries}}&download={{record.file.id}}&file_name={{record.file.file_name|replace({' ': '_'})}}" title="{{record.name}}" class="btn btn-primary">Download</a>
                 </div>
             </div>
             {% endif %}

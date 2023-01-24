@@ -21,19 +21,19 @@ function onStart(){
 
 	extract(
             array_merge([
-                'sort' => 'created_at desc',
+                'sort' => 'year desc',
                 'type' => 0,
                 ], $options)
     );
 
 $this['mySortOptions'] = [
-    'year asc' => 'Year (asc)',
     'year desc' => 'Year (desc)',
+    'year asc' => 'Year (asc)',
     'title desc' => 'Title (desc)',
     'title asc' => 'Title (asc)',
 ];
 
-$library = Library::isVisible()->listFrontEnd($options);
+$library = Library::isVisible()->listFrontEnd($options)->orderBy('year', 'desc');
 
 if(post('Filter')){
     switch (post('Filter')['type']){
@@ -41,25 +41,26 @@ if(post('Filter')){
         $library =Library::where('type', 5)->orderByRAW("nullif(regexp_replace(title, '[^0-9]', '', 'g'),'')::int")->orderBy('title', 'ASC');
         break;
         case 2:
-        $library =Library::where('type', '!=', 5)->where('derived', 2);
+        $library =Library::where('type', '!=', 5)->where('derived', 2)->orderBy('year', 'desc');
         break;
         case 3:
-        $library =Library::where('type', '!=', 5)->where('derived', 1);
+        $library =Library::where('type', '!=', 5)->where('derived', 1)->orderBy('year', 'desc');
         break;
         case 0:
-        $library =Library::isVisible();
+        $library =Library::isVisible()->orderBy('year', 'desc');
         break;
     }
+
 
     if(in_array(post('Filter')['sort'], array_keys($this['mySortOptions']))){
         $parts = explode(' ', $sort);
         list($sortField, $sortDirection) = $parts;
+
         if($sortField == 'title'){
             $library->orderByRAW("nullif(regexp_replace(title, '[^0-9]', '', 'g'),'')::int")->orderBy('title', $sortDirection);
         }else{
             $library->orderBy($sortField, $sortDirection);
         }
-
     }
 }
 
@@ -222,6 +223,11 @@ $this['total_file_size'] = $this['total_file_size_bites'];
 
 
         {% endfor %}
+
+
+        <div class="row container">
+            {{ data.render|raw }}
+        </div>
 
     </div>
 

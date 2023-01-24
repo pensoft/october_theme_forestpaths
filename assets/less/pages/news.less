@@ -11,7 +11,7 @@ nav:not(.navbar){
 
 .home .news-title {
     order: 1;
-    min-height: 135px;
+    min-height: 180px;
     display: flex;
     align-items: start;
   .card-title{
@@ -88,15 +88,19 @@ nav:not(.navbar){
   //display: flex!important;
   //flex-basis: 31%!important;
   //max-width: 31%!important;
-margin-bottom: 50px;
+margin-bottom: 30px;
   .news_column{
       width: 453px;
-      max-width: 100%;
+      max-width: 90%;
+      margin: 0 auto;
       background: @white-color;
       display: flex;
       align-items: start;
     img{
         margin: 15px auto;
+        .breakpoint-laptop-down({
+            margin: 0 auto;
+        });
     }
   }
 }
@@ -240,7 +244,7 @@ nav:not(.navbar){
 
     img{
         max-width: 100% !important;
-        object-fit: contain;
+        object-fit: none;
         margin-bottom: 5px;
     }
 
