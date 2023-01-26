@@ -66,8 +66,8 @@ if(post('Filter')){
 
 
 
-$this['type'] = post('Filter')['type'];
-$this['sort'] = post('Filter')['sort'];
+$this['type'] = post('Filter') ? post('Filter')['type'] : null;
+$this['sort'] = post('Filter') ? post('Filter')['sort'] : null;
 $this['query'] = get('query') ?: null;
 
 

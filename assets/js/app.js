@@ -894,7 +894,7 @@ function handlePilotsSVGMapMouseMove(event) {
 	var x = event.clientX;
 	var y = event.clientY;
 
-	tooltip.style.left = (x + 20) + "px";
+	tooltip.style.left = (x - 260) + "px";
 	tooltip.style.top = (y - 20) + "px";
 
 	tooltip.innerHTML = $(event.target).attr('title');

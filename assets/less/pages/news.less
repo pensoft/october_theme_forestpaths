@@ -144,7 +144,7 @@ nav:not(.navbar){
 
 .news{
     .news-title{
-        min-height: 86px;
+        //min-height: 86px;
     }
 }
 
@@ -179,6 +179,16 @@ nav:not(.navbar){
 
 .single-news-item{
     position: relative;
+
+    .news_content_wrapper{
+        padding-right: 40px;
+        width: 95%;
+        display: block;
+        .breakpoint-small-down({
+            padding-right: 0;
+            width: 100%;
+        });
+    }
     .text-published{
         font-weight: 500;
         margin-bottom: 30px;
@@ -244,7 +254,7 @@ nav:not(.navbar){
 
     img{
         max-width: 100% !important;
-        object-fit: none;
+        object-fit: contain;
         margin-bottom: 5px;
     }
 
