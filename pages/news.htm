@@ -60,6 +60,7 @@ $c++;
 $orWhere .= ')';
 $related = $related
 ->whereRaw($orWhere)
+->orderBy('published_at', 'desc')
 ->limit(3)
 ->get();
 
