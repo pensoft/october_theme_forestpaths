@@ -5,7 +5,6 @@ is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
 header_image = "media.jpg"
-
 ==
 <?php
 use Pensoft\Articles\Models\Article;
@@ -93,7 +92,7 @@ $this['related'] = $related;
         <div class="col-xs-12 col-md-5">
             {% if article.cover %}
             <div class="row center-xs">
-                <img class="content left" src="{{ article.cover|crop_image|resize(673, auto, { mode: 'crop' }) }}" />
+                <img class="content left" src="{{ article.cover|crop_image|resize(648, auto, { mode: 'crop' }) }}" />
                 {% if article.caption %}
                 {{article.caption|raw}}
                 {% endif %}
@@ -113,6 +112,20 @@ $this['related'] = $related;
                     <a href="https://www.linkedin.com/sharing/share-offsite/?url={{page_url}}" target="_blank" class="btn pr p-primary p-linkedin normal"></a>
                     {% endif %}
                 </div>
+            </div>
+
+            <div class="row related_articles">
+            {% for item in related %}
+                <a href="/news/{{item.slug}}">
+                    <div class="news-image">
+                        <img class="news-img-top" src="{{item.cover.getThumb(190, 140, {'mode': 'crop'})}}">
+                    </div>
+                    <div class="news-container">
+                        <div class="text-published">{{item.pretty_published_at}}</div>
+                        <div class="news-title"><h3 class="card-title">{{item.title}}</h3></div>
+                    </div>
+                </a>
+            {% endfor %}
             </div>
 
 

@@ -199,11 +199,18 @@
     }
 }
 
+.demo-cases .container{
+    padding-right: 0;
+    padding-left: 0;
+}
+
 
 .demoCasesIntro{
     padding-bottom: 0;
     .container{
         padding-bottom: 0;
+        padding-left: 0;
+        padding-right: 0;
     }
     ol {
         list-style: none;
@@ -394,11 +401,15 @@
     .flip-card {
         background-color: transparent;
         width: 95%;
-        height: 710px;
+        height: 630px;
         perspective: 1000px; /* Remove this if you don't want the 3D effect */
         margin-bottom: 75px;
+        .breakpoint-laptop-down({
+            height: 580px;
+            margin: 0px auto 60px auto;
+        });
         .breakpoint-small-down({
-            height: 820px;
+            height: 620px;
             margin: 0px auto 60px auto;
         });
     }
@@ -433,10 +444,13 @@
         border-top: 30px solid @secondary-color;
 
         h3{
-            font-size: 35px;
+            font-size: 30px;
             font-family: Raleway;
             font-weight: bold;
-            padding: 0px 35px 0 35px;
+            padding: 0px 30px 0 30px;
+            .breakpoint-laptop-down({
+                font-size: 24px;
+            });
         }
 
         img{
@@ -448,7 +462,7 @@
             height: 294px;
             object-fit: cover;
             .breakpoint-laptop-down({
-                height: 250px;
+                height: 180px;
             });
         }
 
@@ -469,7 +483,7 @@
 
         .label_description{
             color: @yellow-color;
-            font-size: 22px;
+            font-size: 20px;
             text-align: center;
             padding: 0 40px;
         }
@@ -581,24 +595,56 @@
     background: unset!important;
 }
 
+.flip-card{
+    .breakpoint-large-down({
+        height: 680px;
+    });
+    h3{
+        .breakpoint-small-down({
+            min-height: unset!important;
+        });
+    }
+}
+
 .policy-pathways{
     .flip-card{
-        height: 750px;
+        height: 680px;
         h3{
-            min-height: 105px;
+            min-height: 47px;
+            .breakpoint-small-down({
+                min-height: 90px;
+            });
         }
+        
+        .breakpoint-laptop-down({
+            height: 560px;
+        });
+        .breakpoint-huge-down({
+            height: 750px;
+        });
+        .breakpoint-small-down({
+            height: 630px!important;
+        });
+        
     }
 }
 
 .models{
     .flip-card{
-        height: 800px;
+        height: 720px;
         h3{
-            min-height: 105px;
+            min-height: 47px;
+            .breakpoint-small-down({
+                min-height: 90px;
+            });
         }
 
-        .breakpoint-large-down({
-            height: 920px!important;
+        .breakpoint-laptop-down({
+            height: 580px!important;
+        });
+
+        .breakpoint-small-down({
+            height: 640px!important;
         });
     }
     .container{
@@ -609,12 +655,18 @@
 
 .data-tools{
     .flip-card{
-        height: 800px;
+        height: 720px;
         h3{
-            min-height: 157px;
+            min-height: 90px;
+            .breakpoint-laptop-down({
+                min-height: 47px;
+            });
         }
-        .breakpoint-large-down({
-            height: 850px!important;
+        .breakpoint-laptop-down({
+            height: 580px!important;
+        });
+        .breakpoint-small-down({
+            height: 640px!important;
         });
     }
 
@@ -635,15 +687,21 @@
         height: 800px;
         h3{
             min-height: 157px;
+            .breakpoint-laptop-down({
+                min-height: 108px;
+            });
+            .breakpoint-huge-down({
+                min-height: 120px;
+            });
         }
+
+        .breakpoint-laptop-down({
+            height: 680px!important;
+        });
 
     }
 }
-.flip-card{
-    .breakpoint-large-down({
-        height: 800px!important;
-    });
-}
+
 
 .canopy_label{
     background: url("../../assets/images/about-cirlce.svg") top center no-repeat;

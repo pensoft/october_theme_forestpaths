@@ -54,6 +54,20 @@ description_limit = 0
     <link rel="stylesheet" href="{{ 'assets/css/aos.css'|theme }}">
     <script src="{{ 'assets/js/aos.js'|theme }}"></script>
 
+    {% if this.page.id != 'news' %}
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{this.page.title}}">
+    <meta name="twitter:description" content="{{this.page.description}}">
+    <meta name="og:title" content="{{this.page.title}}">
+    <meta name="og:description" content="{{this.page.description}}">
+    <meta name="og:type" content="article">
+    <meta name="og:url" content="{{this.page.url}}">
+    <meta name="twitter:image" content="{{'preview.png'|media}}">
+    <meta name="og:image" content="{{'preview.png'|media}}">
+    <meta name="og:image:width" content="600">
+    <meta name="og:image:height" content="314">
+{% endif %}
+
 
     {% component 'metaList' %}
     {% framework extras %}
