@@ -60,7 +60,7 @@ $c++;
 $orWhere .= ')';
 $related = $related
 ->whereRaw($orWhere)
-->limit(2)
+->limit(3)
 ->get();
 
 $this['related'] = $related;
