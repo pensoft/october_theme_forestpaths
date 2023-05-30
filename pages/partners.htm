@@ -5,7 +5,6 @@ is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
 header_image = "partners.jpg"
-
 ==
 <?php
 use Pensoft\Partners\Models\Partners;
@@ -67,7 +66,7 @@ return Profiles::where('partner_id', $id)->where('category_id',  1)->get();
         <div id="accordion-insider-members" class="partner-item">
             <div class="accordion-border">
                 <div class="row middle-xs accordion-toggle">
-                    <div class="col-xs start-xs"><span class="showmembers read_more">Show all members <span></span></span></div>
+                    <div class="col-xs start-xs"><span class="showmembers read_more" id="showmembers">Show all members <span></span></span></div>
                 </div>
                 <div class="accordion-content" id="insider-members" style="display: none;">
                     <div class="row top-xs">
@@ -89,7 +88,9 @@ return Profiles::where('partner_id', $id)->where('category_id',  1)->get();
                         </div>
                         {% endfor %}
                     </div>
+                    <a onclick="$('html, body').animate({ scrollTop: 0 }, 'slow'); return false;" class="toTheTop" title="Back to the top">&nbsp;</a>
                 </div>
+                
             </div>
         </div>
         {% endif %}

@@ -382,6 +382,22 @@ function onHashChange(){
 			}
 		});
 	}
+
+    var link = window.location.hash;
+    var anchorId = link.substr(link.indexOf("#") + 1);
+    if($("#"+anchorId).offset()) {
+        $('html, body').animate({
+            scrollTop: $("#" + anchorId).offset().top - 150
+        }, 500);
+        if (link == '#showmembers') {
+            var memberstoggler = $('.showmembers').parent().parent();
+            if (!memberstoggler.next(".accordion-content").is(':visible')) {
+                memberstoggler.trigger('click');
+            }
+
+        }
+    }
+    
 }
 
 
@@ -395,6 +411,11 @@ function createTippy(element, options) {
 		}, options));
 		resolve();
 	});
+}
+
+function scrollToTheTop(){
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+    return false;
 }
 
 
