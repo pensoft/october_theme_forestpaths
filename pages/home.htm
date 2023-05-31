@@ -27,6 +27,23 @@ jumbotron = "linkedin"
 background = "transperant"
 templates = "template1"
 description_limit = 0
+
+[Timeline events_timeline]
+limit = 6
+upcoming = 1
+marked_for_display = 1
+templates = "template3"
+==
+<?php
+
+use Pensoft\Calendar\Models\Entry;
+use Carbon\Carbon;
+
+    function onStart(){
+        $this['entries'] = Entry::where('start', '>', Carbon::now())->where('show_on_timeline', true)->where('is_internal', false)->orderBy('start', 'asc')->get();
+    }
+
+?>
 ==
 <div class="container homepage_subpages">
         <div class="row between-md around-xs">
@@ -35,6 +52,51 @@ description_limit = 0
             </div>
         </div>
 </div>
+{% if entries.count() %}
+<!-- events timeline -->
+<div class="container-fluid events_timeline_background">
+    <div class="container" style="padding-bottom: 0">
+        <div class="timeline timeline--loaded timeline--horizontal" style="opacity: 1;">
+            <div class="timeline__wrap">
+                <div class="timeline__items">
+                    {% for entry in entries %}
+
+                    <div class="timeline__item">
+                        <div class="timeline__content">
+                            <div class="date_and_place">
+                                <span class="event_date">{{entry.event_date}}</span>
+                                <span>{{entry.place}}</span>
+                            </div>
+                            <div class="title_and_desc">
+                                <span class="timeline-body">{{entry.title}}</span>
+                                <span class="timeline-desc">{{entry.description|raw}}</span>
+                                <div class="cover"><img src="{{entry.cover_image.path}}"></div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+            <button class="timeline-nav-button timeline-nav-button--prev" disabled="" style="top: 265px;">Previous</button><button class="timeline-nav-button timeline-nav-button--next" style="top: 265px;">Next</button><span class="timeline-divider" style="top: 265px;"></span></div>
+
+        <script type="text/javascript">
+            timeline(document.querySelectorAll('.timeline'), {
+                forceVerticalMode: 700,
+                mode: 'horizontal',
+                verticalStartPosition: 'left',
+                visibleItems: 6
+            });
+        </script>
+
+    </div>
+</div>
+{% endif %}
+
+
+
 
 <!-- latest from news -->
 <div class="container-fluid bg-secondary" style="padding-bottom: 0">

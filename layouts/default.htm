@@ -38,13 +38,9 @@ description_limit = 0
     <link href="{{ ['assets/less/theme.less']|theme }}" rel="stylesheet">
     <link href="{{ ['assets/css/scale.css']|theme }}" rel="stylesheet">
     <link href="{{ ['assets/css/light.css']|theme }}" rel="stylesheet">
-    {% if this.page.id == 'home' %}
-    <link href="{{ 'assets/css/bootstrap.min.css'|theme }}" rel="stylesheet">
-    {% endif %}
     <script src="{{ 'assets/js/jquery.js'|theme }}"></script>
     {% if this.page.id == 'home' %}
-    <script src="{{ 'assets/js/bootstrap.min.js'|theme }}"></script>
-    <script src="{{ 'assets/js/anime.js'|theme }}"></script>
+    <script src="{{ 'assets/js/timeline.js'|theme }}"></script>
     {% endif %}
     <script src="{{ 'assets/js/popper.min.js'|theme }}"></script>
     <script src="{{ 'assets/js/app.js'|theme }}"></script>

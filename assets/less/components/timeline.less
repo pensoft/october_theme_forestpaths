@@ -1,88 +1,632 @@
-@cycle-width: 20px;
+@cycle-width: 17px;
 @timeline-primary-color: @date-text-color;
 @timeline-secondary-color: @secondary-color;
 @timeline-bg-message-box: @transparent;
 @timeline-border-weight: @border-line-width;
-@timeline-border-color: transperant;
+@timeline-border-color: @white-color;
 
-@timeline-cycle-border-width: @timeline-border-weight * 3;
-@timeline-body-padding: @padding-base-space * 3;
-@timeline-item-padding-y: @cycle-width;
+@timeline-cycle-border-width: @timeline-border-weight * 1;
+@timeline-body-padding: @padding-base-space * 1;
+@timeline-item-padding-y: @cycle-width + 20;
 @timeline-item-padding-x: (@cycle-width / 2 + @timeline-cycle-border-width + @timeline-border-weight + 10);
 
 .timeline {
-    margin: 30px auto 50px auto;
-    padding: 0 3px;
     position: relative;
-    height: 400px;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
 
-    &.vertical {
-        display: flex;
-        flex-direction: row;
-        //height: 300px;
-        justify-content: space-between;
-        //align-items: baseline;
 
-        .timeline-item {
-          flex-basis: 200px!important;
-          max-width: 200px!important;
-          display: flex;
-          flex-direction: column;
-          text-align: center;
-          position: absolute;
 
-          &:nth-of-type(1){
-            left: 250px;
-            top: 0;
-          }
-          &:nth-of-type(2){
-            left: 370px;
-            top: 250px;
-          }
-          &:nth-of-type(3){
-            left: 490px;
-            top: 20px;
-          }
-          &:nth-of-type(4){
-            left: 610px;
-            top: 200px;
-          }
-          &:nth-of-type(5){
-            left: 730px;
-            top: -50px;
-          }
-          &:nth-of-type(6){
-            left: 850px;
-            top: 250px;
-          }
-          &:nth-of-type(7){
-            left: 960px;
-            top: 20px;
-          }
-          &:nth-of-type(8){
-            left: 1080px;
-            top: 320px;
-          }
+/* NEW */
 
-          .timeline-header{
-            display: none;
-          }
+.timeline__wrap {
+    overflow-x: hidden;
+    overflow-y: visible;
+    position: relative;
+    z-index: 2;
+    padding-top: 50px;
+}
 
-            .timeline-body {
-                color: #102441;
-              font-size: 18px;
-              font-weight: bold;
-                //.breakpoint-small-down({
-                //  font-size: 20px;
-                //})
-            }
-
-        }
-
-      .breakpoint-small-down({
-        display: unset;
-
-      })
+.timeline__item {
+    font-size: 1rem;
+    padding: 10px 40px 10px 0;
+    position: relative;
+    width: 50%;
+    z-index: 2;
+    &::after {
+        background-color: @yellow-color;
+        border: 1px solid @white-color;
+        border-radius: 50%;
+        content: '';
+        height: 20px;
+        position: absolute;
+        right: -10px;
+        transform: translateY(-50%);
+        top: 50%;
+        width: 20px;
+        z-index: 1;
+    }
+    &.animated {
+        animation-duration: 1s;
+        animation-fill-mode: both;
+        opacity: 0;
+    }
+    &.fadeIn {
+        animation-name: fadeIn;
     }
 
+}
+
+.timeline__item--left {
+    left: 0;
+}
+
+.timeline__item--right {
+    left: 50%;
+    padding: 10px 0 10px 40px;
+    &::after {
+        left: -10px;
+    }
+}
+
+.timeline__content {
+    display: block;
+    padding: 20px 0;
+    font-size: 16px;
+    position: relative;
+}
+
+.timeline--horizontal {
+    font-size: 0;
+    padding: 0 50px;
+    overflow-x: hidden;
+    overflow-y: visible;
+    white-space: nowrap;
+    .timeline-divider {
+        background-image: linear-gradient(to right, @timeline-border-color 30%, rgba(255,255,255,0) 0%);
+        background-position: bottom;
+        background-size: 5px 1px;
+        background-repeat: repeat-x;
+        display: block;
+        height: 1px;
+        left: 40px;
+        position: absolute;
+        transform: translateY(-50%);
+        right: 40px;
+        z-index: 1;
+    }
+    .timeline__items {
+        transition: all 0.8s;
+        will-change: transform;
+        min-height: 800px;
+    }
+    .timeline__item {
+        display:  inline-block;
+        left:0;
+        padding: 0 0 40px;
+        position: relative;
+        transition: none;
+        vertical-align: top;
+        white-space: normal;
+        &::after {
+            left: 50%;
+            right: auto;
+            transform: translate(-50%, -50%);
+            top: 100%;
+        }
+        .timeline__content__wrap {
+            display: table-cell;
+            margin: 0;
+            padding: 0;
+            vertical-align: bottom;
+        }
+
+        .timeline__content{
+            position: relative;
+            text-align: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .timeline-body{
+                color: @white-color;
+                font-size: 22px;
+                font-weight: bold;
+                .breakpoint-huge-down({
+                    font-size: 18px;
+                });
+            }
+
+            .timeline-desc{
+                margin-top: 20px;
+            }
+
+            .date_and_place{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                color: @yellow-color;
+                width: 100%;
+                height: 100%;
+                justify-content: end;
+            }
+            .title_and_desc{
+                position: absolute;
+                top: 385px;
+                color: @white-color!important;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                p{
+                    margin-bottom: 0;
+                    color: @white-color!important;
+                    font-weight: 100;
+                }
+            }
+
+            .cover{
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 1px;
+                    height: 50px;
+                    bottom:  calc(~'100% + 20px');
+                    left: 50%;
+                    background-color: @white-color;
+
+                }
+            }
+
+            img{
+                width: 60px;
+                height: 60px;
+                object-fit: cover;
+                border-radius: 50%;
+                position: absolute;
+                top: -20px;
+                left: calc(~'50% - 30px');
+            }
+        }
+
+        &--bottom {
+            &::after {
+                top: 0;
+            }
+            .timeline__content__wrap {
+                vertical-align: top;
+            }
+
+            .timeline__content{
+
+                .date_and_place{
+                    justify-content: start;
+                }
+
+                .title_and_desc{
+                    top: -387px;
+                    color: @white-color!important;
+                }
+
+                .cover{
+                    &::after {
+                        bottom: -80px;
+                    }
+                }
+
+                img{
+                    bottom: -30px;
+                    top: unset;
+                }
+            }
+        }
+
+        &:nth-of-type(1){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-02.svg");
+            }
+        }
+        &:nth-of-type(2){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-13.svg");
+            }
+        }
+        &:nth-of-type(3){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-17.svg");
+            }
+        }
+        &:nth-of-type(4){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-20.svg");
+            }
+        }
+        &:nth-of-type(5){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-23.svg");
+            }
+        }
+        &:nth-of-type(6){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Artboard 13-01.svg");
+            }
+        }
+        &:nth-of-type(7){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Biogenic carbon.svg");
+            }
+        }
+        &:nth-of-type(8){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-02.svg");
+            }
+        }
+        &:nth-of-type(9){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-13.svg");
+            }
+        }
+        &:nth-of-type(10){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-17.svg");
+            }
+        }
+        &:nth-of-type(11){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-20.svg");
+            }
+        }
+        &:nth-of-type(12){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-23.svg");
+            }
+        }
+        &:nth-of-type(13){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Artboard 13-01.svg");
+            }
+        }
+        &:nth-of-type(14){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Biogenic carbon.svg");
+            }
+        }
+        &:nth-of-type(15){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-02.svg");
+            }
+        }
+        &:nth-of-type(16){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-13.svg");
+            }
+        }
+        &:nth-of-type(17){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-17.svg");
+            }
+        }
+        &:nth-of-type(18){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-20.svg");
+            }
+        }
+        &:nth-of-type(19){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-23.svg");
+            }
+        }
+        &:nth-of-type(20){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Artboard 13-01.svg");
+            }
+        }
+        &:nth-of-type(21){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Biogenic carbon.svg");
+            }
+        }
+        &:nth-of-type(22){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-02.svg");
+            }
+        }
+        &:nth-of-type(23){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-13.svg");
+            }
+        }
+        &:nth-of-type(24){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-17.svg");
+            }
+        }
+        &:nth-of-type(25){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-20.svg");
+            }
+        }
+        &:nth-of-type(26){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-23.svg");
+            }
+        }
+        &:nth-of-type(27){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Artboard 13-01.svg");
+            }
+        }
+        &:nth-of-type(28){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Biogenic carbon.svg");
+            }
+        }
+    }
+}
+
+.timeline-nav-button {
+    background-color: transparent;
+    border: none;
+    box-sizing:border-box;
+    box-shadow: none;
+    cursor: pointer;
+    display: block;
+    height: 40px;
+    outline: none;
+    position: absolute;
+    text-indent: -9999px;
+    transform: translateY(-50%);
+    top: 50%;
+    width: 70px;
+    z-index: 10;
+    &:disabled {
+        opacity: .5;
+        pointer-events: none;
+    }
+    &::before {
+        background-position: center center;
+        background-repeat: no-repeat;
+        content: '';
+        display: block;
+        height: 14px;
+        left: 50%;
+        position: absolute;
+        transform: translateX(-50%) translateY(-50%);
+        top: 50%;
+        width: 8px;
+    }
+    &--prev {
+        left: 0;
+        &::before {
+            background-image: url('../../assets/images/arrow-left.svg');
+        }
+    }
+    &--next {
+        right: 0;
+        &::before {
+            background-image: url('../../assets/images/arrow-right.svg');
+        }
+    }
+}
+
+.timeline--mobile {
+    padding: 0;
+    &::before {
+        left: 10px !important;
+        margin: 0 !important;
+    }
+    .timeline__item {
+        left: 0;
+        padding-left: 40px;
+        padding-right: 0;
+        width: 100%;
+        &::after {
+            left: 2px;
+            margin: 0;
+        }
+
+
+        &:nth-of-type(1){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-02.svg");
+            }
+        }
+        &:nth-of-type(2){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-13.svg");
+            }
+        }
+        &:nth-of-type(3){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-17.svg");
+            }
+        }
+        &:nth-of-type(4){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-20.svg");
+            }
+        }
+        &:nth-of-type(5){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-23.svg");
+            }
+        }
+        &:nth-of-type(6){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Artboard 13-01.svg");
+            }
+        }
+        &:nth-of-type(7){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Biogenic carbon.svg");
+            }
+        }
+        &:nth-of-type(8){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-02.svg");
+            }
+        }
+        &:nth-of-type(9){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-13.svg");
+            }
+        }
+        &:nth-of-type(10){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-17.svg");
+            }
+        }
+        &:nth-of-type(11){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-20.svg");
+            }
+        }
+        &:nth-of-type(12){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-23.svg");
+            }
+        }
+        &:nth-of-type(13){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Artboard 13-01.svg");
+            }
+        }
+        &:nth-of-type(14){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Biogenic carbon.svg");
+            }
+        }
+        &:nth-of-type(15){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-02.svg");
+            }
+        }
+        &:nth-of-type(16){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-13.svg");
+            }
+        }
+        &:nth-of-type(17){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-17.svg");
+            }
+        }
+        &:nth-of-type(18){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-20.svg");
+            }
+        }
+        &:nth-of-type(19){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-23.svg");
+            }
+        }
+        &:nth-of-type(20){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Artboard 13-01.svg");
+            }
+        }
+        &:nth-of-type(21){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Biogenic carbon.svg");
+            }
+        }
+        &:nth-of-type(22){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-02.svg");
+            }
+        }
+        &:nth-of-type(23){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-13.svg");
+            }
+        }
+        &:nth-of-type(24){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-17.svg");
+            }
+        }
+        &:nth-of-type(25){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-20.svg");
+            }
+        }
+        &:nth-of-type(26){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-23.svg");
+            }
+        }
+        &:nth-of-type(27){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Artboard 13-01.svg");
+            }
+        }
+        &:nth-of-type(28){
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Biogenic carbon.svg");
+            }
+        }
+    }
+
+    .timeline__content{
+        color: @white-color;
+        .date_and_place{
+            display: flex;
+            flex-direction: column;
+            color: @yellow-color;
+            span{
+                color: @yellow-color;
+            }
+        }
+
+        .timeline-body{
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .timeline-desc{
+            p{
+                margin-bottom: 0;
+            }
+        }
+
+        img{
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 50%;
+            //position: absolute;
+            //top: -20px;
+            //left: calc(~'50% - 30px');
+        }
+
+
+    }
+
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        top: 70px;
+    }
+    100% {
+        opacity: 1;
+        top: 0px;
+    }
+}
+
+@keyframes liftUp {
+    0% {
+        top: 0px;
+    }
+    100% {
+        top: -15px;
+    }
 }
