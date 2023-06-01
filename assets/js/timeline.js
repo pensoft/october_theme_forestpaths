@@ -278,8 +278,8 @@ function timeline(collection, options) {
       nextArrow.className = 'timeline-nav-button timeline-nav-button--next';
       prevArrow.textContent = 'Previous';
       nextArrow.textContent = 'Next';
-      prevArrow.style.top = `${topPosition + 50}px`;
-      nextArrow.style.top = `${topPosition + 50}px`;
+      prevArrow.style.top = `${topPosition + 80}px`;
+      nextArrow.style.top = `${topPosition + 80}px`;
       if (currentIndex === 0) {
         prevArrow.disabled = true;
       } else if (currentIndex === (tl.items.length - tl.settings.visibleItems)) {
@@ -299,7 +299,7 @@ function timeline(collection, options) {
     const topPosition = tl.items[0].offsetHeight;
     const horizontalDivider = document.createElement('span');
     horizontalDivider.className = 'timeline-divider';
-    horizontalDivider.style.top = `${topPosition + 50}px`;
+    horizontalDivider.style.top = `${topPosition + 80}px`;
     tl.timelineEl.appendChild(horizontalDivider);
   }
 

@@ -35,14 +35,12 @@ marked_for_display = 1
 templates = "template3"
 ==
 <?php
-
 use Pensoft\Calendar\Models\Entry;
 use Carbon\Carbon;
 
     function onStart(){
         $this['entries'] = Entry::where('start', '>', Carbon::now())->where('show_on_timeline', true)->where('is_internal', false)->orderBy('start', 'asc')->get();
     }
-
 ?>
 ==
 <div class="container homepage_subpages">
@@ -64,7 +62,13 @@ use Carbon\Carbon;
                     <div class="timeline__item">
                         <div class="timeline__content">
                             <div class="date_and_place">
-                                <span class="event_date">{{entry.event_date}}</span>
+                                <span class="event_date">
+                                    {% if entry.title == 'First Policy Lab' %}
+                                    {{entry.event_date}}
+                                    {% else %}
+                                    {{entry.start | date('F Y')}}
+                                    {% endif %}
+                                </span>
                                 <span>{{entry.place}}</span>
                             </div>
                             <div class="title_and_desc">
