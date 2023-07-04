@@ -22,8 +22,7 @@
 /* NEW */
 
 .timeline__wrap {
-    overflow-x: hidden;
-    overflow-y: visible;
+    overflow: hidden;
     position: relative;
     z-index: 2;
     padding-top: 80px;
@@ -81,9 +80,9 @@
 .timeline--horizontal {
     font-size: 0;
     padding: 0 50px;
-    overflow-x: hidden;
-    overflow-y: visible;
+    overflow: hidden;
     white-space: nowrap;
+
     .timeline-divider {
         background-image: linear-gradient(to right, @timeline-border-color 30%, rgba(255,255,255,0) 0%);
         background-position: bottom;
@@ -227,6 +226,267 @@
             }
         }
 
+        &.index_4{
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Artboard 13-01.svg");
+            }
+        }
+        &.index_5{
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths-timeline-icons_CANOPY-platform.svg");
+            }
+        }
+
+        &.index_6{
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-23.svg");
+            }
+        }
+        &.index_7{
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-02.svg");
+            }
+        }
+        &.index_8{
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_policy instruments.svg");
+            }
+        }
+        &.index_9{
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_cbc management options.svg");
+            }
+        }
+        &.index_10{
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Pan-European forest composition and structure maps.svg");
+            }
+        }
+        &.index_11{
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Artboard 13-01.svg");
+            }
+        }
+        &.index_12{
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Forest ecosystem models copy.svg");
+            }
+        }
+        &.index_13{
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_MFA.svg");
+            }
+        }
+        &.index_14{
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_LCA.svg");
+            }
+        }
+        &.index_15{
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_policy lan 2.svg");
+            }
+        }
+        &.index_16{
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Forest ecosystem models.svg");
+            }
+        }
+        &.index_17{
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Forest biodiversity model.svg");
+            }
+        }
+        &.index_18{
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_High conservation value forests in Europe.svg");
+            }
+        }
+        &.index_19{
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-13.svg");
+            }
+        }
+        &.index_20{
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Global impacts model.svg");
+            }
+        }
+        &.index_21{
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths-timeline-icons_ForestPaths-database.svg");
+            }
+        }
+        &.index_22{
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_policy lan 3.svg");
+            }
+        }
+        &.index_23{
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-17.svg");
+            }
+        }
+        &.index_24{
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Forest ecosystem models copy 2.svg");
+            }
+        }
+        &.index_25{
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths-timeline-icons_ForestPaths-database.svg");
+            }
+        }
+        &.index_26{
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Biogenic carbon.svg");
+            }
+        }
+        &.index_27{
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-23.svg");
+            }
+        }
+        &.index_28{
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Biogenic carbon.svg");
+            }
+        }
+        &.index_29{
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_policy lan 4.svg");
+            }
+        }
+        &.index_30{
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Policy pathways.svg");
+            }
+        }
+        &.index_31{
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths-timeline-icons_CANOPY-platform.svg");
+            }
+        }
+        &.index_32{
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-20.svg");
+            }
+        }
+        &.index_33{
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-20.svg");
+            }
+        }
+        &.index_34{
+            img{
+                content: url("../../../../storage/app/media/pensoft/ForestPaths-timeline-icons_ForestPaths-final-conference.svg");
+            }
+        }
+    }
+}
+
+.timeline-nav-button {
+    background-color: transparent;
+    border: none;
+    box-sizing:border-box;
+    box-shadow: none;
+    cursor: pointer;
+    display: block;
+    height: 40px;
+    outline: none;
+    position: absolute;
+    text-indent: -9999px;
+    transform: translateY(-50%);
+    top: 50%;
+    width: 70px;
+    z-index: 10;
+    &:disabled {
+        opacity: .5;
+        pointer-events: none;
+    }
+    &::before {
+        background-position: center center;
+        background-repeat: no-repeat;
+        content: '';
+        display: block;
+        height: 14px;
+        left: 50%;
+        position: absolute;
+        transform: translateX(-50%) translateY(-50%);
+        top: 50%;
+        width: 8px;
+    }
+    &--prev {
+        left: 0;
+        &::before {
+            background-image: url('../../assets/images/arrow-left.svg');
+        }
+    }
+    &--next {
+        right: 0;
+        &::before {
+            background-image: url('../../assets/images/arrow-right.svg');
+        }
+    }
+}
+
+.container {
+    padding: 10px 10px !important;
+}
+
+.timeline--mobile {
+    padding: 0;
+
+    .timeline__wrap {
+        overflow: hidden;
+        position: relative;
+        z-index: 2;
+        padding-top: 0px;
+        max-height: 700px;
+        padding-left: 50px;
+    }
+
+    .timeline-nav-button {
+        &--prev {
+            left: 0 !important;
+            transform: rotate(90deg) !important;
+        }
+        &--next {
+            right: 0 !important;
+            transform: rotate(90deg) !important;
+        }
+    }
+
+    .timeline-divider {
+        background-image: linear-gradient(to bottom, @timeline-border-color 30%, rgba(255,255,255,0) 0%);
+        background-position: left;
+        background-size: 1px 5px;
+        background-repeat: repeat-y;
+        transform: none !important;
+        display: block;
+        width: 1px;
+        top: 0px;
+        position: absolute;
+        left: 35px;
+        bottom: 0px;
+        z-index: 1;
+    }
+
+    &::before {
+        left: 10px !important;
+        margin: 0 !important;
+    }
+    .timeline__item {
+        left: 0;
+        padding-left: 40px;
+        padding-right: 20px;
+        width: calc(100% - 20px);
+        &::after {
+            left: -25px;
+            margin: 0;
+        }
+
+
         &:nth-of-type(1){
             img{
                 content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Artboard 13-01.svg");
@@ -237,7 +497,6 @@
                 content: url("../../../../storage/app/media/pensoft/ForestPaths-timeline-icons_CANOPY-platform.svg");
             }
         }
-        
         &:nth-of-type(3){
             img{
                 content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-23.svg");
@@ -248,6 +507,7 @@
                 content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-02.svg");
             }
         }
+
         &:nth-of-type(5){
             img{
                 content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_policy instruments.svg");
@@ -384,227 +644,6 @@
             }
         }
     }
-}
-
-.timeline-nav-button {
-    background-color: transparent;
-    border: none;
-    box-sizing:border-box;
-    box-shadow: none;
-    cursor: pointer;
-    display: block;
-    height: 40px;
-    outline: none;
-    position: absolute;
-    text-indent: -9999px;
-    transform: translateY(-50%);
-    top: 50%;
-    width: 70px;
-    z-index: 10;
-    &:disabled {
-        opacity: .5;
-        pointer-events: none;
-    }
-    &::before {
-        background-position: center center;
-        background-repeat: no-repeat;
-        content: '';
-        display: block;
-        height: 14px;
-        left: 50%;
-        position: absolute;
-        transform: translateX(-50%) translateY(-50%);
-        top: 50%;
-        width: 8px;
-    }
-    &--prev {
-        left: 0;
-        &::before {
-            background-image: url('../../assets/images/arrow-left.svg');
-        }
-    }
-    &--next {
-        right: 0;
-        &::before {
-            background-image: url('../../assets/images/arrow-right.svg');
-        }
-    }
-}
-
-.timeline--mobile {
-    padding: 0;
-    &::before {
-        left: 10px !important;
-        margin: 0 !important;
-    }
-    .timeline__item {
-        left: 0;
-        padding-left: 40px;
-        padding-right: 0;
-        width: 100%;
-        &::after {
-            left: 2px;
-            margin: 0;
-        }
-
-
-        &:nth-of-type(1){
-            img{
-                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Artboard 13-01.svg");
-            }
-        }
-        &:nth-of-type(2){
-            img{
-                content: url("../../../../storage/app/media/pensoft/ForestPaths-timeline-icons_CANOPY-platform.svg");
-            }
-        }
-        &:nth-of-type(3){
-            img{
-                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-23.svg");
-            }
-        }
-        &:nth-of-type(4){
-            img{
-                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-02.svg");
-            }
-        }
-        
-        &:nth-of-type(5){
-            img{
-                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_policy instruments.svg");
-            }
-        }
-        &:nth-of-type(6){
-            img{
-                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_cbc management options.svg");
-            }
-        }
-        &:nth-of-type(7){
-            img{
-                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Pan-European forest composition and structure maps.svg");
-            }
-        }
-        &:nth-of-type(8){
-            img{
-                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Artboard 13-01.svg");
-            }
-        }
-        &:nth-of-type(9){
-            img{
-                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Forest ecosystem models copy.svg");
-            }
-        }
-        &:nth-of-type(10){
-            img{
-                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_MFA.svg");
-            }
-        }
-        &:nth-of-type(11){
-            img{
-                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_LCA.svg");
-            }
-        }
-        &:nth-of-type(12){
-            img{
-                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_policy lan 2.svg");
-            }
-        }
-        &:nth-of-type(13){
-            img{
-                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Forest ecosystem models.svg");
-            }
-        }
-        &:nth-of-type(14){
-            img{
-                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Forest biodiversity model.svg");
-            }
-        }
-        &:nth-of-type(15){
-            img{
-                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_High conservation value forests in Europe.svg");
-            }
-        }
-        &:nth-of-type(16){
-            img{
-                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-13.svg");
-            }
-        }
-        &:nth-of-type(17){
-            img{
-                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Global impacts model.svg");
-            }
-        }
-        &:nth-of-type(18){
-            img{
-                content: url("../../../../storage/app/media/pensoft/ForestPaths-timeline-icons_ForestPaths-database.svg");
-            }
-        }
-        &:nth-of-type(19){
-            img{
-                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_policy lan 3.svg");
-            }
-        }
-        &:nth-of-type(20){
-            img{
-                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-17.svg");
-            }
-        }
-        &:nth-of-type(21){
-            img{
-                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Forest ecosystem models copy 2.svg");
-            }
-        }
-        &:nth-of-type(22){
-            img{
-                content: url("../../../../storage/app/media/pensoft/ForestPaths-timeline-icons_ForestPaths-database.svg");
-            }
-        }
-        &:nth-of-type(23){
-            img{
-                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Biogenic carbon.svg");
-            }
-        }
-        &:nth-of-type(24){
-            img{
-                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-23.svg");
-            }
-        }
-        &:nth-of-type(25){
-            img{
-                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Biogenic carbon.svg");
-            }
-        }
-        &:nth-of-type(26){
-            img{
-                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_policy lan 4.svg");
-            }
-        }
-        &:nth-of-type(27){
-            img{
-                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons_Policy pathways.svg");
-            }
-        }
-        &:nth-of-type(28){
-            img{
-                content: url("../../../../storage/app/media/pensoft/ForestPaths-timeline-icons_CANOPY-platform.svg");
-            }
-        }
-        &:nth-of-type(29){
-            img{
-                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-20.svg");
-            }
-        }
-        &:nth-of-type(30){
-            img{
-                content: url("../../../../storage/app/media/pensoft/ForestPaths timeline icons-20.svg");
-            }
-        }
-         &:nth-of-type(31){
-            img{
-                content: url("../../../../storage/app/media/pensoft/ForestPaths-timeline-icons_ForestPaths-final-conference.svg");
-            }
-        }
-    }
 
     .timeline__content{
         color: @white-color;
@@ -617,30 +656,35 @@
             }
         }
 
-        .timeline-body{
-            font-size: 18px;
-            font-weight: bold;
-        }
-
-        .timeline-desc{
-            p{
-                margin-bottom: 0;
-            }
-        }
-
-        img{
+        img {
             width: 60px;
             height: 60px;
             object-fit: cover;
             border-radius: 50%;
-            //position: absolute;
-            //top: -20px;
-            //left: calc(~'50% - 30px');
+            margin-bottom: 10px;
         }
 
+        .date_and_place {
+            display: flex;
+            flex-direction: column;
+            color: @yellow-color;
+            span {
+                color: @yellow-color;
+            }
+        }
+
+        .timeline-body {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .timeline-desc {
+            p {
+                margin-bottom: 0;
+            }
+        }
 
     }
-
 }
 
 @keyframes fadeIn {

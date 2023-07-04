@@ -60,7 +60,7 @@ use Carbon\Carbon;
                     {% for entry in entries %}
 
                     <div class="timeline__item">
-                        <div class="timeline__content">
+                        <div class="timeline__content index_{{entry.id}}">
                             <div class="date_and_place">
                                 <span class="event_date">
                                     {% if entry.title == 'First Policy Lab' %}
@@ -72,9 +72,9 @@ use Carbon\Carbon;
                                 <span>{{entry.place}}</span>
                             </div>
                             <div class="title_and_desc">
+                                <div class="cover"><img src="{{entry.cover_image.path}}"></div>
                                 <span class="timeline-body">{{entry.title}}</span>
                                 <span class="timeline-desc">{{entry.description|raw}}</span>
-                                <div class="cover"><img src="{{entry.cover_image.path}}"></div>
                             </div>
 
                         </div>
@@ -84,7 +84,9 @@ use Carbon\Carbon;
 
                 </div>
             </div>
+
             <button class="timeline-nav-button timeline-nav-button--prev" disabled="" style="top: 265px;">Previous</button><button class="timeline-nav-button timeline-nav-button--next" style="top: 265px;">Next</button><span class="timeline-divider" style="top: 265px;"></span></div>
+        </div>
 
         <script type="text/javascript">
             timeline(document.querySelectorAll('.timeline'), {
