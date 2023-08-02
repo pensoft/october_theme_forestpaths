@@ -39,7 +39,8 @@ use Pensoft\Calendar\Models\Entry;
 use Carbon\Carbon;
 
     function onStart(){
-        $this['entries'] = Entry::where('start', '>', Carbon::now())->where('show_on_timeline', true)->where('is_internal', false)->orderBy('start', 'asc')->get();
+        $this['entries'] = Entry::where('show_on_timeline', true)->where('is_internal', false)->orderBy('start', 'asc')->get();
+        $this['past_entries'] = Entry::where('end', '<=', Carbon::now())->where('show_on_timeline', true)->where('is_internal', false)->orderBy('start', 'asc')->get();
     }
 ?>
 ==
@@ -87,13 +88,13 @@ use Carbon\Carbon;
 
             <button class="timeline-nav-button timeline-nav-button--prev" disabled="" style="top: 265px;">Previous</button><button class="timeline-nav-button timeline-nav-button--next" style="top: 265px;">Next</button><span class="timeline-divider" style="top: 265px;"></span></div>
         </div>
-
         <script type="text/javascript">
             timeline(document.querySelectorAll('.timeline'), {
                 forceVerticalMode: 700,
                 mode: 'horizontal',
                 verticalStartPosition: 'left',
-                visibleItems: 6
+                visibleItems: 6,
+                startIndex: {{past_entries.count}}
             });
         </script>
 
@@ -106,7 +107,7 @@ use Carbon\Carbon;
 
 <!-- latest from news -->
 <div class="container-fluid bg-secondary" style="padding-bottom: 0">
-    <div class="container" style="padding-bottom: 0">
+    <div class="container">
         {% component 'article_highlights' %}
         <div class="row">
             <div class="col-xs-12 center-xs mb-4"><a href="{{'news'|page}}" class="read_more">All news</a> </div>
@@ -120,17 +121,13 @@ use Carbon\Carbon;
 	<div class="row between-xs">
 
         <div class="col-xs-12"><h1 class="display-1">Follow ForestPaths</h1></div>
-        <div class="col-lg-6 col-sm-5 col-xs-12">
+        <div class="col-lg-12 col-sm-12 col-xs-12">
             {% if this.theme.twitter and this.theme.twitter_url %}
             <p align="center" class="twitter_image"><a href="{{this.theme.twitter_url}}" class="social_circle" target="_blank"><i class="pr p-twitter large"></i> </a></p>
             {% endif %}
 
 			<div class="twitter-widget">
-			    <a class="twitter-timeline" href="https://twitter.com/ForestPaths_eu?ref_src=twsrc%5Etfw">Tweets by ForestPaths_eu</a>
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-			</div>
-		</div>
-        <div class="col-lg-6 col-sm-5 col-xs-12">
+            <a class="twitter-timeline" href="https://twitter.com/forestpaths_eu?ref_src=twsrc%5Etfw">Tweets by forestpaths_eu</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
             {% if this.theme.linkedin and this.theme.linkedin_url %}
             <p align="center" class="linkedin_image"><a href="{{this.theme.linkedin_url}}" class="social_circle" target="_blank"><i class="pr p-linkedin large"></i> </a></p>
             {% endif %}

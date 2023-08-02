@@ -182,10 +182,16 @@ h1.display-1{
 
 
 .policy-engagement-forum .forum_subpages{
+  
+    h1.display-1{
+      margin-bottom: 0px;  
+    }
+
     ul{
         list-style-type: none!important;
         padding: 0;
         margin: 0;
+        // margin: 0 220px 0 220px;
         justify-content: space-between;
         flex-direction: column;
         display: grid;
@@ -193,6 +199,10 @@ h1.display-1{
         .breakpoint-small-down({
             display: flex;
         });
+        // .breakpoint-laptop-down({
+        //   margin: 0;
+        // });
+
 
         li{
             width: 80%;
@@ -503,8 +513,6 @@ h1.display-1{
 
 
 #layout-content {
-    padding-bottom: 345px;
-
     .container-fluid {
         &.subscribe-newsletter-background {
             background: #EEF0F1;
@@ -796,7 +804,7 @@ h1.display-1{
     width: 100%;
     margin: 30px auto;
     overflow-y: scroll;
-    //border: 1px solid #d1d1d1;
+    border: 1px solid #d1d1d1;
     border-radius: 10px;
 
   .breakpoint-small-down({
@@ -814,7 +822,7 @@ h1.display-1{
         width: 100%;
         margin-top: 30px;
         //overflow-y: scroll;
-        border: 1px solid #939393;
+        border: 1px solid #d1d1d1;
         border-radius: 10px;
         iframe{
             border-radius: 10px;

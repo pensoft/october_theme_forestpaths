@@ -364,15 +364,17 @@ function timeline(collection, options) {
             nextArrow.className = 'timeline-nav-button timeline-nav-button--next';
             prevArrow.textContent = 'Previous';
             nextArrow.textContent = 'Next';
-            prevArrow.style.top = `${topPosition - 320}px`;
-            nextArrow.style.top = `${topPosition + 320}px`;
-            nextArrow.style.left = `${0}px`;
+
+            prevArrow.style.top = `${topPosition - 216}px`;
+            nextArrow.style.top = `${topPosition + 452}px`;
+
 
             if (currentIndex === 0) {
                 prevArrow.disabled = true;
             } else if (currentIndex === (tl.items.length - tl.settings.visibleItems)) {
                 nextArrow.disabled = true;
             }
+
             tl.timelineEl.appendChild(prevArrow);
             tl.timelineEl.appendChild(nextArrow);
         }

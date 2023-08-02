@@ -435,7 +435,7 @@
 }
 
 .timeline--mobile {
-    padding: 0;
+    padding: 0 !important;
 
     .timeline__wrap {
         overflow: hidden;
@@ -448,11 +448,15 @@
 
     .timeline-nav-button {
         &--prev {
-            left: 0 !important;
+            left: 24px;
+            height: 20px;
+            width: 20px;
             transform: rotate(90deg) !important;
         }
         &--next {
-            right: 0 !important;
+            left: 24px;
+            height: 20px;
+            width: 20px;
             transform: rotate(90deg) !important;
         }
     }

@@ -117,6 +117,16 @@ margin-bottom: 30px;
   })
 }
 
+.highlights-news {
+    padding: 0 25px 25px 25px !important;
+    #card-carousel{
+        padding: 0 32px 0 32px !important;
+    }
+    .text-published {
+        margin-top: 25px;  
+    }
+}
+
 .news-img-top{
   display: inline-flex;
 }
@@ -341,7 +351,6 @@ nav:not(.navbar){
     }
 }
 
-
 .news{
     .edit-link{
         display: none;
@@ -384,13 +393,14 @@ nav:not(.navbar){
                 });
             }
         }
+        
         .text-published{
             font-weight: 500;
             margin-bottom: 0px;
             /* margin-top: 50px; */
             color: @date-text-color;
             width: 220px;
-            height: 48px;
+            max-height: 24px;
     }
 
     .news-container{
