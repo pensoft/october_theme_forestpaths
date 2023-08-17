@@ -364,34 +364,33 @@ function timeline(collection, options) {
             nextArrow.className = 'timeline-nav-button timeline-nav-button--next';
             prevArrow.textContent = 'Previous';
             nextArrow.textContent = 'Next';
-
-            prevArrow.style.top = `${topPosition - 216}px`;
-            nextArrow.style.top = `${topPosition + 452}px`;
-
+            prevArrow.style.top = `${topPosition - 190}px`;
+            nextArrow.style.top = `${topPosition + 528}px`;
 
             if (currentIndex === 0) {
                 prevArrow.disabled = true;
-            } else if (currentIndex === (tl.items.length - tl.settings.visibleItems)) {
+            } else if (currentIndex === (tl.items.length - 3)) {
                 nextArrow.disabled = true;
             }
-
             tl.timelineEl.appendChild(prevArrow);
             tl.timelineEl.appendChild(nextArrow);
         }
     }
 
 
-    // Calculate the new position of the vertical timeline
     function timelinePositionVertical(tl) {
-        // Calculate the total height of the items that should be hidden
         let totalHeight = 0;
+    
         for (let i = 0; i < currentIndex; i++) {
             totalHeight += tl.items[i].offsetHeight;
         }
-
+    
         const str = `translate3d(0, -${totalHeight}px, 0)`;
         addTransforms(tl.scroller, str);
     }
+    
+    
+    
 
     // Make the vertical timeline slide
     function slideTimelineVertical(tl) {
@@ -401,6 +400,7 @@ function timeline(collection, options) {
         // const maxIndex = tl.items.length - tl.settings.visibleItems;
         const maxIndex = tl.items.length - 3;
         const moveItems = parseInt(tl.settings.moveItems, 10);
+
 
         [].forEach.call(navArrows, (arrow) => {
             arrow.addEventListener('click', function(e) {
@@ -450,42 +450,6 @@ function timeline(collection, options) {
         addVerticalDivider(tl);
         slideTimelineVertical(tl);
     }
-
-    // function setUpVerticalTimeline(tl) {
-    //
-    //   let lastVisibleIndex = 0;
-    //   tl.items.forEach((item, i) => {
-    //     item.classList.remove('animated', 'fadeIn');
-    //
-    //     if (!isElementInViewport(item, tl.settings.verticalTrigger) && i > 0) {
-    //       item.classList.add('animated');
-    //     } else {
-    //       lastVisibleIndex = i;
-    //     }
-    //
-    //     const divider = tl.settings.verticalStartPosition === 'left' ? 1 : 0;
-    //     if (i % 2 === divider && window.innerWidth > tl.settings.forceVerticalMode) {
-    //       item.classList.add('timeline__item--right');
-    //     } else {
-    //       item.classList.add('timeline__item--left');
-    //     }
-    //
-    //   });
-    //
-    //   for (let i = 0; i < lastVisibleIndex; i += 1) {
-    //     tl.items[i].classList.remove('animated', 'fadeIn');
-    //   }
-    //
-    //   // Bring elements into view as the page is scrolled
-    //   window.addEventListener('scroll', () => {
-    //     tl.items.forEach((item) => {
-    //       if (isElementInViewport(item, tl.settings.verticalTrigger)) {
-    //         item.classList.add('fadeIn');
-    //       }
-    //     });
-    //   });
-    //
-    // }
 
     // Reset timelines
     function resetTimelines(tl) {

@@ -40,7 +40,8 @@ use Carbon\Carbon;
 
     function onStart(){
         $this['entries'] = Entry::where('show_on_timeline', true)->where('is_internal', false)->orderBy('start', 'asc')->get();
-        $this['past_entries'] = Entry::where('end', '<=', Carbon::now())->where('show_on_timeline', true)->where('is_internal', false)->orderBy('start', 'asc')->get();
+        $this['past_entries'] = Entry::where('end', '<', Carbon::now())->where('show_on_timeline', true)->where('is_internal', false)->orderBy('start', 'asc')->get();
+        $this['ongoing_entries'] = Entry::where('end', '>=', Carbon::now())->where('show_on_timeline', true)->where('is_internal', false)->orderBy('start', 'asc')->get();
     }
 ?>
 ==
@@ -59,7 +60,7 @@ use Carbon\Carbon;
             <div class="timeline__wrap">
                 <div class="timeline__items">
                     {% for entry in entries %}
-
+                    {% if entry.start %}
                     <div class="timeline__item">
                         <div class="timeline__content index_{{entry.id}}">
                             <div class="date_and_place">
@@ -80,9 +81,8 @@ use Carbon\Carbon;
 
                         </div>
                     </div>
-
+                    {% endif %}
                     {% endfor %}
-
                 </div>
             </div>
 
@@ -93,8 +93,8 @@ use Carbon\Carbon;
                 forceVerticalMode: 700,
                 mode: 'horizontal',
                 verticalStartPosition: 'left',
-                visibleItems: 6,
-                startIndex: {{past_entries.count}}
+                visibleItems: 6,    
+                startIndex: {{ entries.count - ongoing_entries.count }}
             });
         </script>
 

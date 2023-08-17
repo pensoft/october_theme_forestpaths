@@ -57,3 +57,12 @@ description_limit = 0
     </div>
 {% component 'climate' %}
 </div>
+
+<script>
+    function hideActiveTooltip() {
+    var tooltip = document.getElementById("tooltip");
+    tooltip.classList.remove("active");
+    }
+
+    window.addEventListener("scroll", hideActiveTooltip);
+</script>

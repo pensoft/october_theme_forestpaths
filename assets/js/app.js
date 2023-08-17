@@ -147,10 +147,10 @@ $(document).ready(function() {
         }
     });
 
-	onHashChange();
-	$(window).on("hashchange", function() {
-		onHashChange();
-	});
+	// onHashChange();
+	// $(window).on("hashchange", function() {
+	// 	onHashChange();
+	// });
 
 	$('.nav.nav-pills').removeAttr('id');
 
@@ -925,29 +925,34 @@ function init() {
 
 
 function handlePilotsSVGMapMouseMove(event) {
-	var title = $(event.target).attr('title');
-	var tooltip = document.getElementById("tooltip");
+    var title = $(event.target).attr('title');
+    var tooltip = document.getElementById("tooltip");
 
-	switch (title) {
-		case 'Boreal climate':
-		case 'Atlantic climate':
-		case 'Mediterranean and continental climate':
-		case 'Continental and Alpine climate':
-			break;
-		default:
-			return tooltip.classList.remove("active");
-	}
+    switch (title) {
+        case 'Boreal climate':
+        case 'Atlantic climate':
+        case 'Mediterranean and continental climate':
+        case 'Continental and Alpine climate':
+            break;
+        default:
+            return tooltip.classList.remove("active");
+    }
 
-	var x = event.clientX;
-	var y = event.clientY;
+    var x = event.clientX;
+    var y = event.clientY;
 
-	tooltip.style.left = (x - 260) + "px";
-	tooltip.style.top = (y - 20) + "px";
+    tooltip.style.left = (x - 260) + "px";
+    tooltip.style.top = (y - 20) + "px";
 
-	tooltip.innerHTML = $(event.target).attr('title');
-	tooltip.classList.add("active");
-
+    tooltip.innerHTML = $(event.target).attr('title');
+    tooltip.classList.add("active");
 }
 
+// function hideActiveTooltip() {
+//     var tooltip = document.getElementById("tooltip");
+//     tooltip.classList.remove("active");
+// }
+
+// window.addEventListener("scroll", hideActiveTooltip);
 
 init()
