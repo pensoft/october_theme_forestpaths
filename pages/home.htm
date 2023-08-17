@@ -59,8 +59,8 @@ use Carbon\Carbon;
                 <div class="timeline__items">
                     {% for entry in entries %}
 
-                    <div class="timeline__item">
-                        <div class="timeline__content index_{{entry.id}}">
+                    <div class="timeline__item index_{{entry.id}}">
+                        <div class="timeline__content">
                             <div class="date_and_place">
                                 <span class="event_date">
                                     {% if entry.title == 'First Policy Lab' %}
@@ -93,7 +93,8 @@ use Carbon\Carbon;
                 forceVerticalMode: 700,
                 mode: 'horizontal',
                 verticalStartPosition: 'left',
-                visibleItems: 6
+                visibleItems: 6,
+                startIndex: 1
             });
         </script>
 
