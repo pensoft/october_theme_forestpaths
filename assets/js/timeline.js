@@ -364,8 +364,8 @@ function timeline(collection, options) {
             nextArrow.className = 'timeline-nav-button timeline-nav-button--next';
             prevArrow.textContent = 'Previous';
             nextArrow.textContent = 'Next';
-            prevArrow.style.top = `${topPosition - 190}px`;
-            nextArrow.style.top = `${topPosition + 528}px`;
+            prevArrow.style.top = `${topPosition - 270}px`;
+            nextArrow.style.top = `${topPosition + 428}px`;
 
             if (currentIndex === 0) {
                 prevArrow.disabled = true;
