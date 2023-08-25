@@ -115,31 +115,8 @@ use Carbon\Carbon;
     </div>
 </div>
 
-
-	<div class="container">
-	<!-- subscribes -->
-	<div class="row between-xs">
-
-        <div class="col-xs-12"><h1 class="display-1">Follow ForestPaths</h1></div>
-        <div class="col-lg-12 col-sm-12 col-xs-12">
-            {% if this.theme.twitter and this.theme.twitter_url %}
-            <p align="center" class="twitter_image"><a href="{{this.theme.twitter_url}}" class="social_circle" target="_blank"><i class="pr p-twitter large"></i> </a></p>
-            {% endif %}
-
-			<div class="twitter-widget">
-            <a class="twitter-timeline" href="https://twitter.com/forestpaths_eu?ref_src=twsrc%5Etfw">Tweets by forestpaths_eu</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            {% if this.theme.linkedin and this.theme.linkedin_url %}
-            <p align="center" class="linkedin_image"><a href="{{this.theme.linkedin_url}}" class="social_circle" target="_blank"><i class="pr p-linkedin large"></i> </a></p>
-            {% endif %}
-            <div class="linkedin-widget">
-                {% component 'linkedin' %}
-            </div>
-        </div>
-	</div>
-
-</div>
-
-<div class="container-fluid border-box subscribe-newsletter-background">
+<!-- Subscribe -->
+<div class="container-fluid border-box subscribe-newsletter-background mt-1">
     <div class="row container middle-xs between-xs">
         <div class="col-xs-12 center-xs mb-1">Join our community by subscribing to our bi-annual newsletter.</div>
         <div class="col-xs-12 center-xs"><a href="{{this.theme.subscribe}}" class="btn btn-primary" target="_blank">Subscribe</a> </div>
