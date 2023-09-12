@@ -5,9 +5,7 @@ listItemClasses = "nav-item"
 primaryClasses = "navbar-nav"
 secondaryClasses = "dropdown-menu"
 numberOfLevels = 2
-
 ==
-
 <nav class="navbar fixed pr-1 pl-1" id="headernavbar">
     <div id="menuToggle">
         <input type="checkbox" />
@@ -72,7 +70,7 @@ numberOfLevels = 2
     {% if page_id != 'search' %}
     {%if this.page.header_image %}
     <div class="header-image-bar" style="background-image: url('{{this.page.header_image|media}}'); background-position: {% if page_id != 'policy-engagement-forum' %} top center {%else %} center 84px {% endif %};">
-        {% if page_id != 'home' %}<div class="card-overlay"></div>{% endif %}
+        {% if page_id != 'home' %}<div class=""></div>{% endif %}
     </div>
     {%else%}
     <div class="header-image-bar" style="background-image: url('{{this.theme.header_image.getPath()}}'); background-position: center;">
@@ -109,4 +107,3 @@ numberOfLevels = 2
     </div>
 </div>
 {% endif %}
-
