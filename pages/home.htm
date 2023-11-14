@@ -33,6 +33,12 @@ limit = 6
 upcoming = 1
 marked_for_display = 1
 templates = "template3"
+
+[jumbotron homepage_intro_and_video]
+jumbotron = "homepage-intro-top"
+background = "transperant"
+templates = "template3"
+description_limit = 0
 ==
 <?php
 use Pensoft\Calendar\Models\Entry;
@@ -45,6 +51,10 @@ use Carbon\Carbon;
     }
 ?>
 ==
+<div class="container-fluid bg-secondary" style="padding-bottom: 0">
+    {% component 'homepage_intro_and_video' %}            
+</div>
+
 <div class="container homepage_subpages">
         <div class="row between-md around-xs">
             <div class="col-xs-12 ">
@@ -60,27 +70,27 @@ use Carbon\Carbon;
             <div class="timeline__wrap">
                 <div class="timeline__items">
                     {% for entry in entries %}
-                    {% if entry.start %}
-                    <div class="timeline__item">
-                        <div class="timeline__content index_{{entry.id}}">
-                            <div class="date_and_place">
-                                <span class="event_date">
-                                    {% if entry.title == 'First Policy Lab' %}
-                                    {{entry.event_date}}
-                                    {% else %}
-                                    {{entry.start | date('F Y')}}
-                                    {% endif %}
-                                </span>
-                                <span>{{entry.place}}</span>
-                            </div>
-                            <div class="title_and_desc">
-                                <div class="cover"><img src="{{entry.cover_image.path}}"></div>
-                                <span class="timeline-body">{{entry.title}}</span>
-                                <span class="timeline-desc">{{entry.description|raw}}</span>
-                            </div>
+                        {% if entry.start %}
+                        <div class="timeline__item">
+                            <div class="timeline__content index_{{entry.id}}">
+                                <div class="date_and_place">
+                                    <span class="event_date">
+                                        {% if entry.title == 'First Policy Lab' %}
+                                            {{entry.event_date}}
+                                        {% else %}
+                                            {{entry.start | date('F Y')}}
+                                        {% endif %}
+                                    </span>
+                                    <span>{{entry.place}}</span>
+                                </div>
+                                <div class="title_and_desc">
+                                    <div class="cover"><img src="{{entry.cover_image.path}}"></div>
+                                    <span class="timeline-body">{{entry.title}}</span>
+                                    <span class="timeline-desc">{{entry.description|raw}}</span>
+                                </div>
 
+                            </div>
                         </div>
-                    </div>
                     {% endif %}
                     {% endfor %}
                 </div>

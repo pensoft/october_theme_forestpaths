@@ -89,25 +89,50 @@ nav:not(.navbar){
   }
 }
 
-.home .news-item{
-  //display: flex!important;
-  //flex-basis: 31%!important;
-  //max-width: 31%!important;
-margin-bottom: 30px;
-  .news_column{
-      width: 453px;
-      max-width: 90%;
-      margin: 0 auto;
-      background: @white-color;
-      display: flex;
-      align-items: start;
-    img{
-        margin: 15px auto;
-        .breakpoint-laptop-down({
-            margin: 0 auto;
-        });
+// .home{
+    .slick-slide{
+          .news_column{
+          width: 433px;
+          max-width: 90%;
+          margin: 0 auto;
+          background: white!important;
+          display: flex;
+          align-items: start;
+          border-radius: 3px;
+          padding: 20px 11px;
+          min-height: 632px;
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+          position: relative;
+        margin-top: 30px;
+        margin-bottom: 60px;
+
+        img{
+            margin: 15px auto;
+            .breakpoint-laptop-down({
+                margin: 0 auto;
+            });
+        }
+      }
     }
-  }
+// }
+
+
+.home .news-item{
+    margin-bottom: 30px;
+      .news_column{
+          width: 453px;
+          max-width: 90%;
+          margin: 0 auto;
+          background: white!important;
+          display: flex;
+          align-items: start;
+        img{
+            margin: 15px auto;
+            .breakpoint-laptop-down({
+                margin: 0 auto;
+            });
+        }
+      }
 }
 
 .home .newslist{
@@ -121,6 +146,12 @@ margin-bottom: 30px;
     padding: 0 25px 25px 25px !important;
     #card-carousel{
         padding: 0 32px 0 32px !important;
+        .news_column{
+            background: white;
+            margin-bottom: 30px;
+            border-radius: 3px;
+            padding: 20px 11px;
+        }
     }
     .text-published {
         margin-top: 25px;  
@@ -339,15 +370,6 @@ nav:not(.navbar){
     font-size: 17px;
     a{
         color: @dark-color;
-    }
-}
-
-
-
-.news .newslist{
-    .news_column:hover{
-        //box-shadow: 0 6px 27px rgba(0, 0, 0, 0.1) !important;
-
     }
 }
 

@@ -233,6 +233,11 @@ $(document).ready(function() {
 		});
 	});
 
+    
+    $('.videos iframe').each(function(){
+        console.log($(this).contents().find('body #player'));
+        $(this).contents().find('button.ytp-large-play-button').html($("<img/>").attr("src", "https://forestpaths.eu/storage/app/media/play.svg"));
+    });
 
 
 	// $('.numbers').attr('data-aos', 'fade-up');
@@ -288,6 +293,64 @@ $(document).ready(function() {
 	});
 
 	$('.see_all_partners_link').hide();
+
+    var youtubeVideos = document.querySelectorAll(".videos .youtube-video");
+
+    youtubeVideos.forEach(function (video) {
+        video.addEventListener("click", function () {
+            video.style.paddingBottom = '56.25%';
+            var videoId = this.getAttribute("data-id");
+            var iframe = document.createElement("iframe");
+
+            iframe.setAttribute("src",
+                (videoId.indexOf("?") !== -1 ?
+                    (videoId) :
+                    (videoId + "?autoplay=1&mute=1&rel=0"))
+            );
+            iframe.setAttribute("frameborder", "0");
+            iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
+            iframe.setAttribute("allowfullscreen", "");
+            iframe.setAttribute("width", "100%");
+            iframe.setAttribute("height", "100%");
+
+            var iframeContainer = this.querySelector(".iframe-container");
+            iframeContainer.innerHTML = "";
+            iframeContainer.appendChild(iframe);
+            iframeContainer.style.display = "block";
+            this.querySelector("img").style.display = "none";
+            this.querySelector(".play-button").style.display = "none";
+        });
+    });
+
+
+//HOMEPAGE
+    var youtubeVideosHome = document.querySelectorAll(".irfame_homepage_intro_container .youtube-video");
+
+        youtubeVideosHome.forEach(function (video) {
+            video.addEventListener("click", function () {
+                video.style.paddingBottom = '52.25%';
+                var videoId = this.getAttribute("data-id");
+                var iframe = document.createElement("iframe");
+
+                iframe.setAttribute("src",
+                    (videoId.indexOf("?") !== -1 ?
+                        ("https://www.youtube.com/embed/" + videoId) :
+                        ("https://www.youtube.com/embed/" + videoId + "?autoplay=1&rel=0"))
+                );
+                iframe.setAttribute("frameborder", "0");
+                iframe.setAttribute("allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
+                iframe.setAttribute("allowfullscreen", "");
+                iframe.setAttribute("width", "100%");
+                iframe.setAttribute("height", "100%");
+
+                var iframeContainer = this.querySelector(".iframe-container");
+                iframeContainer.innerHTML = "";
+                iframeContainer.appendChild(iframe);
+                iframeContainer.style.display = "block";
+                this.querySelector("img").style.display = "none";
+                this.querySelector(".play-button").style.display = "none";
+            });
+        });
 
 
 });
