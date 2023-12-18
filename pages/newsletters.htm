@@ -28,7 +28,7 @@ use Pensoft\Media\Models\Newsletters;
 use System\Models\File;
 
 function onStart(){
-	$this['mediaNewslettersList'] =  Newsletters::get();
+	$this['mediaNewslettersList'] =  Newsletters::orderBy('date', 'desc')->get();
 	if(get('download')){
 		$file = File::find((int)get('download'));
 		$file_name = $file->getLocalPath();
