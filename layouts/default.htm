@@ -65,7 +65,12 @@ description_limit = 0
 {% endif %}
 
 
-    {% component 'metaList' %}
+    {% if this.page.id == 'news' and is_detail_page %}
+        {% component 'metaList' includePageMeta=false %}
+    {% else %}
+        {% component 'metaList' %}
+    {% endif %}
+    
     {% framework extras %}
     {% styles %}
     {% scripts %}
