@@ -68,8 +68,12 @@ return Profiles::where('partner_id', $id)->where('category_id',  1)->get();
 
             <div class="partners-accordion-border">
                 <div class="row middle-xs">
+                    {% if members.count > 0 %}
                     <div class="col-lg-2 col-md-2 col-xs-6 center-xs"><span class="showmembers expand-partners" id="show_all">Show all members <span></span></span></div>
+                    {% endif %}
+                    {% if advisory_board.count > 0 %}
                     <div class="col-lg-2 col-md-2 col-xs-6 center-xs"><span class="showmembers expand-partners" id="advisory_board">Advisory board <span></span></span></div>
+                    {% endif %}
                 </div>
 
                 {% if members.count > 0 %}
