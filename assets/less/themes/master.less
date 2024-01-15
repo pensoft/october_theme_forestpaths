@@ -262,9 +262,9 @@ h1.display-1{
 .read_more{
     color: @default-color;
     font-size: 18px;
-    background: url("../../assets/images/yellow-circle-arrow.svg") center no-repeat;
-    width: 28px;
-    height: 28px;
+    background: url("../../assets/images/partners-arrow-down.svg") center no-repeat;
+    width: 22px;
+    height: 22px;
     background-position: bottom center;
     padding-bottom: 35px;
     margin-bottom: 20px;
@@ -287,18 +287,24 @@ h1.display-1{
         cursor: pointer;
 
         span{
-            background: url("../../assets/images/yellow-circle-arrow.svg") center no-repeat;
-            background-size: 23px;
+            background: url("../../assets/images/partners-arrow-down.svg") center no-repeat;
+            background-size: 16px;
             background-position: center;
-            transform: rotate(90deg);
-            width: 26px;
-            height: 26px;
+            width: 16px;
+            height: 16px;
             display: inline-flex;
             margin-left: 10px;
         }
         &.expanded{
             span{
-                transform: rotate(-90deg);
+                background: url("../../assets/images/partners-arrow-down.svg") center no-repeat;
+                transform: rotate(180deg);
+                background-size: 16px;
+                background-position: center;
+                width: 16px;
+                height: 16px;
+                display: inline-flex;
+                margin-left: 10px;
             }
         }
     }
@@ -558,13 +564,54 @@ h1.display-1{
           display: flex;
           align-items: end;
           justify-content: end;
+            .breakpoint-large-down({
+                width: 80%;
+                height: auto;
+            });
           .breakpoint-small-down({
-              width: 90%;
-              height: auto;
+            width: 90%;
+            height: auto;
           });
       }
+}
 
+// ARROW TO THE TOP 
+.toTheTop {
+    background: url("../../assets/images/partners-back-to-top.svg") no-repeat center;
+    background-size: 60px;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    display: none;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    z-index: 1000;
+    transition: opacity 0.3s;
+    
+    &:hover {
+        opacity: 0.7;
+    }
 
+    .breakpoint-laptop-down({
+        background-size: 48px;
+        width: 48px;
+        height: 48px;
+        bottom: 32px;
+        right: 28px;
+    });
+    
+    .breakpoint-large-down({
+        background-size: 40px;
+        width: 40px;
+        height: 40px;
+        bottom: 28px;
+        right: 10px;
+    });
+}
+
+.toTheTop.sticky {
+    position: absolute;
 }
 
 .content-wrapper{

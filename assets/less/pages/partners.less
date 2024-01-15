@@ -48,18 +48,6 @@ ul.partners_logos_list li{
     });
 }
 
-.toTheTop{
-    background: url("../../assets/images/yellow-circle-arrow.svg") center no-repeat;
-    background-size: 43px;
-    background-position: center;
-    width: 46px;
-    height: 46px;
-    display: inline-flex;
-    margin-left: 10px;
-    transform: rotate(-90deg);
-    cursor: pointer;
-}
-
 .fill_default:hover,
 .fill_default:hover > *
 {
@@ -79,6 +67,9 @@ ul.partners_logos_list li{
     display: flex;
     flex-wrap: wrap;
     //min-height: 800px;
+    .breakpoint-large-down({
+        margin-top: 450px;
+    });
     .breakpoint-small-down({
         margin-top: 250px;
         align-items: center;
@@ -121,8 +112,8 @@ ul.partners_logos_list li{
         margin-bottom: 20px;
         margin-left: 20px;
         a{
-            background: url("../../assets/images/yellow-circle-arrow.svg") no-repeat;
-            background-size: 28px;
+            background: url("../../assets/images/partners-link.svg") no-repeat;
+            background-size: 32px;
             background-position: right 0px center;
             color: @default-color;
             padding-right: 50px;
@@ -299,6 +290,58 @@ ul.partners_logos_list li{
 
 .active_path{
     animation: blinker 1s linear infinite;
+}
+
+.expand-partners{
+    color: @default-color;
+    font-size: 18px;
+    background: url("../../assets/images/partners-arrow-down.svg") center no-repeat;
+    width: 22px;
+    height: 22px;
+    background-position: bottom center;
+    padding-bottom: 35px;
+    margin-bottom: 20px;
+    &:hover{
+        opacity: 0.7;
+    }
+    &.showmembers{
+        background: none;
+        width: fit-content;
+        height: unset;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 0;
+        margin-bottom: 20px;
+        font-size: 16px;
+        font-weight: 600;
+        //line-height: 52px;
+        cursor: pointer;
+        .breakpoint-small-down({
+            font-size: 14px;
+        }); 
+        span{
+            background: url("../../assets/images/partners-arrow-down.svg") center no-repeat;
+            background-size: 16px;
+            background-position: center;
+            width: 16px;
+            height: 16px;
+            display: inline-flex;
+            margin-left: 10px;
+        }
+        &.expanded{
+            span{
+                background: url("../../assets/images/partners-arrow-down.svg") center no-repeat;
+                transform: rotate(180deg);
+                background-size: 16px;
+                background-position: center;
+                width: 16px;
+                height: 16px;
+                display: inline-flex;
+                margin-left: 10px;
+            }
+        }
+    }
 }
 
 @keyframes blinker {

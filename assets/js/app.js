@@ -352,7 +352,78 @@ $(document).ready(function() {
             });
         });
 
+        function removeTooltipActive() {
+            $('#tooltip').removeClass("active");
+        }
 
+        // Event listener for mouse wheel event to remove the tooltip 'active' class
+        $(window).on('wheel', function() {
+            removeTooltipActive();
+        });
+
+        // Accordion behaviour for partners actions
+        $('#show_all').click(function() {
+            $(this).toggleClass('expanded');
+            if ($('#advisory_board').hasClass('expanded')) {
+                $('#advisory_board').removeClass('expanded');
+            }
+            
+            $('.members-accordion-content').stop().slideToggle('slow');
+            $('.advisory-accordion-content').stop().slideUp('slow');
+        });
+
+        $('#advisory_board').click(function() {
+            $(this).toggleClass('expanded');
+            if ($('#show_all').hasClass('expanded')) {
+                $('#show_all').removeClass('expanded');
+            }
+            
+            $('.advisory-accordion-content').stop().slideToggle('slow');
+            $('.members-accordion-content').stop().slideUp('slow');
+        });
+
+        // Remove the tooltip on partners map on mouse action
+        $(window).on('wheel', function() {
+            removeTooltipActive();
+        });
+
+        $(window).on('scroll', function() {
+            removeTooltipActive();
+        });
+        function removeTooltipActive() {
+            $('#tooltip').removeClass("active");
+        }
+
+        // Handle the back to top arrow
+        var backToTopButton = $('.toTheTop');
+        var headerImageBarHeight = $('.header-image-bar').outerHeight();
+        var footer = $('.light-background');
+
+        function adjustButtonPosition() {
+            var scrollDistance = $(window).scrollTop();
+            var footerPosition = footer.offset().top - $(window).height();
+
+            if (scrollDistance > headerImageBarHeight) {
+                backToTopButton.fadeIn();
+
+                if (scrollDistance < footerPosition) {
+                    backToTopButton.removeClass('sticky');
+                } else {
+                    backToTopButton.addClass('sticky');
+                }
+            } else {
+                backToTopButton.fadeOut();
+            }
+        }
+
+        adjustButtonPosition();
+
+        $(window).scroll(adjustButtonPosition);
+
+        backToTopButton.click(function() {
+            $('html, body').animate({ scrollTop: 0 }, 'slow');
+            return false;
+        });
 });
 
 function expandReadMore(el){
