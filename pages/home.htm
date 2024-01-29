@@ -16,7 +16,7 @@ thumb_width = 440
 thumb_height = 235
 
 [jumbotron homeIntro]
-jumbotron = "homepage-subpages-list"
+jumbotron = "homepage-intro-top"
 title = 0
 background = "transperant"
 templates = "template1"
@@ -52,16 +52,61 @@ use Carbon\Carbon;
 ?>
 ==
 <div class="container-fluid bg-secondary" style="padding-bottom: 0">
-    {% component 'homepage_intro_and_video' %}            
-</div>
+    <div class="container">
+        <div id="intro-carousel" class="row">
+            <div class="row middle-xs pt-4 pb-4">
+                <div class="col-md-6 col-xs-12 green_intro">
+                    <p>Find out more about how ForestPaths will provide clear forest-based policy pathways and gain insight into the project’s progress so far.</p>
+                </div>
+                <div class="col-md-6 col-xs-12 irfame_homepage_intro_container end-md center-xs">
+                                    <span class="fr-video fr-dvi fr-draggable" contenteditable="false">
+                                        <div class="youtube-video " data-id="g-HSgt4vo1E">
+                                            <img src="https://forestpaths.eu/storage/app/media/video-image.jpg" data-src="https://forestpaths.eu/storage/app/media/video-image.jpg" alt="Video Thumbnail" class="fr-fic fr-dii" style="width: 100%;">
+                                            <div class="play-button"><br></div><div class="iframe-container" style="display:none;"><br></div></div></span>
+                </div>
+            </div>
 
-<div class="container homepage_subpages">
-        <div class="row between-md around-xs">
-            <div class="col-xs-12 ">
-                {% component 'homeIntro' %}
+
+            <div class="row middle-xs pt-4 pb-4">
+                <div class="col-md-6 col-xs-12 green_intro">
+                    <p>Find out more about ForestPath's, ForestNavigator's, and PathFinder's collective progress towards clear policy pathways for climate change mitigation, biodiversity conservation, and sustainable ecosystem services in European forests.</p>
+                </div>
+                <div class="col-md-6 col-xs-12 irfame_homepage_intro_container end-md center-xs">
+                    <a href="https://www.forestnavigator.eu/" target="_blank">
+                        <div class="layer"><span>Visit website <i></i></span></div>
+                        <img src="https://forestpaths.eu/storage/app/media/ForestNavigator.png"
+                          data-src="https://forestpaths.eu/storage/app/media/ForestNavigator.png"
+                          style="width: 100%;"></a>
+                </div>
+            </div>
+
+
+
+            <div class="row middle-xs pt-4 pb-4">
+                <div class="col-md-6 col-xs-12 green_intro">
+                    <p>Find out more about ForestPath's, ForestNavigator's, and PathFinder's collective progress towards clear policy pathways for climate change mitigation, biodiversity conservation, and sustainable ecosystem services in European forests.</p>
+                </div>
+                <div class="col-md-6 col-xs-12 irfame_homepage_intro_container end-md center-xs">
+                    <a href="https://pathfinder-heu.eu/" target="_blank">
+                        <div class="layer"><span>Visit website <i></i></span></div>
+                        <img src="https://forestpaths.eu/storage/app/media/PathFinder.png"
+                             data-src="https://forestpaths.eu/storage/app/media/PathFinder.png"></a>
+
+                </div>
             </div>
         </div>
+
+    </div>
 </div>
+
+<!--<div class="container homepage_subpages">-->
+<!--        <div class="row between-md around-xs">-->
+<!--            <div class="col-xs-12 ">-->
+<!--                {% component 'homeIntro' %}-->
+
+
+<!--        </div>-->
+<!--</div>-->
 {% if entries.count() %}
 <!-- events timeline -->
 <div class="container-fluid events_timeline_background">

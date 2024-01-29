@@ -233,7 +233,7 @@ $(document).ready(function() {
 		});
 	});
 
-    
+
     $('.videos iframe').each(function(){
         console.log($(this).contents().find('body #player'));
         $(this).contents().find('button.ytp-large-play-button').html($("<img/>").attr("src", "https://forestpaths.eu/storage/app/media/play.svg"));
@@ -367,7 +367,7 @@ $(document).ready(function() {
             if ($('#advisory_board').hasClass('expanded')) {
                 $('#advisory_board').removeClass('expanded');
             }
-            
+
             $('.members-accordion-content').stop().slideToggle('slow');
             $('.advisory-accordion-content').stop().slideUp('slow');
         });
@@ -377,7 +377,7 @@ $(document).ready(function() {
             if ($('#show_all').hasClass('expanded')) {
                 $('#show_all').removeClass('expanded');
             }
-            
+
             $('.advisory-accordion-content').stop().slideToggle('slow');
             $('.members-accordion-content').stop().slideUp('slow');
         });
@@ -1014,10 +1014,20 @@ function cardCarousel(object){
     });
 }
 
+function introCarousel(object){
+    return new Promise(resolve => {
+        $('#intro-carousel').slick(object);
+        resolve()
+    });
+}
+
+
+
 function init() {
     window.addEventListener('resize', function () {
         if (isBreakpointLarge()) {
             $('#card-carousel').slick('unslick');
+            // $('#intro-carousel').slick('unslick');
         } else {
             if (typeof cardCarousel === 'function') {
                 cardCarousel({
@@ -1029,6 +1039,17 @@ function init() {
                     nextArrow: '<i class="slick-next pr p-forward"/>',
                 });
              }
+
+        }
+        if (typeof introCarousel === 'function') {
+            introCarousel({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 6000,
+                prevArrow: '<i class="slick-prev pr p-back"/>',
+                nextArrow: '<i class="slick-next pr p-forward"/>',
+            });
         }
         // keepFooter(documentHasScroll());
 
@@ -1045,6 +1066,16 @@ function init() {
                     nextArrow: '<i class="slick-next pr p-forward"/>',
                 });
             }
+        }
+        if (typeof introCarousel === 'function') {
+            introCarousel({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 6000,
+                prevArrow: '<i class="slick-prev pr p-back"/>',
+                nextArrow: '<i class="slick-next pr p-forward"/>',
+            });
         }
 		appendSearchAndSocialMedia()
 		requestFormLibrary()

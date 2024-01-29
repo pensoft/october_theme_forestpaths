@@ -575,7 +575,7 @@ h1.display-1{
       }
 }
 
-// ARROW TO THE TOP 
+// ARROW TO THE TOP
 .toTheTop {
     background: url("../../assets/images/partners-back-to-top.svg") no-repeat center;
     background-size: 60px;
@@ -588,7 +588,7 @@ h1.display-1{
     right: 50px;
     z-index: 1000;
     transition: opacity 0.3s;
-    
+
     &:hover {
         opacity: 0.7;
     }
@@ -600,7 +600,7 @@ h1.display-1{
         bottom: 32px;
         right: 28px;
     });
-    
+
     .breakpoint-large-down({
         background-size: 40px;
         width: 40px;
@@ -1215,16 +1215,93 @@ now override the 3.3 new styles for modern browsers & apply opacity
 }
 
 .green_intro{
-    color: #009A49;
-    font-size: 36px;
-    line-height: 42px;
-    padding: 0 150px 0 0!important;
+    color: #505050;
+    font-size: 36px!important;
+    line-height: 42px!important;
+    padding: 0 0px 0 0!important;
     font-weight: bold;
     .breakpoint-laptop-down({
         padding: 20px!important;
         font-size: 30px;
         line-height: 35px;
     });
+    .breakpoint-large-down({
+        padding: 0px!important;
+        font-size: 20px!important;
+        line-height: 27px!important;
+    });
+}
+
+#intro-carousel{
+    .slick-slide {
+        display: flex!important;
+        padding: 0 40px!important;
+        margin: 40px 0;
+
+        .breakpoint-large-down({
+            padding: 0 20px!important;
+            margin: 10px 0;
+        });
+
+        a{
+            display: block;
+            position: relative;
+            .layer{
+                background: rgba(0, 56, 29, 0.9);
+                content: '\A';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                transition: all ease-in-out 0.9s;
+                -webkit-transition: all 0.9s;
+                border-radius: 22px;
+                z-index: 22;
+                align-items: center;
+                justify-content: center;
+                display: flex;
+                visibility: hidden;
+                .breakpoint-large-down({
+                    visibility: visible;
+                    border-radius: 10px;
+                    position: relative;
+                    background: none;
+                    margin-bottom: 20px;
+                });
+                span{
+                    background: #009A49;
+                    width: 164px;
+                    height: 27px;
+                    color: white;
+                    font-weight: bold;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    opacity: 1;
+                    border-radius: 25px;
+                    padding: 10px 20px;
+                    .breakpoint-large-down({
+                        font-size: 15px;
+                        width: 50%;
+                    });
+                    i{
+                        background: url("../../assets/images/link-to-website-icon.svg") center no-repeat;
+                        background-size: contain;
+                        width: 16px;
+                        height: 16px;
+                        margin-left: 10px;
+                    }
+                }
+            }
+            &:hover{
+                .layer{
+                    visibility: visible;
+                }
+            }
+
+        }
+    }
 }
 
 .irfame_homepage_intro_container{
@@ -1237,13 +1314,10 @@ now override the 3.3 new styles for modern browsers & apply opacity
         display: block;
         width: 100%;
         float: right;
-    //overflow: hidden;
     img {
             width: auto;
         max-width: 100%;
         object-fit: contain;
-        
-        height: 405px;
         -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
         -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
