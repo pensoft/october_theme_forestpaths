@@ -1260,10 +1260,9 @@ now override the 3.3 new styles for modern browsers & apply opacity
                 z-index: 22;
                 align-items: center;
                 justify-content: center;
-                display: flex;
-                visibility: hidden;
+                display: none;
                 .breakpoint-large-down({
-                    visibility: visible;
+                    display: flex;
                     border-radius: 10px;
                     position: relative;
                     background: none;
@@ -1285,7 +1284,7 @@ now override the 3.3 new styles for modern browsers & apply opacity
                         font-size: 15px;
                         width: 50%;
                     });
-                    i{
+                    em{
                         background: url("../../assets/images/link-to-website-icon.svg") center no-repeat;
                         background-size: contain;
                         width: 16px;
@@ -1296,7 +1295,7 @@ now override the 3.3 new styles for modern browsers & apply opacity
             }
             &:hover{
                 .layer{
-                    visibility: visible;
+                    display: flex;
                 }
             }
 
