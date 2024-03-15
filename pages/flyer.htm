@@ -18,9 +18,23 @@ pageNumber = "{{ :page }}"
 ==
 <?php
 use Pensoft\Media\Models\Flyers;
+use Pensoft\Media\Models\Category;
+
 use System\Models\File;
 
+function onFilterFlyers()
+{
+    $categoryId = post('flyerType');
+
+    if ($categoryId === 'all') {
+        $this['mediaFlyersList'] = Flyers::get();
+    } else {
+        $this['mediaFlyersList'] = Flyers::where('category_id', $categoryId)->get();
+    }
+}
+
 function onStart(){
+    $this['categories'] = Category::orderBy('sort_order')->get();
 	$this['mediaFlyersList'] =  Flyers::get();
 	if(get('download')){
 		$file = File::find((int)get('download'));
@@ -49,46 +63,67 @@ return Redirect::to('/media-center/flyer');
 }
 ?>
 ==
-<div class="container">
-    <div class="row mb-4">
-        {% set records = mediaFlyersList %}
-        {% set displayColumn = mediaFlyersList.displayColumn %}
-        {% set noRecordsMessage = mediaFlyersList.noRecordsMessage %}
-        {% set detailsPage = mediaFlyersList.detailsPage %}
-        {% set detailsKeyColumn = mediaFlyersList.detailsKeyColumn %}
-        {% set detailsUrlParameter = mediaFlyersList.detailsUrlParameter %}
-
-        {% for record in records|sort((a, b) => a.name <=> b.name) %}
-        {# Use spaceless tag to remove spaces inside the A tag. #}
-        {% spaceless %}
-        <div class="col-md-3 col-xs-12 center-xs">
-            <p class="logo_container"><img src="{{record.flyer_image.path}}" title="{{record.name}}"></p>
-
-            <div class="col-xs-12">
-                <div class="text-center">
-                    <h3 class="record-name" style ="height: 50px"><b>{{record.name}}</b></h3>
-                    {% if record.file_language_versions %}
-                    <div class="dropdown-button">
-                        <a class="btn btn-primary" style="width: 300px; max-width: 100%;">Download 
-                            <img src="{{'arrow.svg'|media}}" style="width: 16px; margin-left: 11px; margin-top: 10px; position: absolute;"></a>
-                        <div class="dropdown-content">
-                            {% for item in record.file_language_versions %}
-                            <a href="{{item.file_version|media}}" title="{{item.file_version_label}}" target="_blank">{{item.file_version_label}}</a>
-                            {% endfor %}
-                        </div>
-                    </div>
-                    {% else %}
-                    <a href="{{record.file.path}}#file_name={{record.file.file_name}}" title="{{record.name}}" class="btn btn-primary" target="_blank">Download</a>
-                    {% endif %}
-                </div>
-            </div>
-
-        </div>
-
-
-        {% endspaceless %}
-        {% else %}
-        {{ noRecordsMessage }}
+<div class="container flyer-container">
+    {% if categories.count > 0 %}
+    <div class="row tabs">
+        <a href="javascript:;"
+            class="active"
+            data-request="onFilterFlyers"
+            data-request-data="flyerType: 'all'"
+            data-request-update="'components/flyers-records': '#flyer-records'">
+            All Promotional materials
+        </a>
+        {% for category in categories %}
+        <a href="javascript:;" 
+            data-request="onFilterFlyers" 
+            data-request-data="flyerType: {{ category.id }}" 
+            data-request-update="'components/flyers-records': '#flyer-records'">
+            {{ category.name }}
+        </a>
         {% endfor %}
+    </div>
+    {% endif %}
+    <div class="flyer-records"  id="flyer-records">
+        <div class="row mb-4">
+            {% set records = mediaFlyersList %}
+            {% set displayColumn = mediaFlyersList.displayColumn %}
+            {% set noRecordsMessage = mediaFlyersList.noRecordsMessage %}
+            {% set detailsPage = mediaFlyersList.detailsPage %}
+            {% set detailsKeyColumn = mediaFlyersList.detailsKeyColumn %}
+            {% set detailsUrlParameter = mediaFlyersList.detailsUrlParameter %}
+    
+            {% for record in records|sort((a, b) => a.name <=> b.name) %}
+            {# Use spaceless tag to remove spaces inside the A tag. #}
+            {% spaceless %}
+            <div class="col-md-3 col-xs-12 center-xs">
+                <p class="logo_container"><img src="{{record.flyer_image.path}}" title="{{record.name}}"></p>
+    
+                <div class="col-xs-12">
+                    <div class="text-center">
+                        <h3 class="record-name" style ="height: 50px"><b>{{record.name}}</b></h3>
+                        {% if record.file_language_versions %}
+                        <div class="dropdown-button">
+                            <a class="btn btn-primary" style="width: 300px; max-width: 100%;">Download 
+                                <img src="{{'arrow.svg'|media}}" style="width: 16px; margin-left: 11px; margin-top: 10px; position: absolute;"></a>
+                            <div class="dropdown-content">
+                                {% for item in record.file_language_versions %}
+                                <a href="{{item.file_version|media}}" title="{{item.file_version_label}}" target="_blank">{{item.file_version_label}}</a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% else %}
+                        <a href="{{record.file.path}}#file_name={{record.file.file_name}}" title="{{record.name}}" class="btn btn-primary" target="_blank">Download</a>
+                        {% endif %}
+                    </div>
+                </div>
+    
+            </div>
+    
+    
+            {% endspaceless %}
+            {% else %}
+            {{ noRecordsMessage }}
+            {% endfor %}
+        </div>
     </div>
 </div>

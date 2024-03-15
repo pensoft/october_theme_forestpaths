@@ -1,0 +1,43 @@
+<div class="flyer-records"  id="flyer-records">
+    <div class="row mb-4">
+        {% set records = mediaFlyersList %}
+        {% set displayColumn = mediaFlyersList.displayColumn %}
+        {% set noRecordsMessage = mediaFlyersList.noRecordsMessage %}
+        {% set detailsPage = mediaFlyersList.detailsPage %}
+        {% set detailsKeyColumn = mediaFlyersList.detailsKeyColumn %}
+        {% set detailsUrlParameter = mediaFlyersList.detailsUrlParameter %}
+
+        {% for record in records|sort((a, b) => a.name <=> b.name) %}
+        {# Use spaceless tag to remove spaces inside the A tag. #}
+        {% spaceless %}
+        <div class="col-md-3 col-xs-12 center-xs">
+            <p class="logo_container"><img src="{{record.flyer_image.path}}" title="{{record.name}}"></p>
+
+            <div class="col-xs-12">
+                <div class="text-center">
+                    <h3 class="record-name" style ="height: 50px"><b>{{record.name}}</b></h3>
+                    {% if record.file_language_versions %}
+                    <div class="dropdown-button">
+                        <a class="btn btn-primary" style="width: 300px; max-width: 100%;">Download 
+                            <img src="{{'arrow.svg'|media}}" style="width: 16px; margin-left: 11px; margin-top: 10px; position: absolute;"></a>
+                        <div class="dropdown-content">
+                            {% for item in record.file_language_versions %}
+                            <a href="{{item.file_version|media}}" title="{{item.file_version_label}}" target="_blank">{{item.file_version_label}}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% else %}
+                    <a href="{{record.file.path}}#file_name={{record.file.file_name}}" title="{{record.name}}" class="btn btn-primary" target="_blank">Download</a>
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+
+
+        {% endspaceless %}
+        {% else %}
+        {{ noRecordsMessage }}
+        {% endfor %}
+    </div>
+</div>

@@ -588,6 +588,42 @@ h1.display-1{
       }
 }
 
+.flyer-container .tabs{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    text-align: start;
+    padding: 10px 60px;
+    a{
+        margin-right: 40px;
+        font-weight: bold;
+        cursor: pointer;
+        color: @yellow-color;
+        border: none;
+        background: none;
+        font-size: 18px;
+        .breakpoint-small-down({
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-bottom: 20px;
+            margin-right: unset;
+        });
+
+        &.active{
+            opacity: 0.5;
+        }
+    }
+    .breakpoint-large-down({
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: unset;
+    });
+}
+
 // ARROW TO THE TOP
 .toTheTop {
     background: url("../../assets/images/partners-back-to-top.svg") no-repeat center;
