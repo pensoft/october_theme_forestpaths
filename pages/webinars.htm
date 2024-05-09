@@ -1,0 +1,103 @@
+url = "/media-center/webinars"
+layout = "default"
+title = "Webinars"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+header_image = "media.jpg"
+
+==
+<?php
+use Pensoft\Media\Models\Webinars;
+use System\Models\File;
+
+function onStart(){
+    $this['mediaVideosList'] =  Webinars::get();
+    
+    if(get('download'))
+    {
+        $file = File::find((int)get('download'));
+        $file_name = $file->getLocalPath();
+        $recordName = get('file_name') ? get('file_name') : 'ForestPaths_video';
+        $ext= $file->getExtension();
+
+        if (file_exists($file_name)) 
+        {
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header("Content-Type: application/force-download");
+            header('Content-Disposition: attachment; filename='.$recordName .'.'. $ext);
+            header('Content-Transfer-Encoding: binary');
+            header('Expires: 0');
+            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+            header('Pragma: public');
+            header('Content-Length: ' . filesize($file_name));
+            ob_clean();
+            flush();
+            readfile($file_name);
+            exit();
+        }
+
+        return Redirect::to('/media-center/webinars');
+    }
+}
+
+?>
+==
+
+<div class="container-fluid">
+    {% set records = mediaVideosList %}
+
+    {% if records.count %}
+    <div class="container mt-4">
+        <div class="row">
+            {% for record in records %}
+            {# Use spaceless tag to remove spaces inside the A tag. #}
+            {% spaceless %}
+            <div class="col-md-6 col-xs-12">
+                <div class="video-content mb-3">
+                    
+                    {% if record.file %}
+                    <video controls="" width="761"  style="max-width: 100%; border-radius: 20px;"><source src="{{record.file.path}}" type="video/mp4"></video>
+    
+                    <p>Attachment: {{record.file.file_name}}, {{record.file.size}}</p>
+    
+                    <p><a class=" btn btn-primary" href="{{ ''| page }}?{{queries}}&download={{record.file.id}}&file_name={{record.name|replace({' ': '_'})}}">Download</a></p>
+    
+                    <p class="card_title font-weight-bold mt-1">{{record.name}}</p>
+    
+                    {% endif %}
+    
+                    {% if record.youtube_url %}
+                                <iframe width="761" height="447" style="max-width: 100%; border-radius: 22px;" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                        src="{{record.youtube_url}}">
+                                </iframe>
+                            <p class="card_title font-weight-bold mt-1">{{record.name}}</p>
+    
+                    {% endif %}
+    
+                    {% if record.vimeo_url %}
+                    <iframe width="761" height="447" style="max-width: 100%; border-radius: 5px;" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            src="{{record.vimeo_url}}">
+                    </iframe>
+                    <p class="card_title font-weight-bold mt-1">{{record.name}}</p>
+                    {% endif %}
+    
+                    
+                </div>
+            </div>
+    
+    
+    
+    
+            {% endspaceless %}
+    
+            {% endfor %}
+        </div>
+    </div>
+    {% else %}
+    <!-- <div class="container-fluid bg-secondary coming_soon">
+        {% component 'jumbotron' %}
+    </div> -->
+    {% endif %}
+</div>

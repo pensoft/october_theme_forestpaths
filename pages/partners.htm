@@ -13,7 +13,6 @@ use Pensoft\Cardprofiles\Models\Profiles;
 function onStart(){
 	$this['partners'] =  Partners::where('type', 1)->get();
     $this['members'] = Profiles::where('category_id',  1)->get();
-    $this['advisory_board'] = Profiles::where('category_id',  2)->get();
 }
 
 function onPartners(){
@@ -63,7 +62,7 @@ return Profiles::where('partner_id', $id)->where('category_id',  1)->get();
     </div>
     <div class="container partners-map-container">
 
-        {% if members.count > 0 or advisory_board > 0%}
+        {% if members.count > 0 %}
         <div id="accordion-insider-members" class="partner-item">
 
             <div class="partners-accordion-border">
@@ -71,9 +70,9 @@ return Profiles::where('partner_id', $id)->where('category_id',  1)->get();
                     {% if members.count > 0 %}
                     <div class="col-lg-3 col-md-3 col-xs-6 center-xs"><span class="showmembers expand-partners" id="show_all">Show all project members<span></span></span></div>
                     {% endif %}
-                    {% if advisory_board.count > 0 %}
+                    <!-- {% if advisory_board.count > 0 %}
                     <div class="col-lg-3 col-md-3 col-xs-6 center-xs"><span class="showmembers expand-partners" id="advisory_board">Show all Advisory Board members<span></span></span></div>
-                    {% endif %}
+                    {% endif %} -->
                 </div>
 
                 {% if members.count > 0 %}
@@ -100,7 +99,7 @@ return Profiles::where('partner_id', $id)->where('category_id',  1)->get();
                 </div>
                 {% endif %}
 
-                {% if advisory_board.count > 0 %}
+                <!-- {% if advisory_board.count > 0 %}
                 <div class="advisory-accordion-content" id="insider-members" style="display: none;">
                     <div class="row top-xs">
                         {% for profile in advisory_board %}
@@ -122,7 +121,7 @@ return Profiles::where('partner_id', $id)->where('category_id',  1)->get();
                         {% endfor %}
                     </div>
                 </div>
-                {% endif %}
+                {% endif %} -->
             </div>
         </div>
         {% endif %}

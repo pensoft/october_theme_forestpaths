@@ -387,7 +387,6 @@
         color: #72BC46;
     }
 }
-
 .flip_cards_container{
     .col-md.col-xs-12{
         float: left;
@@ -582,6 +581,28 @@
         width: 100%;
         height: 50px;
         background-size: 55px;
+    }
+
+    .card-active{
+        color: @white-color !important;
+
+        .label_paths{
+            background: url("../../assets/images/pin-white.svg") top center no-repeat;
+            color: #009A49;   
+        }
+        
+        h3, a, .label_description{
+            color: @white-color !important;
+        }
+
+        .flip-card-back, .flip-card-front{
+            background-color: #009A49 !important;
+        }
+
+        .flip-card-front{
+            border-top: none !important;
+            padding-top: 30px !important;
+        }
     }
 
 }
