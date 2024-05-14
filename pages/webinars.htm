@@ -1,11 +1,10 @@
-url = "/media-center/webinars"
+url = "/webinars"
 layout = "default"
 title = "Webinars"
 is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
 header_image = "media.jpg"
-
 ==
 <?php
 use Pensoft\Media\Models\Webinars;
@@ -41,10 +40,8 @@ function onStart(){
         return Redirect::to('/media-center/webinars');
     }
 }
-
 ?>
 ==
-
 <div class="container-fluid">
     {% set records = mediaVideosList %}
 
@@ -96,8 +93,6 @@ function onStart(){
         </div>
     </div>
     {% else %}
-    <!-- <div class="container-fluid bg-secondary coming_soon">
-        {% component 'jumbotron' %}
-    </div> -->
+
     {% endif %}
 </div>
