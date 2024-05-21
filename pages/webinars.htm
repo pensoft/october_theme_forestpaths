@@ -5,6 +5,12 @@ is_hidden = 0
 robot_index = "index"
 robot_follow = "follow"
 header_image = "media.jpg"
+
+[jumbotron]
+jumbotron = "webinars-intro"
+background = "transperant"
+templates = "template3"
+description_limit = 0
 ==
 <?php
 use Pensoft\Media\Models\Webinars;
@@ -42,11 +48,13 @@ function onStart(){
 }
 ?>
 ==
+{% component 'jumbotron' %}
 <div class="container-fluid">
+    
     {% set records = mediaVideosList %}
 
     {% if records.count %}
-    <div class="container mt-4">
+    <div class="container">
         <div class="row">
             {% for record in records %}
             {# Use spaceless tag to remove spaces inside the A tag. #}
