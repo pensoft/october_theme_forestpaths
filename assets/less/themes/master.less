@@ -601,6 +601,60 @@ h1.display-1{
       }
 }
 
+.webinars-category-container{
+
+    // Webinar tabs
+    .category-intro{
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        p{
+            color: #505050;
+            font-size: 20px !important;
+            line-height: 1.6em !important;
+            padding: 0 !important;
+            font-weight: bold;
+        }
+    }
+    .webinar-filters .category-tabs-webinars{
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        text-align: start;
+        padding: 40px 60px;
+        a{
+            margin-right: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            color: @yellow-color;
+            border: none;
+            background: none;
+            font-size: 18px;
+            .breakpoint-small-down({
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                margin-bottom: 20px;
+                margin-right: unset;
+            });
+
+            &.active, &:hover{
+                opacity: 0.5;
+            }
+        }
+        .breakpoint-large-down({
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: unset;
+            flex-direction: column;
+        });
+    }    
+}
+
+
 .flyer-container .tabs{
     display: flex;
     justify-content: start;
