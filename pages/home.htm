@@ -14,6 +14,7 @@ baseUrl = "/news"
 templates = "template5"
 thumb_width = 440
 thumb_height = 235
+title_max_length = 150
 
 [jumbotron homeIntro]
 jumbotron = "homepage-intro-top"
@@ -55,16 +56,15 @@ use Carbon\Carbon;
     <div class="container">
     {% component 'homeIntro' %}
      </div>
-</div>   
+</div> 
+<!--<div class="container homepage_subpages">
+        <div class="row between-md around-xs">
+            <div class="col-xs-12 ">
+                {% component 'homeIntro' %}
+            </div>
+        </div>
+</div>-->
 
-<!--<div class="container homepage_subpages">-->
-<!--        <div class="row between-md around-xs">-->
-<!--            <div class="col-xs-12 ">-->
-<!--                {% component 'homeIntro' %}-->
-
-
-<!--        </div>-->
-<!--</div>-->
 {% if entries.count() %}
 <!-- events timeline -->
 <div class="container-fluid events_timeline_background">

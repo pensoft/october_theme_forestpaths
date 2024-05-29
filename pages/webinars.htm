@@ -8,7 +8,15 @@ header_image = "media.jpg"
 
 [webinars]
 showCategoryIntro = 1
-jumbotron = "intro"
-==
+jumbotron = "webinars-intro"
 
+[jumbotron]
+jumbotron = "webinars-intro"
+background = "#fff"
+templates = "template1"
+description_limit = 0
+==
+<div class="container webinar-container">
+{% component 'jumbotron' %}
 {% component 'webinars' %}
+</div>
