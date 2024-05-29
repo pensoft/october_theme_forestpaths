@@ -651,7 +651,7 @@ h1.display-1{
             padding: unset;
             flex-direction: column;
         });
-    }    
+    }
 }
 
 
@@ -1222,6 +1222,52 @@ p:has(.edit-link), .edit-link{
     background-size: 75%;
   });
 }
+
+.category-tabs-container{
+    margin-bottom: 20px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    a{
+        position: relative;
+        font-size: 18px;
+        color: #faa919;
+        font-weight: 700;
+        border-radius: 5px;
+
+        &.active, &:hover{
+            opacity: 0.5;
+        }
+
+        &:not(:last-child){
+            margin-right: 20px;
+        }
+
+        .breakpoint-large-down({
+            margin-bottom: 18px;
+        });
+
+    }
+    .category-tabs{
+        margin-left: 10px;
+        .breakpoint-large-down({
+            margin-right: unset;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        });
+    }
+    .breakpoint-large-down({
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    });
+  }
+
+
 /*
 WHAT IS NEW IN 3.3: "Added transforms to improve carousel performance in modern browsers."
 now override the 3.3 new styles for modern browsers & apply opacity

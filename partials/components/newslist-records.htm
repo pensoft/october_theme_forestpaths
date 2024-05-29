@@ -1,0 +1,34 @@
+<div class="row">
+    {% for record in records %}
+    {% spaceless %}
+    <div class="col-xs-12 news-item">
+        <div class="row news_column">
+
+            <a href="{{'news'|page}}/{{record.slug}}">
+                {% if record.cover %}
+                <div class="news-image col-xs-12 center-xs">
+                    <img class="news-img-top" src="{{record.cover.getThumb(412, 243, {'mode': 'crop'})}}">
+                </div>
+                {% endif %}
+                <div class="news-container col-xs-12">
+                    <div class="text-published">{{record.published_at | date('d F Y') }}</div>
+                    <div class="news-title">
+                        <h3 class="card-title">{{record.title}}</h3>
+                    </div>
+
+                    <div class="body">{% if record.content|striptags|raw|length > 450 %}
+                        {{ record.content|striptags|truncate(450, true, "...")|raw }}
+                        {% else %}
+                        {{ record.content|striptags|raw }}
+                        {% endif %}</div>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+    {% endspaceless %}
+    {% else %}
+    No news
+    {% endfor %}
+</div>

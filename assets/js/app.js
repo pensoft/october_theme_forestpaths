@@ -234,6 +234,11 @@ $(document).ready(function() {
 	});
 
 
+    $('.category-tabs-container a').click(function() {
+        $('.category-tabs-container a').removeClass('active');
+        $(this).addClass('active');
+    });
+    
     $('.videos iframe').each(function(){
         console.log($(this).contents().find('body #player'));
         $(this).contents().find('button.ytp-large-play-button').html($("<img/>").attr("src", "https://forestpaths.eu/storage/app/media/play.svg"));
