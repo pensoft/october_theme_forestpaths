@@ -7,7 +7,7 @@ robot_follow = "follow"
 header_image = "media.jpg"
 
 [builderList mediaVideosList]
-modelClass = "pensoft\Media\Models\Videos"
+modelClass = "Pensoft\Media\Models\Videos"
 scope = "-"
 scopeValue = "{{ :scope }}"
 displayColumn = "name"
@@ -41,7 +41,7 @@ function onFilterVideos()
 
 function onStart(){
     $this['categories'] = VideosCategory::orderBy('sort_order')->get();
-	$this['mediaVideosList'] =  Videos::where('pensoft_media_videos.parent_id', null)->get();
+	$this['mediaVideosList'] =  Videos::get();
 if(get('download')){
 $file = File::find((int)get('download'));
 $file_name = $file->getLocalPath();
@@ -73,7 +73,6 @@ return Redirect::to('/media-center/videos');
 
 
 {% set records = mediaVideosList %}
-
 {% if records.count %}
 <div class="container mt-4">
 
@@ -84,7 +83,7 @@ return Redirect::to('/media-center/videos');
            data-request="onFilterVideos"
            data-request-data="videoType: 'all'"
            data-request-update="'components/videos-records': '#video-records'">
-            All materials
+            All videos
         </a>
         {% for category in categories %}
         <a href="javascript:;"
@@ -102,7 +101,6 @@ return Redirect::to('/media-center/videos');
 		{# Use spaceless tag to remove spaces inside the A tag. #}
 		{% spaceless %}
 		<div class="col-md-6 col-xs-12">
-			<div class="">
 
 				{% if record.file %}
 				<video controls="" width="761"  style="max-width: 100%; border-radius: 5px;"><source src="{{record.file.path}}" type="video/mp4"></video>
@@ -116,31 +114,20 @@ return Redirect::to('/media-center/videos');
 				{% endif %}
 
 				{% if record.youtube_url %}
-					<!--<div class="youtube-video " data-id="{{record.youtube_url}}">
-						<img src="/storage/app/media/play.svg" data-src="/storage/app/media/play.svg" alt="Video Thumbnail" class="fr-fic fr-dii">
-			            <div class="play-button"><br></div>
-			            <div class="iframe-container">-->
-							<iframe width="761" height="447" style="max-width: 100%; border-radius: 22px;" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-							allowfullscreen src="{{record.youtube_url}}">
-							</iframe>
-						<!--</div>-->
-						<p class="card_title font-weight-bold mt-1">{{record.name}}</p>
-
+                    <iframe width="761" height="447" style="max-width: 100%; border-radius: 22px;" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen src="{{record.youtube_url}}">
+                    </iframe>
+                    <p class="card_title font-weight-bold mt-1">{{record.name}}</p>
 				{% endif %}
 
 				{% if record.vimeo_url %}
-				<iframe width="761" height="447" style="max-width: 100%; border-radius: 5px;" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-						src="{{record.vimeo_url}}">
-				</iframe>
-				<p class="card_title font-weight-bold mt-1">{{record.name}}</p>
+                    <iframe width="761" height="447" style="max-width: 100%; border-radius: 5px;" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                            src="{{record.vimeo_url}}">
+                    </iframe>
+                    <p class="card_title font-weight-bold mt-1">{{record.name}}</p>
 				{% endif %}
 
-
-			</div>
 		</div>
-
-
-
 
 		{% endspaceless %}
 
