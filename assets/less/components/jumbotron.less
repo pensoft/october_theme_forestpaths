@@ -680,6 +680,29 @@
 }
 
 .data-tools{
+    
+    .life-cycle-analysis{
+        .timex p, .aiphoria p{
+            padding: 0 35px !important;
+        }
+        .card-image{
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            padding: 20px 32px;
+            img{
+                width: 60%;
+            }
+        }
+        .flip-card-back{
+            height: fit-content;
+        }
+    }
+    .flip-card-front, .flip-card-inner{
+        height: fit-content !important;
+        min-height: 720px !important;
+    }
+
     .flip-card{
         height: 720px;
         h3{
@@ -689,10 +712,10 @@
             });
         }
         .breakpoint-laptop-down({
-            height: 580px!important;
+            // height: 580px!important;
         });
         .breakpoint-small-down({
-            height: 640px!important;
+            // height: 640px!important;
         });
     }
 

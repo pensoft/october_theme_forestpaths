@@ -40,6 +40,12 @@ jumbotron = "intro-carousel"
 background = "transperant"
 templates = "template3"
 description_limit = 0
+
+[jumbotron home_subpages]
+jumbotron = "homepage-subpages-list"
+background = "transperant"
+templates = "template3"
+description_limit = 0
 ==
 <?php
 use Pensoft\Calendar\Models\Entry;
@@ -65,6 +71,9 @@ use Carbon\Carbon;
         </div>
 </div>-->
 
+<div class="container homepage_subpages">
+{% component 'home_subpages' %}
+</div>
 {% if entries.count() %}
 <!-- events timeline -->
 <div class="container-fluid events_timeline_background">

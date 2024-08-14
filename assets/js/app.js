@@ -233,7 +233,23 @@ $(document).ready(function() {
 		});
 	});
 
+    // Handle dynamic height adjustment for card hover
+    let flipCard = $('.life-cycle-analysis .flip-card');
+    let frontCard = $('.life-cycle-analysis .flip-card-front');
+    let backCard = $('.life-cycle-analysis .flip-card-back');
 
+    flipCard.on("mouseenter", function() {
+        flipCard.css({
+            "height": backCard.height(),
+        });
+    });
+
+    flipCard.on("mouseleave", function() {
+        flipCard.css({
+            "height": frontCard.height(),
+        });
+    });
+    
     $('.category-tabs-container a').click(function() {
         $('.category-tabs-container a').removeClass('active');
         $(this).addClass('active');
