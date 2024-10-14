@@ -50,7 +50,22 @@
         }
 
         .col-md-3.col-xs-12{
-            text-align: right;
+            display: flex;
+            justify-content: end;
+            text-align: center;
+            .breakpoint-large-down({
+                display: block;
+                margin-top: 20px !important;
+            });
+        }
+        .download_text{
+            order: 1;
+            margin-left: 14px;
+            margin-top: 12px;
+            .breakpoint-large-down({
+                margin-left: 0;
+                margin-top: 0;
+        });
         }
     }
 
