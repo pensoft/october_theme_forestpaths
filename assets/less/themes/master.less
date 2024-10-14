@@ -348,7 +348,7 @@ h1.display-1{
             height: 228px;
             max-height: 25vh;
             margin-bottom: 50px;
-            background-position: 60px 0;
+            background-position: 16px 0;
             .breakpoint-laptop-down({
                 max-height: 19vh;
 
@@ -364,7 +364,7 @@ h1.display-1{
             color: @white-color;
             font-family: 'Raleway';
             font-weight: 600;
-            text-align: right!important;
+            text-align: left!important;
             padding-right: 8%;
             animation: fadeIn 2s;
 
@@ -503,11 +503,11 @@ h1.display-1{
 
     .jumbotron{
         width: 100%;
-        max-width: 1600px;
         display: flex;
-        align-items: start!important;
+        justify-content: center;
         margin-top: 0px;
-
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+        
         .breakpoint-small-down({
             font-size: 1.3em;
             align-items: center;
@@ -1535,4 +1535,9 @@ now override the 3.3 new styles for modern browsers & apply opacity
     }
 }
 
+}
+
+
+.intro h1{
+    text-align: left !important
 }

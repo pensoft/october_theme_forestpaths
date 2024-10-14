@@ -9,7 +9,7 @@ function timeline(collection, options) {
     const defaultSettings = {
         forceVerticalMode: {
             type: 'integer',
-            defaultValue: 600
+            defaultValue: 1200
         },
         horizontalStartPosition: {
             type: 'string',
@@ -280,8 +280,19 @@ function timeline(collection, options) {
             nextArrow.className = 'timeline-nav-button timeline-nav-button--next';
             prevArrow.textContent = 'Previous';
             nextArrow.textContent = 'Next';
-            prevArrow.style.top = `${topPosition + 80}px`;
-            nextArrow.style.top = `${topPosition + 80}px`;
+
+            if (window.innerWidth > 800) {
+                // When screen width is greater than 800px, apply a different position for arrows
+                prevArrow.style.top = `${topPosition + 80}px`; // Different value for larger screens
+                nextArrow.style.top = `${topPosition + 80}px`;
+                prevArrow.style.left = '20px'; // Example position adjustment
+                nextArrow.style.right = '20px'; // Example position adjustment
+            } else {
+                // Default or mobile position for arrows when screen width is 800px or smaller
+                prevArrow.style.top = `${topPosition + 80}px`;
+                nextArrow.style.top = `${topPosition + 80}px`;
+            }
+            
             if (currentIndex === 0) {
                 prevArrow.disabled = true;
             } else if (currentIndex === (tl.items.length - tl.settings.visibleItems)) {
@@ -364,8 +375,14 @@ function timeline(collection, options) {
             nextArrow.className = 'timeline-nav-button timeline-nav-button--next';
             prevArrow.textContent = 'Previous';
             nextArrow.textContent = 'Next';
-            prevArrow.style.top = `${topPosition - 270}px`;
-            nextArrow.style.top = `${topPosition + 428}px`;
+
+            if (window.innerWidth > 800) {
+                prevArrow.style.top = `${topPosition - 200}px`;
+                nextArrow.style.top = `${topPosition + 428}px`;
+            } else {
+                prevArrow.style.top = `${topPosition - 270}px`;
+                nextArrow.style.top = `${topPosition + 428}px`;
+            }
 
             if (currentIndex === 0) {
                 prevArrow.disabled = true;
