@@ -864,10 +864,16 @@
         background: @secondary-color;
         padding: 20px;
         border-radius: 5px;
-        max-width: 24%;
+        max-width: 48% !important;
+        flex-basis: 48%;
         margin-bottom: 50px;
 
-        .breakpoint-laptop-down({
+        //.breakpoint-laptop-down({
+        //    max-width: 48% !important;
+        //    flex-basis: 48%;
+        //});
+
+        .breakpoint-large-down({
             max-width: 100% !important;
             flex-basis: 100%;
         });
@@ -882,13 +888,13 @@
             align-items: center;
             padding-left: 120px;
             font-weight: 600;
-            //
-            //.breakpoint-laptop-down({
-            //    padding-left: 94px;
-            //    font-size:calc(22px + 0.5vw);
-            //    line-height: calc(26px + 0.5vw);
-            //});
+
             .breakpoint-laptop-down({
+                padding-left: 94px;
+                font-size:calc(22px + 0.5vw);
+                line-height: calc(26px + 0.5vw);
+            });
+            .breakpoint-large-down({
                 padding-left: 0px!important;
                 padding-top: 108px;
                 background-position: top center!important;
