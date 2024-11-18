@@ -35,7 +35,8 @@
     .container{
         padding: 5% 10%;
         min-height: 300px;
-        max-width: 880px;
+        //max-width: 880px;
+        max-width: fit-content;
         display: flex;
         flex-direction: column;
         //b, strong{
@@ -64,7 +65,8 @@
     .container{
         padding: 5% 10%;
         min-height: 300px;
-        max-width: 880px;
+        //max-width: 880px;
+        max-width: fit-content;
         display: flex;
         flex-direction: column;
         //b, strong{
@@ -101,7 +103,8 @@
     .container{
         padding: 4% 10%;
         min-height: 300px;
-        max-width: 880px;
+        //max-width: 880px;
+        max-width: fit-content;
         display: flex;
         flex-direction: column;
         //b, strong{
@@ -140,7 +143,8 @@
     .container{
         padding: 5% 10%;
         min-height: 300px;
-        max-width: 880px;
+        //max-width: 880px;
+        max-width: fit-content;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -212,7 +216,7 @@
     p{
         margin: 15px 0 0 0 !important;
     }
-    
+
     .container{
         padding-bottom: 0;
         padding-left: 0;
@@ -474,16 +478,18 @@
         .label_paths{
             background: url("../../assets/images/about-cirlce.svg") top center no-repeat;
             color: white;
-            background-size: 88px;
+            background-size: 81px;
             width: 100%;
-            height: 103px;
-            margin-bottom: 35px;
-            margin-top: 35px;
+            height: 100px;
+            //margin-bottom: 35px;
+            //margin-top: 35px;
+            margin-bottom: 0px;
+            margin-top: 15px;
             text-align: center;
             display: inline-block;
             font-size: 26px;
             font-weight: bold;
-            line-height: 93px;
+            line-height: 88px;
         }
 
         .label_description{
@@ -589,9 +595,9 @@
 
         .label_paths{
             background: url("../../assets/images/pin-white.svg") top center no-repeat;
-            color: #009A49;   
+            color: #009A49;
         }
-        
+
         h3, a, .label_description{
             color: @white-color !important;
         }
@@ -642,7 +648,7 @@
                 min-height: 90px;
             });
         }
-        
+
         .breakpoint-laptop-down({
             height: 560px;
         });
@@ -652,7 +658,7 @@
         .breakpoint-small-down({
             height: 630px!important;
         });
-        
+
     }
 }
 
@@ -681,7 +687,7 @@
 }
 
 .data-tools{
-    
+
     .life-cycle-analysis{
         .timex p, .aiphoria p{
             padding: 0 35px !important;
@@ -702,6 +708,9 @@
     .flip-card-front, .flip-card-inner{
         height: fit-content !important;
         min-height: 720px !important;
+        .breakpoint-laptop-down({
+            min-height: 580px !important;
+        });
     }
 
     .flip-card{
@@ -713,7 +722,7 @@
             });
         }
         .breakpoint-laptop-down({
-            // height: 580px!important;
+             height: 580px!important;
         });
         .breakpoint-small-down({
             // height: 640px!important;
@@ -778,7 +787,8 @@
 .labs_item{
     background: @secondary-color;
     padding: 50px 30px!important;
-    max-width: 355px!important;
+    //max-width: 355px!important;
+    max-width: 24%!important;
     text-align: center;
     font-size: 22px;
     margin-bottom: 75px;
