@@ -317,8 +317,12 @@ function timeline(collection, options) {
     }
 
     // Calculate the new position of the horizontal timeline
-    function timelinePosition(tl) {
-        const position = tl.items[currentIndex].offsetLeft;
+    function timelinePosition(tl, param = 0) {
+        var position = tl.items[currentIndex].offsetLeft;
+        if(param == 0 && window.innerWidth < 1367){
+            position = tl.items[currentIndex].offsetLeft - 53;    
+        }
+        
         const str = `translate3d(-${position}px, 0, 0)`;
         addTransforms(tl.scroller, str);
     }
@@ -346,7 +350,7 @@ function timeline(collection, options) {
                     arrowPrev.disabled = false;
                     arrowNext.disabled = false;
                 }
-                timelinePosition(tl);
+                timelinePosition(tl, 1);
             });
         });
     }
