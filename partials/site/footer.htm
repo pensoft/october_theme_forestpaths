@@ -25,8 +25,8 @@ numberOfLevels = 1
 [cookieConsent]
 message = "This website uses cookies to ensure you get the best experience on our website."
 dismiss = "Got it!"
-learnMore = "More info"
-link = "/privacy-policy"
+learnMore = "Opt-out here"
+link = "/privacy-policy#cookies"
 theme = "dark-bottom"
 
 [menu outreach_menu]
@@ -78,16 +78,16 @@ numberOfLevels = 2
                                 <a  href="{{linkedin_url}}" target="_blank" class="pr p-secondary p-linkedin big" target="_blank"></a>
                                 {% endif %}
                                 {% if enable_youtube and youtube_url %}
-                                <a  href="{{youtube_url}}" target="_blank" class="pr p-secondary p-youtube big" target="_blank" style="font-size: 33px; margin-top: 3px;"></a>
+                                <a  href="{{youtube_url}}" target="_blank" class="pr p-secondary p-youtube big" target="_blank"></a>
                                 {% endif %}
                                 {% if enable_instagram and instagram_url %}
                                 <a  href="{{instagram_url}}" target="_blank" class="pr p-secondary p-instagram big" target="_blank"></a>
                                 {% endif %}
                                 {% if enable_researchgate and researchgate_url %}
                                 <a  href="{{researchgate_url}}" target="_blank" class="pr p-secondary p-researchgate big" target="_blank"></a>
+                                {% endif %}
                                 {% if this.theme.bluesky and this.theme.bluesky_url %}
                                 <a  href="{{this.theme.bluesky_url}}" target="_blank" class="bluesky-icon" target="_blank"></a>
-                                {% endif %}
                                 {% endif %}
                             </div>
                         </div>

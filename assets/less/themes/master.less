@@ -338,6 +338,20 @@ h1.display-1{
 }
 
 
+.read_more_white_lca{
+    color: @white-color;
+    font-weight: bold;
+    font-size: 20px;
+    background: url("../../assets/images/arrow_white.svg") center no-repeat;
+    background-position: right 5px center;
+    background-size: 13px;
+    padding-right: 25px;
+    &:hover{
+        opacity: 0.7;
+    }
+}
+
+
 .container.homepage{
     padding-top: 0;
     .intro{
@@ -921,7 +935,33 @@ h1.display-1{
     .icons{
       display: inline-flex;
         flex-direction: row;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+
+        .p-linkedin {
+                &::before{
+                    font-size: 25px;
+                margin-top: 4px;
+                }
+            }
+
+            .p-youtube {
+                margin-top: 5px;
+                &::before{
+                    font-size: 31px;
+                    
+                }
+            }
+
+            .bluesky-icon{
+                background: url('../../assets/images/bluesky_icon.png') center no-repeat;
+                background-size: contain;
+                width: 29px;
+                height: 27px;
+                margin-top: 5px;
+                margin-left: 8px;
+                display: block;
+            }
+
       .breakpoint-small-down ({
           display: inline-flex;
           align-items: center;
@@ -936,6 +976,15 @@ h1.display-1{
 
     .project_footer_logo{
         width: 250px;
+    }
+
+    .contact_info{
+        .pr.p-mail{
+            width: 26px;
+            height: 26px;
+            line-height: 26px;
+            margin-left: 10px;
+        }
     }
 }
 
@@ -1550,4 +1599,42 @@ now override the 3.3 new styles for modern browsers & apply opacity
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+}
+
+
+.rio_collection{
+    font-size: 20px;
+    text-align: center;
+    padding: 50px 0 !important;
+    .container{
+        padding: 50px 0!important;
+    }
+
+    a.button_zenodo{
+        background: #009a49 url('../../../../storage/app/media/zenodo%20logo.svg') center no-repeat;
+        background-size: 65px;
+        background-position-x: center;
+        color: white;
+        text-align: center;
+        padding: 12px 0px 12px 0px;
+        font-size: 15px;
+        border-radius: 50px;
+        margin-top: 26px;
+        display: inline-block;
+        width: 150px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        font-family: Raleway;
+        font-weight: bold;
+        &:hover{
+            background: #00381d url('../../../../storage/app/media/zenodo%20logo.svg') center no-repeat;
+            background-size: 65px;
+        background-position-x: center;
+        }
+    }
+
+
+    
 }
