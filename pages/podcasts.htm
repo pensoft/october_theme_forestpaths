@@ -1,0 +1,76 @@
+title = "Podcasts"
+layout = "default"
+url = "/podcasts"
+
+==
+<?php
+use Pensoft\Media\Models\Podcasts;
+use System\Models\File;
+
+function onStart(){
+    $this['podcasts'] =  Podcasts::get();
+    if(get('download')){
+        $file = File::find((int)get('download'));
+        $file_name = $file->getLocalPath();
+        $recordName = get('file_name') ? get('file_name') : 'ForestPaths_podcast';
+        $ext= $file->getExtension();
+
+        if (file_exists($file_name)) {
+            header('Content-Description: File Transfer');
+            header('Content-Type: application/octet-stream');
+            header("Content-Type: application/force-download");
+            header('Content-Disposition: attachment; filename='.$recordName .'.'. $ext);
+            header('Content-Transfer-Encoding: binary');
+            header('Expires: 0');
+            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+            header('Pragma: public');
+            header('Content-Length: ' . filesize($file_name));
+            ob_clean();
+            flush();
+            readfile($file_name);
+            exit();
+        }
+        return Redirect::to('/podcasts');
+    }
+}
+?>
+==
+
+{% set records = podcasts %}
+
+<div class="container mt-4">
+
+
+    <div class="row video-records" id="video-records">
+        {% for record in records %}
+        {# Use spaceless tag to remove spaces inside the A tag. #}
+        {% spaceless %}
+        <div class="col-md-6 col-xs-12">
+
+            {% if record.file %}
+            <video controls="" width="761"  style="max-width: 100%; border-radius: 5px;"><source src="{{record.file.path}}" type="video/mp4"></video>
+
+            <p>Attachment: {{record.file.file_name}}, {{record.file.size}}</p>
+
+            <p><a class=" btn btn-primary" href="{{ ''| page }}?{{queries}}&download={{record.file.id}}&file_name={{record.title|replace({' ': '_'})}}">Download</a></p>
+
+            <p class="card_title font-weight-bold mt-1">{{record.title}}</p>
+
+            {% endif %}
+
+            {% if record.url %}
+            <iframe width="761" height="357" style="max-width: 100%; border-radius: 22px;" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen src="{{record.url}}">
+            </iframe>
+            <p class="card_title font-weight-bold mt-1">{{record.title}}</p>
+            {% endif %}
+
+
+
+        </div>
+
+        {% endspaceless %}
+
+        {% endfor %}
+    </div>
+</div>
