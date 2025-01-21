@@ -101,13 +101,13 @@ return Redirect::to('/media-center/flyer');
                 <div class="col-xs-12">
                     <div class="text-center">
                         <h3 class="record-name" style ="height: 50px"><b>{{record.name}}</b></h3>
-                        {% if record.file_language_versions %}
+                        {% if record.file_lang_versions %}
                         <div class="dropdown-button">
-                            <a class="btn btn-primary" style="width: 300px; max-width: 100%;">Download 
+                            <a class="btn btn-primary" style="width: 300px; max-width: 100%;">Download
                                 <img src="{{'arrow.svg'|media}}" style="width: 16px; margin-left: 11px; margin-top: 10px; position: absolute;"></a>
                             <div class="dropdown-content">
-                                {% for item in record.file_language_versions %}
-                                <a href="{{item.file_version|media}}" title="{{item.file_version_label}}" target="_blank">{{item.file_version_label}}</a>
+                                {% for item in record.file_lang_versions %}
+                                <a href="{{item.path}}" title="{{item.title}}" target="_blank">{{item.title}}</a>
                                 {% endfor %}
                             </div>
                         </div>
