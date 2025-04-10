@@ -1,4 +1,3 @@
-
 url = "/news/:id?|[a-zA-Z\-0-9]"
 layout = "default"
 title = "News"
@@ -150,6 +149,9 @@ $this['related'] = $related;
             <div class="row share_container middle-xs">
                 <div class="col-cx-2 start-xs">Share</div>
                 <div class="col-cx-10 end-xs">
+                    {% if this.theme.bluesky %}
+                    <a href="https://bsky.app/intent/compose?text={{article.title}}20%{{page_url}}" target="_blank" class="btn pr p-primary p-bluesky normal" style="position: relative;"></a>
+                    {% endif %}
                     {% if this.theme.twitter %}
                     <a href="http://twitter.com/share?text={{article.title}}&url={{page_url}}" target="_blank" class="btn p-primary pr p-twitter normal"></a>
                     {% endif %}
@@ -159,6 +161,8 @@ $this['related'] = $related;
                     {% if this.theme.linkedin %}
                     <a href="https://www.linkedin.com/sharing/share-offsite/?url={{page_url}}" target="_blank" class="btn pr p-primary p-linkedin big"></a>
                     {% endif %}
+
+                    
                 </div>
             </div>
 

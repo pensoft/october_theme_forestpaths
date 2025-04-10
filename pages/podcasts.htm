@@ -1,7 +1,13 @@
-title = "Podcasts"
-layout = "default"
 url = "/podcasts"
+layout = "default"
+title = "Podcast"
+header_image = "/media.jpg"
 
+[jumbotron]
+jumbotron = "podcasts"
+background = "transperant"
+templates = "template3"
+description_limit = 0
 ==
 <?php
 use Pensoft\Media\Models\Podcasts;
@@ -35,12 +41,11 @@ function onStart(){
 }
 ?>
 ==
-
 {% set records = podcasts %}
 
 <div class="container mt-4">
 
-
+    {% component 'jumbotron' %}
     <div class="row video-records" id="video-records">
         {% for record in records %}
         {# Use spaceless tag to remove spaces inside the A tag. #}
