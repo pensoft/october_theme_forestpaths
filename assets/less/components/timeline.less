@@ -165,7 +165,7 @@
             }
             .title_and_desc{
                 position: absolute;
-                top: 355px;
+                top: 400px;
                 color: @white-color!important;
                 width: 100%;
                 height: 100%;
@@ -184,6 +184,10 @@
             }
 
             .cover{
+                margin-bottom: -44px;
+                .breakpoint-large-down({
+                    margin-bottom: unset;
+                });
                 &::after {
                     content: '';
                     position: absolute;
@@ -379,7 +383,7 @@
                 }
 
                 .title_and_desc{
-                    top: -387px;
+                    top: -345px;
                     color: @white-color!important;
                 }
 
