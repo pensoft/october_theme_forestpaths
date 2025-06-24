@@ -46,6 +46,12 @@ jumbotron = "homepage-subpages-list"
 background = "transperant"
 templates = "template3"
 description_limit = 0
+
+[jumbotron homeIntroInfographic]
+jumbotron = "homepage-intro-infographic"
+background = "transperant"
+templates = "template3"
+description_limit = 0
 ==
 <?php
 use Pensoft\Calendar\Models\Entry;
@@ -58,18 +64,18 @@ use Carbon\Carbon;
     }
 ?>
 ==
-<div class="container-fluid bg-secondary" style="padding-bottom: 0">
+<!--<div class="container-fluid bg-secondary" style="padding-bottom: 0">
     <div class="container">
     {% component 'homeIntro' %}
      </div>
-</div>
-<!--<div class="container homepage_subpages">
+</div>-->
+<div class="container homepage_subpages">
         <div class="row between-md around-xs">
             <div class="col-xs-12 ">
-                {% component 'homeIntro' %}
+                {% component 'homeIntroInfographic' %}
             </div>
         </div>
-</div>-->
+</div>
 
 <div class="container homepage_subpages">
 {% component 'home_subpages' %}
