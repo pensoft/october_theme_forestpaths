@@ -1009,3 +1009,244 @@
         align-items: center;
     }
 }
+
+
+.synergies{
+    &#layout-content{
+        //padding: 50px 0;
+    }
+
+    .container{
+        padding: 50px 0!important;
+        .breakpoint-huge-down({
+            padding: 50px 15px!important;
+        });
+
+
+        p{
+            font-size: 20px;
+            line-height: 1.5em;
+            font-weight: 300;
+            color: #2F2F2F;
+        }
+
+        h1.display-1{
+            font-size: 40px;
+            line-height: 56px;
+            font-family: Raleway;
+            font-weight: bold;
+            color: #505050;
+        }
+    }
+
+    .how_work_together{
+        img{
+            width: 80%;
+            .breakpoint-large-down({
+                width: 100%;
+            });
+        }
+
+        .container{
+            .breakpoint-large-down({
+                padding: 50px 0!important;
+            });
+        }
+    }
+
+    .outreach_projects {
+
+        .row{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 100px;
+        }
+        h1.display-1{
+            font-size: 48px;
+            line-height: 56px;
+            font-family: Raleway;
+            font-weight: bold;
+            color: #505050;
+            width: 70%;
+            margin: 0 auto 40px auto;
+            .breakpoint-large-down({
+                width: 100%;
+            });
+        }
+
+        .synergy_item{
+            width: 334px;
+            height: 251px;
+            background: #EEF0F1;
+            max-width: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            justify-self: center;
+
+
+            .synergy-image{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 50%;
+                width: 265px;
+                max-width: 100%;
+                flex-direction: column;
+
+                img{
+                    width: 100%;
+                    height: auto;
+                    max-height: 85%;
+                    object-fit: contain;
+                }
+            }
+
+            .synergy-container{
+                padding-left: 20px!important;
+                .breakpoint-large-down({
+                    padding-left: 0!important;
+                });
+            }
+
+            .social_media_links{
+                display: inline-flex;
+                margin-top: 10px;
+                a{
+                    color: white;
+                    font-size: 1.5em;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0 2px;
+                    width: 50px;
+                    height: 50px;
+                    /* UI Properties */
+                    background: #009A49;
+                    border-radius: 25px;
+                    font-weight: normal;
+                    &.p-twitter{
+                        font-size: 1.3em;
+                    }
+
+                    &.p-bluesky{
+                        background: #009A49 url("../../assets/images/bluesky_icon.png") center no-repeat;
+                        background-size: 60%;
+                        display: block;
+
+                        &:before{
+                            display: none;
+                        }
+                    }
+
+                    &:hover{
+                        opacity: 0.7;
+                        color: white!important;
+                    }
+
+
+                }
+            }
+
+        }
+
+        .col-md-4:nth-of-type(1){
+            justify-content: flex-end;
+            display: flex;
+            .breakpoint-large-down({
+                display: block;
+                margin-bottom: 20px;
+            });
+        }
+
+        .col-md-4:nth-of-type(2){
+            .synergy_item {
+                justify-self: start;
+                .breakpoint-large-down({
+                    justify-self: center;
+                });
+            }
+        }
+
+    }
+
+    .research_projects {
+
+        .container{
+            .breakpoint-large-down({
+                padding: 50px 0!important;
+            });
+        }
+
+        h1.display-1{
+            font-size: 48px;
+            line-height: 56px;
+            font-family: Raleway;
+            font-weight: bold;
+            color: #505050;
+            width: 70%;
+            margin: 0 auto 40px auto;
+        }
+
+        .synergy_item{
+            width: 310px;
+            height: 142px;
+            background: #EEF0F1;
+            max-width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+
+            .breakpoint-large-down({
+                margin: 10px auto;
+            });
+
+
+            .synergy-image{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 50%;
+                width: 265px;
+                max-width: 100%;
+                flex-direction: column;
+
+                img{
+                    width: 100%;
+                    height: auto;
+                    max-height: 85%;
+                    object-fit: contain;
+                }
+            }
+
+            .synergy-container{
+                padding-left: 20px!important;
+                .breakpoint-large-down({
+                    padding-left: 0!important;
+                });
+            }
+
+
+        }
+
+    }
+
+    .talks{
+        .container{
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+        }
+        .btn-primary{
+            margin: 40px auto;
+            width: fit-content;
+        }
+
+        iframe{
+            margin: 40px auto;
+        }
+    }
+}

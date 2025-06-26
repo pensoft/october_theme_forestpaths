@@ -249,12 +249,12 @@ $(document).ready(function() {
             "height": frontCard.height(),
         });
     });
-    
+
     $('.category-tabs-container a').click(function() {
         $('.category-tabs-container a').removeClass('active');
         $(this).addClass('active');
     });
-    
+
     $('.videos iframe').each(function(){
         console.log($(this).contents().find('body #player'));
         $(this).contents().find('button.ytp-large-play-button').html($("<img/>").attr("src", "https://forestpaths.eu/storage/app/media/play.svg"));
@@ -265,7 +265,7 @@ $(document).ready(function() {
 	$('.card-img-top').attr('data-aos', 'fade-up');
 	$('.logo-container').attr('data-aos', 'fade-up');
 	$('.subscribe-items a').attr('data-aos', 'fade-up');
-	$('.icons a').attr('data-aos', 'fade-up');
+	// $('.icons a').attr('data-aos', 'fade-up');
 	$('.about h1.display-1').attr('data-aos', 'fade-up');
 	$('h2.underline').attr('data-aos', 'fade-up');
 	$('.news_column').attr('data-aos', 'fade-up');
@@ -312,6 +312,60 @@ $(document).ready(function() {
 		});
 
 	});
+
+    if($('.news-carousel').length) {
+        /* News highlights carousel **/
+        $('.news-carousel').slick({
+            autoplay: true,
+            // autoplaySpeed: 2000,
+            draggable: true,
+            // pauseOnHover: true,
+            centerMode: false,
+            variableWidth: true,
+            infinite: true,
+            slidesToShow: 3,
+            speed: 1000,
+            centerPadding: '6%',
+            slidesToScroll: 1,
+            // centerPadding: '40px',
+            arrows: true,
+            dots: false,
+
+
+            // centerPadding: '0px',
+
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: true,
+                        dots: true,
+                        centerMode: true,
+                        centerPadding: '2%',
+                        slidesToShow: 1
+                    }
+                }
+            ]
+        });
+
+        $(".trigger_prev").click(function () {
+            $(".slick-prev").click();
+            return false;
+        });
+        $(".trigger_next").click(function () {
+            $(".slick-next").click();
+            return false;
+        });
+
+        $(".trigger_prev_arrow").click(function () {
+            $(".slick-prev").click();
+            return false;
+        });
+        $(".trigger_next_arrow").click(function () {
+            $(".slick-next").click();
+            return false;
+        });
+    }
 
 	$('.see_all_partners_link').hide();
 
