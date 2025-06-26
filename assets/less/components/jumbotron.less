@@ -1055,12 +1055,12 @@
     }
 
     .outreach_projects {
-
+margin-bottom: 100px;
         .row{
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 100px;
+            
         }
         h1.display-1{
             font-size: 48px;
@@ -1101,6 +1101,11 @@
                     height: auto;
                     max-height: 85%;
                     object-fit: contain;
+                    transform: scale(0.9);
+                    transition: all 0.3s ease-in-out;
+                    &:hover{
+                        transform: scale(1);
+                    }
                 }
             }
 
@@ -1173,8 +1178,8 @@
     }
 
     .research_projects {
-
         .container{
+            padding: 0!important;
             .breakpoint-large-down({
                 padding: 50px 0!important;
             });
@@ -1219,6 +1224,11 @@
                     height: auto;
                     max-height: 85%;
                     object-fit: contain;
+                    transform: scale(0.9);
+                    transition: all 0.3s ease-in-out;
+                    &:hover{
+                        transform: scale(1);
+                    }
                 }
             }
 
@@ -1241,7 +1251,7 @@
             flex-direction: column;
         }
         .btn-primary{
-            margin: 40px auto;
+            margin: 0px auto;
             width: fit-content;
         }
 

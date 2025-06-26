@@ -487,27 +487,6 @@ display: inline-flex;
 
         .trigger_prev_arrow{
             position: absolute;
-            right: 0;
-            top: -73px;
-            width: 43px;
-            height: 43px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1;
-            background: @yellow-color url("../../assets/images/arrow-next.svg") center no-repeat;
-            background-size: 30%;
-            border-radius: 50%;
-            .breakpoint-large-down({
-                right: 20px;
-            });
-            &:hover{
-                opacity: 0.5;
-            }
-        }
-
-        .trigger_next_arrow{
-            position: absolute;
             right: 53px;
             top: -73px;
             width: 43px;
@@ -520,6 +499,29 @@ display: inline-flex;
             background-size: 30%;
             border-radius: 50%;
             transform: rotate(180deg);
+            .breakpoint-large-down({
+                right: 20px;
+            });
+            &:hover{
+                opacity: 0.5;
+            }
+        }
+
+        .trigger_next_arrow{
+            position: absolute;
+            right: 0;
+            
+            top: -73px;
+            width: 43px;
+            height: 43px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            background: @yellow-color url("../../assets/images/arrow-next.svg") center no-repeat;
+            background-size: 30%;
+            border-radius: 50%;
+            
             .breakpoint-large-down({
                 right: 73px;
             });
