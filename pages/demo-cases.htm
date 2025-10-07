@@ -25,14 +25,15 @@ templates = "template1"
 description_limit = 0
 ==
 {% component 'siteSearchInclude' %}
-<div class="container demoCasesIntro">
+<main id="main-content" role="main">
+<section class="container demoCasesIntro">
     {% component 'jumbotron' %}
-</div>
-<div class="container demoCasesIntro">
+</section>
+<section class="container demoCasesIntro">
     {% component 'demoCases' %}
-</div>
+</section>
 
-<div class="container">
+<section class="container">
     <span class="tooltiptext" id="tooltip">Bulgaria</span>
     <div class="row between-md around-xs demoCasesMap middle-xs">
         <div class="col-lg-7 col-xs-12">
@@ -56,7 +57,8 @@ description_limit = 0
         </div>
     </div>
 {% component 'climate' %}
-</div>
+</section>
+</main>
 
 <script>
     function hideActiveTooltip() {

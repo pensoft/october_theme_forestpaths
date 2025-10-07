@@ -69,52 +69,72 @@ use Carbon\Carbon;
     {% component 'homeIntro' %}
      </div>
 </div>-->
-<div class="container homepage_subpages">
+<main id="main-content" role="main">
+
+    <section class="container homepage_subpages" aria-labelledby="intro-heading">
+        <h2 id="intro-heading" class="sr-only">Introduction</h2>
         <div class="row between-md around-xs">
             <div class="col-xs-12 ">
                 {% component 'homeIntroInfographic' %}
             </div>
         </div>
-</div>
+    </section>
 
-<div class="container homepage_subpages">
-{% component 'home_subpages' %}
-</div>
-{% if entries.count() %}
-<!-- events timeline -->
-<div class="container-fluid events_timeline_background">
-    <div class="container timeline_container" style="padding-bottom: 0">
-        <div class="timeline timeline--loaded timeline--horizontal" style="opacity: 1;">
-            <div class="timeline__wrap">
-                <div class="timeline__items">
-                    {% for entry in entries %}
+    <section class="container homepage_subpages" aria-labelledby="subpages-heading">
+        <h2 id="subpages-heading" class="sr-only">Key Areas</h2>
+        {% component 'home_subpages' %}
+    </section>
+
+    {% if entries.count() %}
+    <!-- events timeline -->
+    <section class="container-fluid events_timeline_background" aria-labelledby="timeline-heading">
+        <div class="container timeline_container">
+            <h2 id="timeline-heading" class="sr-only">Events Timeline</h2>
+            <div class="timeline timeline--loaded timeline--horizontal" role="region" aria-live="polite" aria-label="Events timeline" style="opacity: 1;">
+                <div class="timeline__wrap">
+                    <div class="timeline__items">
+                        {% for entry in entries %}
                         {% if entry.start %}
-                        <div class="timeline__item">
+                        <article class="timeline__item">
                             <div class="timeline__content index_{{entry.id}}">
                                 <div class="date_and_place">
-                                    <span class="event_date">
+                                    <time class="event_date" datetime="{{entry.start|date('Y-m-d')}}">
                                         {% if entry.title == 'First Policy Lab' %}
-                                            {{entry.event_date}}
+                                        {{entry.event_date}}
                                         {% else %}
-                                            {{entry.start | date('F Y')}}
+                                        {{entry.start | date('F Y')}}
                                         {% endif %}
-                                    </span>
-                                    <span>{{entry.place}}</span>
+                                    </time>
+                                    <span class="event_place">{{entry.place}}</span>
                                 </div>
                                 <div class="title_and_desc">
-                                    <div class="cover"><img src="{{entry.cover_image.path}}"></div>
-                                    <span class="timeline-body">{{entry.title}}</span>
-                                    <span class="timeline-desc">{{entry.description|raw}}</span>
+                                    <div class="cover">
+                                        <img src="{{entry.cover_image.path}}" alt="{{entry.title}}">
+                                    </div>
+                                    <h3 class="timeline-body">{{entry.title}}</h3>
+                                    <div class="timeline-desc">{{entry.description|raw}}</div>
                                 </div>
 
                             </div>
-                        </div>
-                    {% endif %}
-                    {% endfor %}
+                        </article>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
                 </div>
-            </div>
 
-            <button class="timeline-nav-button timeline-nav-button--prev" disabled="" style="top: 265px;">Previous</button><button class="timeline-nav-button timeline-nav-button--next" style="top: 265px;">Next</button><span class="timeline-divider" style="top: 265px;"></span></div>
+                <button class="timeline-nav-button timeline-nav-button--prev"
+                        disabled
+                        aria-label="Previous events"
+                        style="top: 265px;">
+                    <span class="sr-only">Previous</span>
+                </button>
+                <button class="timeline-nav-button timeline-nav-button--next"
+                        aria-label="Next events"
+                        style="top: 265px;">
+                    <span class="sr-only">Next</span>
+                </button>
+                <span class="timeline-divider" aria-hidden="true" style="top: 265px;"></span>
+            </div>
         </div>
         <script type="text/javascript">
             timeline(document.querySelectorAll('.timeline'), {
@@ -126,27 +146,38 @@ use Carbon\Carbon;
             });
         </script>
 
-    </div>
-</div>
-{% endif %}
+    </section>
+    {% endif %}
 
 
 
 
-<!-- latest from news -->
-<div class="container-fluid bg-secondary" style="padding-bottom: 0">
-    <div class="container article_highlights_container">
-        {% component 'article_highlights' %}
-        <div class="row">
-            <div class="col-xs-12 center-xs mb-4"><a href="{{'news'|page}}" class="read_more">All news</a> </div>
+    <!-- latest from news -->
+    <section class="container-fluid bg-secondary" aria-labelledby="news-heading">
+        <div class="container article_highlights_container">
+            {% component 'article_highlights' %}
+            <div class="row">
+                <div class="col-xs-12 center-xs mb-4">
+                    <a href="{{'news'|page}}" class="read_more">All news</a>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+    </section>
 
-<!-- Subscribe -->
-<div class="container-fluid border-box subscribe-newsletter-background mt-1">
-    <div class="row container middle-xs between-xs">
-        <div class="col-xs-12 center-xs mb-1">Join our community by subscribing to our bi-annual newsletter.</div>
-        <div class="col-xs-12 center-xs"><a href="{{this.theme.subscribe}}" class="btn btn-primary" target="_blank">Subscribe</a> </div>
-    </div>
-</div>
+    <!-- Subscribe -->
+    <section class="container-fluid border-box subscribe-newsletter-background mt-1" aria-labelledby="subscribe-heading">
+        <div class="row container middle-xs between-xs">
+            <div class="col-xs-12 center-xs mb-1">
+                <h2 id="subscribe-heading">Join our community by subscribing to our bi-annual newsletter.</h2>
+            </div>
+            <div class="col-xs-12 center-xs">
+                <a href="{{this.theme.subscribe}}"
+                   class="btn btn-primary"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Subscribe to newsletter (opens in new window)">Subscribe</a>
+            </div>
+        </div>
+    </section>
+
+</main>

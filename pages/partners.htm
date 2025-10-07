@@ -44,89 +44,90 @@ return Profiles::where('partner_id', $id)->where('category_id',  1)->get();
 }
 ?>
 ==
-<div class="container-fluid partners_background">
-    <div class="svg_map">
-        {% partial 'components/svg' %}
-    </div>
-    <div class="container">
-        <span class="tooltiptext" id="tooltip">Bulgaria</span>
-        <div class="row">
-            <div class="col-md-7 col-xs-12 partners_list">
-                {% for partner in partners %}
-                <a class="parener_logo" onclick="onCustomSinglePartner({{partner.id}});" title="{{partner.instituion}}"><img class="partner_cover" src="{{partner.cover.thumb(96, auto, {'mode':'crop'})}}"></a>
-                {% endfor %}
-            </div>
-            <div class="col-md-5 col-xs-12"></div>
+<main id="main-content" role="main">
+    <section class="container-fluid partners_background" aria-labelledby="partners-heading">
+        <h1 id="partners-heading" class="sr-only">Partners</h1>
+        <div class="svg_map" role="img" aria-label="Partner locations map">
+            {% partial 'components/svg' %}
         </div>
+        <div class="container">
+            <div class="tooltiptext" id="tooltip" role="tooltip" aria-live="polite"></div>
+            <nav class="row" aria-label="Partner organizations">
+                <div class="col-md-7 col-xs-12 partners_list">
+                    {% for partner in partners %}
+                    <a class="parener_logo" onclick="onCustomSinglePartner({{partner.id}});" aria-label="View {{partner.instituion}} details">
+                        <img class="partner_cover" src="{{partner.cover.thumb(96, auto, {'mode':'crop'})}}" alt="{{partner.instituion}} logo">
+                    </a>
+                    {% endfor %}
+                </div>
+                <div class="col-md-5 col-xs-12"></div>
+            </nav>
 
-    </div>
-    <div class="container partners-map-container">
+        </div>
+        <div class="container partners-map-container">
 
-        {% if members.count > 0 %}
-        <div id="accordion-insider-members" class="partner-item">
+            {% if members.count > 0 %}
+            <section id="accordion-insider-members" class="partner-item" aria-labelledby="team-members-heading">
+                <h2 id="team-members-heading" class="sr-only">Team Members</h2>
 
-            <div class="partners-accordion-border">
-                <div class="row middle-xs">
+                <div class="partners-accordion-border">
+                    <div class="row middle-xs">
+                        {% if members.count > 0 %}
+                        <div class="col-lg-3 col-md-3 col-xs-6 center-xs">
+                            <a class="showmembers expand-partners"
+                                    id="show_all"
+                                    aria-expanded="false"
+                                    aria-controls="insider-members">
+                                Show all project members
+                                <span aria-hidden="true"></span>
+                            </a>
+                        </div>
+                        {% endif %}
+                    </div>
+
                     {% if members.count > 0 %}
-                    <div class="col-lg-3 col-md-3 col-xs-6 center-xs"><span class="showmembers expand-partners" id="show_all">Show all project members<span></span></span></div>
+                    <div class="members-accordion-content"
+                         id="insider-members"
+                         role="region"
+                         aria-labelledby="team-members-heading"
+                         hidden>
+                        <div class="row top-xs">
+                            {% for profile in members %}
+                            <article class="col-md-3 col-xs-12">
+                                <div class="contact_info row">
+                                    <div class="col-xs-12 coordinator_image">
+                                        {% if profile.avatar %}
+                                        <img alt="{{profile.names}}" src="{{profile.avatar.thumb(236,236,{'mode':'crop'})}}">
+                                        {% else %}
+                                        <img alt="{{profile.names}}" src="{{ 'person.svg'|media }}" width="236" height="236" class="no-image">
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-xs-12 coordinator_info">
+                                        <h3>{{profile.names}}</h3>
+                                        <div class="body">
+                                            <a class="read-more"
+                                                    onclick="expandReadMore(this);"
+                                                    aria-expanded="false"
+                                                    aria-label="Read more about {{profile.names}}">
+                                                Read more
+                                            </a>
+                                            <div class="profile-content">{{profile.content|raw}}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            {% endfor %}
+                        </div>
+                    </div>
                     {% endif %}
-                    <!-- {% if advisory_board.count > 0 %}
-                    <div class="col-lg-3 col-md-3 col-xs-6 center-xs"><span class="showmembers expand-partners" id="advisory_board">Show all Advisory Board members<span></span></span></div>
-                    {% endif %} -->
                 </div>
-
-                {% if members.count > 0 %}
-                <div class="members-accordion-content" id="insider-members" style="display: none;">
-                    <div class="row top-xs">
-                        {% for profile in members %}
-                        <div class="col-md-3 col-xs-12">
-                            <div class="contact_info row">
-                                <div class="col-xs-12 coordinator_image">
-                                    {% if profile.avatar %}
-                                    <img alt="{{ profile.names }}" src="{{profile.avatar.thumb(236,236,{'mode':'crop'})}}">
-                                    {% else %}
-                                    <img alt="{{ profile.names }}" src="{{ 'person.svg'|media }}" width="236" height="236" class="no-image">
-                                    {% endif %}
-                                </div>
-                                <div class="col-xs-12 coordinator_info">
-                                    <h3>{{ profile.names }}</h3>
-                                    <div class="body"><p class="read-more" onclick="expandReadMore(this);">Read more</p>{{ profile.content|raw }}</div>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                </div>
-                {% endif %}
-
-                <!-- {% if advisory_board.count > 0 %}
-                <div class="advisory-accordion-content" id="insider-members" style="display: none;">
-                    <div class="row top-xs">
-                        {% for profile in advisory_board %}
-                        <div class="col-md-3 col-xs-12">
-                            <div class="contact_info row">
-                                <div class="col-xs-12 coordinator_image">
-                                    {% if profile.avatar %}
-                                    <img alt="{{ profile.names }}" src="{{profile.avatar.thumb(236,236,{'mode':'crop'})}}">
-                                    {% else %}
-                                    <img alt="{{ profile.names }}" src="{{ 'person.svg'|media }}" width="236" height="236" class="no-image">
-                                    {% endif %}
-                                </div>
-                                <div class="col-xs-12 coordinator_info">
-                                    <h3>{{ profile.names }}</h3>
-                                    <div class="body"><p class="read-more" onclick="expandReadMore(this);">Read more</p>{{ profile.content|raw }}</div>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
-                </div>
-                {% endif %} -->
+            </section>
+            {% endif %}
+            <div id="mycomponentpartners" class="row" role="region" aria-live="polite" aria-label="Partner details">
             </div>
+            <a href="#headernavbar" class="toTheTop" aria-label="Back to the top">
+                <span class="sr-only">Back to the top</span>
+            </a>
         </div>
-        {% endif %}
-        <div id="mycomponentpartners" class="row">
-        </div>
-            <a class="toTheTop" title="Back to the top">&nbsp;</a>
-    </div>
-</div>
+    </section>
+</main>

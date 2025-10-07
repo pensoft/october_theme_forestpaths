@@ -319,6 +319,9 @@ nav:not(.navbar){
     }
 
     .related_articles{
+        article{
+            width: 100%;
+        }
         a{
             background: #eef0f1;
             padding: 20px;
@@ -349,7 +352,7 @@ nav:not(.navbar){
             }
         }
 
-        h4{
+        h4, h2{
             font-size: 30px;
             text-align: center;
             font-weight: 700;
@@ -510,7 +513,7 @@ display: inline-flex;
         .trigger_next_arrow{
             position: absolute;
             right: 0;
-            
+
             top: -73px;
             width: 43px;
             height: 43px;
@@ -521,7 +524,7 @@ display: inline-flex;
             background: @yellow-color url("../../assets/images/arrow-next.svg") center no-repeat;
             background-size: 30%;
             border-radius: 50%;
-            
+
             .breakpoint-large-down({
                 right: 73px;
             });

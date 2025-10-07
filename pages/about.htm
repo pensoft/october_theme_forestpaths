@@ -44,43 +44,48 @@ templates = "template4"
 ==
 {% component 'siteSearchInclude' %}
 <!-- background -->
-<div class="container-fluid bg-secondary background mt-2">
-    <div class="row between-md around-xs">
-        <div class="col-sm-6 col-xs-12">
-            {% component 'background' %}
-        </div>
-        <div class="col-sm-6 col-xs-12 background_bg">
-            &nbsp;
-        </div>
-    </div>
-</div>
-<!-- ambition -->
-<div class="container-fluid bg-secondary ambition mt-2">
-    <div class="row between-md around-xs">
-        <div class="col-sm-6 col-xs-12 ambition_bg">
-            &nbsp;
-        </div>
-        <div class="col-sm-6 col-xs-12 ">
-            {% component 'ambition' %}
-        </div>
-    </div>
-</div>
+<main id="main-content" role="main">
 
-<div class="container" id="objectives">
-    <div class="row middle-xs">
-        <div class="col-xs-12">
-             <div class="objectives">
-                {% component 'objectives' %}
-             </div>
+    <section class="container-fluid bg-secondary background mt-2" aria-labelledby="background-heading">
+        <div class="row between-md around-xs">
+            <div class="col-sm-6 col-xs-12">
+                {% component 'background' %}
+            </div>
+            <div class="col-sm-6 col-xs-12 background_bg" aria-hidden="true">
+
+            </div>
         </div>
-    </div>
-    <div class="row top-xs" id="activities">
-        <div class="col-xs-12">
-            <div class="container-fluid work_packages " style="background-color:unset;">
-    	        <div class="container">
-                {% component 'activities' %}
+    </section>
+
+    <!-- ambition -->
+    <section class="container-fluid bg-secondary ambition mt-2" aria-labelledby="ambition-heading">
+        <div class="row between-md around-xs">
+            <div class="col-sm-6 col-xs-12 ambition_bg" aria-hidden="true">
+
+            </div>
+            <div class="col-sm-6 col-xs-12 ">
+                {% component 'ambition' %}
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="objectives" aria-labelledby="objectives-heading">
+        <div class="row middle-xs">
+            <div class="col-xs-12">
+                <div class="objectives">
+                    {% component 'objectives' %}
                 </div>
             </div>
         </div>
-    </div>
-</div>
+        <div class="row top-xs" id="activities">
+            <div class="col-xs-12">
+                <div class="container-fluid work_packages">
+                    <div class="container">
+                        {% component 'activities' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>

@@ -17,13 +17,13 @@ function onStart()
 {
     $this['article'] = Pensoft\Articles\Models\Article::where('slug', $this->param('id'))->first();
     $this['categories'] = Category::orderBy('sort_order')->orderBy('created_at', 'desc')->get();
-	
+
     $categoryId = input('categoryId', 'all');
 
     if ($categoryId !== 'all' && !is_numeric($categoryId)) {
         return redirect('news');
     }
-	
+
     $this['categoryId'] = $categoryId;
 
     if ($categoryId === 'all') {
@@ -116,19 +116,20 @@ $this['related'] = $related;
 }
 ?>
 ==
+<main id="main-content" role="main">
 <div class="container">
     {% if is_detail_page %}
-    <div class="row single-news-item">
+    <article class="row single-news-item">
 
 
         <div class="col-xs-12 col-md-7">
 
 
             <div class="news_content_wrapper">
-                <div class="news-title">
+                <header class="news-title">
                     <h1 class="single-new-title">{{article.title}}</h1>
-                </div>
-                <div class="text-published">{{article.pretty_published_at}}</div>
+                </header>
+                <time class="text-published" datetime="{{article.published_at|date('Y-m-d')}}">{{article.pretty_published_at}}</time>
                 <div class="content">
                     {{article.content|raw}}
 
@@ -136,74 +137,112 @@ $this['related'] = $related;
             </div>
 
         </div>
-        <div class="col-xs-12 col-md-5">
+        <aside class="col-xs-12 col-md-5">
             {% if article.cover %}
-            <div class="row center-xs">
-                <img class="content left" src="{{ article.cover|crop_image|resize(648, auto, { mode: 'crop' }) }}" />
+            <figure class="row center-xs">
+                <img class="content left" src="{{ article.cover|crop_image|resize(648, auto, { mode: 'crop' }) }}" alt="{{article.title}}" />
                 {% if article.caption %}
-                {{article.caption|raw}}
+                <figcaption>{{article.caption|raw}}</figcaption>
                 {% endif %}
-            </div>
+            </figure>
             {% endif %}
 
-            <div class="row share_container middle-xs">
+            <div class="row share_container middle-xs" aria-label="Share this article">
                 <div class="col-cx-2 start-xs">Share</div>
                 <div class="col-cx-10 end-xs">
                     {% if this.theme.bluesky %}
-                    <a href="https://bsky.app/intent/compose?text={{article.title}}20%{{page_url}}" target="_blank" class="btn pr p-primary p-bluesky normal" style="position: relative;"></a>
+                    <a href="https://bsky.app/intent/compose?text={{article.title}}20%{{page_url}}"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn pr p-primary p-bluesky normal"
+                       aria-label="Share on Bluesky (opens in new window)" style="position: relative;">
+                        <span class="sr-only">Bluesky</span>
+                    </a>
                     {% endif %}
                     {% if this.theme.twitter %}
-                    <a href="http://twitter.com/share?text={{article.title}}&url={{page_url}}" target="_blank" class="btn p-primary pr p-twitter normal"></a>
+                    <a href="http://twitter.com/share?text={{article.title}}&url={{page_url}}"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn p-primary pr p-twitter normal"
+                       aria-label="Share on Twitter (opens in new window)">
+                        <span class="sr-only">Twitter</span>
+                    </a>
                     {% endif %}
                     {% if this.theme.facebook %}
-                    <a href="https://www.facebook.com/sharer/sharer.php?u={{page_url}}&amp;src=sdkpreparse" target="_blank" class="btn pr p-primary p-facebook normal"></a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{page_url}}&amp;src=sdkpreparse"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn pr p-primary p-facebook normal"
+                       aria-label="Share on Facebook (opens in new window)">
+                        <span class="sr-only">Facebook</span>
+                    </a>
                     {% endif %}
                     {% if this.theme.linkedin %}
-                    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{page_url}}" target="_blank" class="btn pr p-primary p-linkedin big"></a>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{page_url}}"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn pr p-primary p-linkedin big"
+                       aria-label="Share on LinkedIn (opens in new window)">
+                        <span class="sr-only">LinkedIn</span>
+                    </a>
                     {% endif %}
 
-                    
                 </div>
             </div>
 
-            <div class="row related_articles">
-            <h4>Other news from ForestPaths</h4>
-            {% for item in related %}
-                <a href="/news/{{item.slug}}">
-                    <div class="news-image">
-                        <img class="news-img-top" src="{{item.cover.getThumb(190, 140, {'mode': 'crop'})}}">
-                    </div>
-                    <div class="news-container">
-                        <div class="text-published">{{item.pretty_published_at}}</div>
-                        <div class="news-title"><h3 class="card-title">{{item.title}}</h3></div>
-                    </div>
-                </a>
-            {% endfor %}
-            </div>
+            <nav class="row related_articles" aria-labelledby="related-heading">
+                <h2 id="related-heading">Other news from ForestPaths</h2>
+                {% for item in related %}
+                <article>
+                    <a href="/news/{{item.slug}}" aria-label="Read {{item.title}}">
+                        <div class="news-image">
+                            <img class="news-img-top" src="{{item.cover.getThumb(190, 140, {'mode': 'crop'})}}" alt="{{item.title}}">
+                        </div>
+                        <div class="news-container">
+                            <time class="text-published" datetime="{{item.published_at|date('Y-m-d')}}">{{item.pretty_published_at}}</time>
+                            <div class="news-title">
+                                <h3 class="card-title">{{item.title}}</h3>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                {% endfor %}
+            </nav>
 
 
-        </div>
-    </div>
+        </aside>
+    </article>
 
     {% else %}
-    
-    <div class="category-tabs-container">
-        {% if categories.count > 0 %}
-        <div class="row category-tabs" id="category-tabs">
-            <a href="{{ 'news'|page }}" class="{{ 'all' == categoryId ? 'active' : '' }}">All News</a>
-            {% for category in categories %}
-            <a href="{{ 'news'|page }}?categoryId={{ category.id }}" class="{{ category.id == categoryId ? 'active' : '' }}">{{ category.name }}</a>
-            {% endfor %}
-        </div>
-        {% endif %}
-    </div>
 
-    <div class="newslist-records" id="newslist-records">
-        {% partial 'components/newslist-records' %}
-    </div>
-    
-    <div class="row container">
-        {{ records.render|raw }}
-    </div>
+    <section aria-labelledby="news-heading">
+        <h1 id="news-heading" class="sr-only">News</h1>
+
+        <nav class="category-tabs-container" aria-label="News categories">
+            {% if categories.count > 0 %}
+            <div class="row category-tabs" id="category-tabs" role="tablist">
+                <a href="{{ 'news'|page }}"
+                   role="tab"
+                   aria-selected="{{ 'all' == categoryId ? 'true' : 'false' }}"
+                   class="{{ 'all' == categoryId ? 'active' : '' }}">All News</a>
+                {% for category in categories %}
+                <a href="{{ 'news'|page }}?categoryId={{ category.id }}"
+                   role="tab"
+                   aria-selected="{{ category.id == categoryId ? 'true' : 'false' }}"
+                   class="{{ category.id == categoryId ? 'active' : '' }}">{{ category.name }}</a>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </nav>
+
+        <div class="newslist-records" id="newslist-records" role="region" aria-live="polite">
+            {% partial 'components/newslist-records' %}
+        </div>
+
+        <nav class="row container" aria-label="Pagination">
+            {{ records.render|raw }}
+        </nav>
+    </section>
     {% endif %}
 </div>
+</main>

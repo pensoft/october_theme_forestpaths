@@ -19,17 +19,19 @@ templates = "template1"
 description_limit = 0
 ==
 {% component 'siteSearchInclude' %}
-<!-- forum -->
-<div class="container-fluid bg-secondary forum mt-2">
-    <div class="row between-md around-xs">
-        <div class="col-sm-6 col-xs-12">
-            {% component 'jumbotron' %}
+<main id="main-content" role="main">
+    <!-- forum -->
+    <section class="container-fluid bg-secondary forum mt-2">
+        <div class="row between-md around-xs">
+            <div class="col-sm-6 col-xs-12">
+                {% component 'jumbotron' %}
+            </div>
+            <div class="col-sm-6 col-xs-12 forum_bg">
+                &nbsp;
+            </div>
         </div>
-        <div class="col-sm-6 col-xs-12 forum_bg">
-            &nbsp;
-        </div>
-    </div>
-</div>
-<div class="container forum_subpages">
-    {% component 'jumbotron2' %}
-</div>
+    </section>
+    <section class="container forum_subpages">
+        {% component 'jumbotron2' %}
+    </section>
+</main>
