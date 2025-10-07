@@ -509,8 +509,7 @@ function expandReadMore(el){
     $el = $(el) // read-more link
 
     $up  = $el.parent(); // coordinator_info
-
-    if ($el.text() == "Read more") {
+    if ($el.text().trim() == "Read more") {
 
         $ps = $up.find("p:not('.read-more')");
 
@@ -522,7 +521,7 @@ function expandReadMore(el){
         $up.addClass('changed');
 
         $el.css({
-            top: totalHeight - 120
+            top: totalHeight - 110
         });
         // $el.html('<a class="revert" href="" onclick="revertChanges(this);">Read less</a>');
 
@@ -543,7 +542,7 @@ function expandReadMore(el){
         $up.removeClass('changed');
 
         $el.css({
-            top: 53
+            top: 65
         });
         // $el.html('<a class="revert" href="" onclick="revertChanges(this);">Read less</a>');
 
@@ -701,6 +700,7 @@ function showSearchForm(){
 function hideSearchForm(){
 	$('#layout-header').toggleClass('full-width');
 	$('#search').hide();
+
 	$('#menu li').show();
     $('nav a').show();
 }

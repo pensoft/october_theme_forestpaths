@@ -19,7 +19,9 @@ function onStart(){
 ?>
 ==
 
-<div class="container-fluid banner adv-board pt-5">
+<main id="main-content" role="main">
+    <section class="container-fluid banner adv-board pt-5" aria-labelledby="advisory-board-heading">
+        <h1 id="advisory-board-heading" class="sr-only">Advisory board</h1>
 	<div class="container">
 		<div id="accordion-insider-members" class="partner-item">
 			<div class="partners-accordion-border">
@@ -27,30 +29,39 @@ function onStart(){
 				<div class="advisory-accordion-content" id="insider-members">
 					<div class="row top-xs">
 						{% for profile in advisory_board %}
-						<div class="col-md-3 col-xs-12">
-							<div class="contact_info row">
-								<div class="col-xs-12 coordinator_image">
-									{% if profile.avatar %}
-									<img alt="{{ profile.names }}" src="{{profile.avatar.thumb(236,236,{'mode':'crop'})}}">
-									{% else %}
-									<img alt="{{ profile.names }}" src="{{ 'person.svg'|media }}" width="236" height="236" class="no-image">
-									{% endif %}
-								</div>
-								<div class="col-xs-12 coordinator_info">
-									<h3>{{ profile.names }}</h3>
-									<div class="body"><p class="read-more" onclick="expandReadMore(this);">Read more</p>{{ profile.content|raw }}</div>
-								</div>
-							</div>
-						</div>
+                        <article class="col-md-3 col-xs-12">
+                            <div class="contact_info row">
+                                <div class="col-xs-12 coordinator_image">
+                                    {% if profile.avatar %}
+                                    <img alt="{{profile.names}}" src="{{profile.avatar.thumb(236,236,{'mode':'crop'})}}">
+                                    {% else %}
+                                    <img alt="{{profile.names}}" src="{{ 'person.svg'|media }}" width="236" height="236" class="no-image">
+                                    {% endif %}
+                                </div>
+                                <div class="col-xs-12 coordinator_info">
+                                    <h3>{{profile.names}}</h3>
+                                    <div class="body">
+                                        <a class="read-more"
+                                           onclick="expandReadMore(this);"
+                                           aria-expanded="false"
+                                           aria-label="Read more about {{profile.names}}">
+                                            Read more
+                                        </a>
+                                        <div class="profile-content">{{profile.content|raw}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
 						{% endfor %}
 					</div>
 				</div>
-				{% endif %}	
+				{% endif %}
 			</div>
-		</div>			
+		</div>
 	</div>
 
-</div>
+</section>
+</main>
 
 
 
